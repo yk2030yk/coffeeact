@@ -1,10 +1,11 @@
 import React from 'react'
 
 import * as S from './index.styled'
+import Typography from '../../atoms/Typography'
 
 const Footer: React.FC = () => (
   <S.Wrapper>
-    <div>Footer</div>
+    <Typography text="Footer" />
   </S.Wrapper>
 )
 

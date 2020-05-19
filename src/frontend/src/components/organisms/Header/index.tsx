@@ -1,10 +1,11 @@
 import React from 'react'
 
 import * as S from './index.styled'
+import Typography from '../../atoms/Typography'
 
 const Header: React.FC = () => (
   <S.Wrapper>
-    <div>Header</div>
+    <Typography text="Header" />
   </S.Wrapper>
 )
 
