@@ -1,6 +1,0 @@
-export { default as AppRoute } from './AppRoute'
-export { default as WithScrollToTop } from './WithScrollToTop'
-export { default as WithErrorBoundary } from './WithErrorBoundary'
-export { default as WithGlobalStyle } from './WithGlobalStyle'
-export { default as WithMuiTheme } from './WithMuiTheme'
-export { default as WithStyledComponentsTheme } from './WithStyledComponentsTheme'
