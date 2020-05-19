@@ -1,8 +1,13 @@
 import React from 'react'
 import AppLayout from '../layouts/AppLayout'
+import HomePage from '@/components/pages/HomePage'
 
-const HomePage: React.FC = () => {
-  return <AppLayout>Home Page</AppLayout>
+const PageContainer: React.FC = () => {
+  return (
+    <AppLayout>
+      <HomePage />
+    </AppLayout>
+  )
 }
 
-export default HomePage
+export default PageContainer
