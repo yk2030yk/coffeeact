@@ -1,7 +1,12 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import ErrorTemplate from '../../templates/ErrorTemplate'
 
-const Page: React.FC = () => <S.Wrapper>Fatal Error Page</S.Wrapper>
+const Page: React.FC = () => (
+  <ErrorTemplate
+    errorTitle="Fatal Error"
+    errorMessage="エラーが発生しました。"
+  />
+)
 
 export default Page

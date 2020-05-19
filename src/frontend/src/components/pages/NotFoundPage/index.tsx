@@ -1,7 +1,12 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import ErrorTemplate from '../../templates/ErrorTemplate'
 
-const Page: React.FC = () => <S.Wrapper>404 Not Found Page</S.Wrapper>
+const Page: React.FC = () => (
+  <ErrorTemplate
+    errorTitle="404 Not Found"
+    errorMessage="指定されたページは存在しません。"
+  />
+)
 
 export default Page
