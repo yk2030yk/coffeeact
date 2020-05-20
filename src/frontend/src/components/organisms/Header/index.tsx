@@ -1,16 +1,15 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import { Title, Link } from '@/components/atoms'
-import { HeaderMenu } from '@/components/molecules/header'
+import { HeaderMenu, TitleIcon, LinkList } from '@/components/molecules/header'
 
 const Header: React.FC = () => (
   <S.Wrapper>
     <S.Item>
-      <Title>Preact</Title>
+      <TitleIcon />
     </S.Item>
     <S.Item>
-      <Link path="/">Home</Link>
+      <LinkList />
     </S.Item>
     <S.Item>
       <HeaderMenu />
