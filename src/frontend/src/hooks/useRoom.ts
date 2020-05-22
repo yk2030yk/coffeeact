@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState, useCallback } from 'react'
 import SkyWayPeer, { SfuRoom, MeshRoom } from 'skyway-js'
 
+import { useOnOpen } from '@/hooks/peer/useOnEvent'
+
 type Peer = SkyWayPeer | undefined
-type Room = SfuRoom | MeshRoom
+type Room = SfuRoom
 
 export const useRoom = ({
   peer,
@@ -14,11 +16,9 @@ export const useRoom = ({
   roomName: string
 }) => {
   const [room, setRoom] = useState<Room>()
-  const open = peer?.open
 
-  useEffect(() => {
-    if (!peer || !stream) return
-    if (!open) return
+  const joinRoom = useCallback(() => {
+    if (!peer || !peer.open || !stream) return
 
     const newRoom = peer.joinRoom(roomName, {
       mode: 'sfu',
@@ -26,7 +26,9 @@ export const useRoom = ({
     }) as SfuRoom
 
     setRoom(newRoom)
-  }, [peer, open, stream, roomName])
+  }, [peer, stream, roomName])
 
-  return room
+  useOnOpen(peer, joinRoom)
+
+  return { room }
 }

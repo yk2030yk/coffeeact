@@ -1,7 +1,5 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import Peer from 'skyway-js'
-
-import { useOnConnection } from './peer/useOnEvent'
 
 const API_KEY = '8cc0781e-299c-4782-9486-a4300678169e'
 
@@ -16,5 +14,5 @@ export const usePeer = (id: string) => {
     setPeer(newPeer)
   }, [id])
 
-  return peer
+  return { peer }
 }

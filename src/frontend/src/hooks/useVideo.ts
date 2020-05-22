@@ -1,23 +1,23 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useRef, useEffect } from 'react'
 
-import { useOnOpen } from './peer/useOnEvent'
-import Peer from 'skyway-js'
+export interface SkywayMediaStream extends MediaStream {
+  peerId: string
+}
 
-export const useVideo = (
-  peer: Peer | undefined,
-  stream: MediaStream | undefined
-) => {
-  const videoRef = useRef<HTMLVideoElement>(null)
+export const useVideo = (stream: SkywayMediaStream | undefined) => {
+  const ref = useRef<HTMLVideoElement>(null)
 
-  const onOpen = useCallback(() => {
-    if (!peer || !stream || !videoRef.current) return
-    videoRef.current.srcObject = stream
-    videoRef.current.play()
-    videoRef.current.autoplay = true
-    videoRef.current.muted = true
-  }, [peer, stream])
+  const play = useCallback(async () => {
+    if (!stream || !ref.current) return
+    ref.current.srcObject = stream
+    ref.current.autoplay = true
+    ref.current.muted = true
+    await ref.current.play()
+  }, [stream])
 
-  useOnOpen(peer, onOpen)
+  useEffect(() => {
+    play()
+  }, [play])
 
-  return videoRef
+  return { ref }
 }
