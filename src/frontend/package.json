@@ -90,5 +90,8 @@
     "source-map-explorer": "^2.4.2",
     "ts-jest": "^25.4.0",
     "ts-node": "^8.10.1"
+  },
+  "engines": {
+    "npm": "yarn.lockを利用しています。yarn installでインストールしてください。"
   }
 }
