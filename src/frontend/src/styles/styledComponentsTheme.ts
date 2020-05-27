@@ -1,22 +1,16 @@
+import * as variables from './variables'
+import * as mixin from './mixin'
+
 /**
  * styled-components内で共通で利用したい値を定義する
  * example:
  *   const styledP = styled.p`
- *     font-size: ({ theme } => theme.fontSize.sm);
+ *     font-size: ${({ theme }) => theme.fontSize.default};
  *   `
  */
-
-const fontSize = {
-  sm: '16px',
-}
-
-const media = {
-  sm: '@media (max-width: 768px)',
-}
-
 const theme = {
-  fontSize,
-  media,
+  ...variables,
+  mixin,
 } as const
 
 export default theme

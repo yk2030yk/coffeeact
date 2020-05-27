@@ -1,19 +1,19 @@
 import { createMuiTheme } from '@material-ui/core/styles'
+import { color, fontFamily } from './variables'
 
 /**
  * material-uiのテーマ定義
  */
 export default createMuiTheme({
   typography: {
-    fontFamily:
-      '"Noto Sans JP",ヒラギノ角ゴシック Pro,Hiragino Kaku Gothic Pro,Robot,Arial,メイリオ,Meiryo,Osaka,ＭＳ Ｐゴシック,MS PGothic,sans-serif',
+    fontFamily: fontFamily.default,
   },
   palette: {
     primary: {
-      main: '#0069ff',
+      main: color.blueRibbon,
     },
     secondary: {
-      main: '#efefef',
+      main: color.crystalBell,
     },
   },
 })
