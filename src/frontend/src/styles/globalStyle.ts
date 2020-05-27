@@ -7,7 +7,6 @@ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
 
   html,
@@ -18,17 +17,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: "Noto Sans JP","ヒラギノ角ゴシック Pro","Hiragino Kaku Gothic Pro", Robot, Arial, "メイリオ", Meiryo,Osaka, "ＭＳ Ｐゴシック", "MS PGothic",sans-serif;
-    font-size: 16px;
-    color: #3A3E49;
-    font-weight: 400;
+    ${({ theme }) => theme.mixin.defaultFont}
   }
 
   ${({ theme }) => theme.media.sm} {
     select,
     textarea,
     input {
-      ${({ theme }) => theme.fontSize.sm}
+      font-size: ${({ theme }) => theme.fontSize.default};
     }
   }
 `
