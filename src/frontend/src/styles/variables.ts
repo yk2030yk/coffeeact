@@ -10,7 +10,16 @@ export const fontFamily = {
  * font-size定義
  */
 export const fontSize = {
+  smallText: '11px',
+  text: '14px',
   default: '16px',
+  heading2: '18px',
+  heading: '22px',
+}
+
+export const fontWeight = {
+  normal: '400',
+  bold: '600',
 }
 
 /**
@@ -23,7 +32,9 @@ export const media = {
 /**
  * space
  */
-export const space = {}
+export const space = {
+  atom: '20px',
+}
 
 /**
  * 高さ定義
@@ -59,4 +70,6 @@ export const color = {
   blueRibbon: '#0069ff',
   dodgerBlueA01: 'rgba(51, 135, 255, 0.1)',
   blueRibbonA01: 'rgba(0, 105, 255, 0.1)',
+  darkestDungeon: '#610015',
+  charcoalSmudge: '#5f5f5f',
 }

@@ -6,22 +6,25 @@ import WithErrorBoundary from './WithErrorBoundary'
 import WithGlobalStyle from './WithGlobalStyle'
 import WithMuiTheme from './WithMuiTheme'
 import WithStyledComponentsTheme from './WithStyledComponentsTheme'
+import WithIntl from './WithIntl'
 import Routes from '../routes'
 
 const App: React.FC = () => (
-  <WithMuiTheme>
-    <WithStyledComponentsTheme>
-      <WithGlobalStyle>
-        <BrowserRouter>
-          <WithErrorBoundary>
-            <WithScrollToTop>
-              <Routes />
-            </WithScrollToTop>
-          </WithErrorBoundary>
-        </BrowserRouter>
-      </WithGlobalStyle>
-    </WithStyledComponentsTheme>
-  </WithMuiTheme>
+  <WithIntl>
+    <WithMuiTheme>
+      <WithStyledComponentsTheme>
+        <WithGlobalStyle>
+          <BrowserRouter>
+            <WithErrorBoundary>
+              <WithScrollToTop>
+                <Routes />
+              </WithScrollToTop>
+            </WithErrorBoundary>
+          </BrowserRouter>
+        </WithGlobalStyle>
+      </WithStyledComponentsTheme>
+    </WithMuiTheme>
+  </WithIntl>
 )
 
 export default App
