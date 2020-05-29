@@ -3,6 +3,9 @@ export const texts = {
     name: 'Preact',
     page: {
       home: 'Home',
+      about: 'About',
+      help: 'Help',
+      contact: 'Contact',
     },
   },
   recommended: {

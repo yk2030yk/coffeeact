@@ -49,3 +49,7 @@ export const card = css`
   background-color: ${({ theme }) => theme.color.white};
   padding: ${({ theme }) => theme.space.atom};
 `
+
+export const pointer = css`
+  cursor: pointer;
+`

@@ -15,6 +15,7 @@ export const fontSize = {
   default: '16px',
   heading2: '18px',
   heading: '22px',
+  big: '42px',
 }
 
 export const fontWeight = {
@@ -34,6 +35,13 @@ export const media = {
  */
 export const space = {
   atom: '20px',
+}
+
+/**
+ * z-index
+ */
+export const zindex = {
+  header: 500,
 }
 
 /**

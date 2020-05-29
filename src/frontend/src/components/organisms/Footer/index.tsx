@@ -1,11 +1,14 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import { Text } from '@/components/atoms'
+
+import FooterIcon from '@/components/molecules/footer/FooterIcon'
+import LinkList from '@/components/molecules/footer/LinkList'
 
 const Footer: React.FC = () => (
   <S.Wrapper>
-    <Text>Footer</Text>
+    <FooterIcon />
+    <LinkList />
   </S.Wrapper>
 )
 
