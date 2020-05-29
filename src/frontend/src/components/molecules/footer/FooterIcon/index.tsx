@@ -1,12 +1,12 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
 
+import logoSrc from '@/assets/images/logo.png'
 import * as S from './index.styled'
 
 const FooterIcon: React.FC = () => (
-  <S.Title>
-    <FormattedMessage id="app.name" />
-  </S.Title>
+  <S.Wrapper>
+    <S.Img src={logoSrc} />
+  </S.Wrapper>
 )
 
 export default FooterIcon

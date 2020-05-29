@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const Title = styled.p`
-  font-size: ${({ theme }) => theme.fontSize.big};
+export const Wrapper = styled.p`
   padding: 10px;
+`
+
+export const Img = styled.img`
+  height: 80px;
 `

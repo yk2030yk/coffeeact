@@ -48,7 +48,7 @@ export const zindex = {
  * 高さ定義
  */
 export const height = {
-  header: '56px',
+  header: '70px',
 }
 
 /**
@@ -80,4 +80,5 @@ export const color = {
   blueRibbonA01: 'rgba(0, 105, 255, 0.1)',
   darkestDungeon: '#610015',
   charcoalSmudge: '#5f5f5f',
+  blackCat: '#2f2f2f',
 }

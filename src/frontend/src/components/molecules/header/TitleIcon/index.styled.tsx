@@ -1,13 +1,19 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export const Wrapper = styled.div`
-  background-color: #000;
-  height: 100%;
-  color: #fff;
-  display: flex;
-  align-items: center;
+export const Title = styled(Link)`
+  display: block;
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: ${({ theme }) => theme.color.white};
+  font-size: ${({ theme }) => theme.fontSize.heading2};
+  ${({ theme }) => theme.mixin.pointer}
+  ${({ theme }) => theme.mixin.resetAnchor}
+  &:hover {
+    background-color: #444;
+  }
 `
 
-export const Item = styled.div`
-  padding: 10px;
+export const Img = styled.img`
+  height: 45px;
 `

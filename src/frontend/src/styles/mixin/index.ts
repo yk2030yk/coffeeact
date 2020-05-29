@@ -53,3 +53,7 @@ export const card = css`
 export const pointer = css`
   cursor: pointer;
 `
+
+export const resetAnchor = css`
+  text-decoration: none;
+`

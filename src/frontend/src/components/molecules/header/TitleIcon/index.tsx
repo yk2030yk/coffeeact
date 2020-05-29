@@ -1,12 +1,13 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { Title } from '@/components/atoms'
+import logoSrc from '@/assets/images/logo.png'
+import * as S from './index.styled'
 
 const TitleIcon: React.FC = () => (
-  <Title>
-    <FormattedMessage id="app.name" />
-  </Title>
+  <S.Title to="/">
+    <S.Img src={logoSrc} />
+  </S.Title>
 )
 
 export default TitleIcon
