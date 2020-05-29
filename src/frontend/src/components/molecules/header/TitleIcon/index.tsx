@@ -1,7 +1,6 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
 
-import logoSrc from '@/assets/images/logo.png'
+import logoSrc from '@/assets/images/logo_b.png'
 import * as S from './index.styled'
 
 const TitleIcon: React.FC = () => (

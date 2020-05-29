@@ -81,4 +81,6 @@ export const color = {
   darkestDungeon: '#610015',
   charcoalSmudge: '#5f5f5f',
   blackCat: '#2f2f2f',
+  yankeesBlue: '#162e42',
+  reactBlue: '#54d3fa',
 }

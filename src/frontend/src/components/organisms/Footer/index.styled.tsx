@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.color.blackCat};
+  background-color: ${({ theme }) => theme.color.yankeesBlue};
   height: 200px;
-  color: #fff;
+  color: ${({ theme }) => theme.color.white};
   display: flex;
   flex-direction: column;
   align-items: center;
