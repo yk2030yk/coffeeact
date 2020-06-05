@@ -9,11 +9,4 @@ export const Title = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.heading2};
   ${({ theme }) => theme.mixin.pointer}
   ${({ theme }) => theme.mixin.resetAnchor}
-  &:hover {
-    background-color: #444;
-  }
-`
-
-export const Img = styled.img`
-  height: 45px;
 `

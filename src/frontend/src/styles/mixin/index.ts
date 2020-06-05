@@ -23,6 +23,8 @@ export const text = css`
   font-size: ${({ theme }) => theme.fontSize.text};
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   color: ${({ theme }) => theme.color.charcoalSmudge};
+  line-height: 32px;
+  letter-spacing: 1.5px;
 `
 
 export const smallText = css`

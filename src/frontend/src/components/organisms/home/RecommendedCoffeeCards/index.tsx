@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import Heading from '@/components/atoms/Heading'
+import Heading from '@/components/atoms/article/Heading'
 import RecommendedCoffeeCard from '@/components/molecules/home/RecommendedCoffeeCard'
 import { recommendedCoffeeApi } from '@/service/api/RecommendedCoffeeApi'
 
@@ -13,7 +13,10 @@ const RecommendedCoffeeCards: React.FC = () => {
       <Heading id="recommended.title" />
       <S.Cards>
         {recommendedCoffees.map((recommendedCoffee) => (
-          <RecommendedCoffeeCard recommendedCoffee={recommendedCoffee} />
+          <RecommendedCoffeeCard
+            key={recommendedCoffee.updatedAt}
+            recommendedCoffee={recommendedCoffee}
+          />
         ))}
       </S.Cards>
     </S.Wrapper>

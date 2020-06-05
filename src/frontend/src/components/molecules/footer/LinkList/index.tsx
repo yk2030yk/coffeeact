@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
+
 import * as S from './index.styled'
-import { Link } from '@/components/atoms'
 
 const links = [
   {
@@ -26,9 +26,9 @@ const LinkList: React.FC = () => (
   <S.Wrapper>
     {links.map(({ path, id }) => (
       <S.Item key={id}>
-        <Link path={path}>
+        <S.LinkText to={path}>
           <FormattedMessage id={id} />
-        </Link>
+        </S.LinkText>
       </S.Item>
     ))}
   </S.Wrapper>

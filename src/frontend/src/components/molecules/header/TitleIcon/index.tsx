@@ -1,11 +1,11 @@
 import React from 'react'
 
-import logoSrc from '@/assets/images/logo_b.png'
 import * as S from './index.styled'
+import AppIcon from '@/components/molecules/common/AppIcon'
 
 const TitleIcon: React.FC = () => (
   <S.Title to="/">
-    <S.Img src={logoSrc} />
+    <AppIcon height={50} />
   </S.Title>
 )
 

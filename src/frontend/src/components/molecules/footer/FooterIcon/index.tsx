@@ -1,11 +1,11 @@
 import React from 'react'
 
-import logoSrc from '@/assets/images/logo_b.png'
 import * as S from './index.styled'
+import AppIcon from '@/components/molecules/common/AppIcon'
 
 const FooterIcon: React.FC = () => (
   <S.Wrapper>
-    <S.Img src={logoSrc} />
+    <AppIcon />
   </S.Wrapper>
 )
 

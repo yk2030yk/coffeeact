@@ -1,7 +1,6 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import { Text, Title } from '@/components/atoms'
 import Header from '@/components/organisms/Header'
 import Footer from '@/components/organisms/Footer'
 
@@ -17,10 +16,10 @@ const Template: React.FC<Props> = ({ errorTitle, errorMessage, children }) => (
     </S.Header>
     <S.Content>
       <S.ErrorTitle>
-        <Title>{errorTitle}</Title>
+        <S.Title>{errorTitle}</S.Title>
       </S.ErrorTitle>
       <S.ErrorMessage>
-        <Text>{errorMessage}</Text>
+        <S.Text>{errorMessage}</S.Text>
       </S.ErrorMessage>
       <S.ErrorContent>{children}</S.ErrorContent>
     </S.Content>

@@ -34,3 +34,9 @@ export const ErrorTitle = styled.div``
 export const ErrorMessage = styled.div`
   margin-top: 30px;
 `
+
+export const Title = styled.p``
+
+export const Text = styled.p`
+  margin-top: 30px;
+`
