@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 
-export class RecommendedCoffee {
+export class CoffeeArticle {
   id: string
   imgSrc: string
   title: string

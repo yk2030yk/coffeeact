@@ -13,10 +13,12 @@ const RecommendedCoffeeCards: React.FC = () => {
       <Heading id="recommended.title" />
       <S.Cards>
         {recommendedCoffees.map((recommendedCoffee) => (
-          <RecommendedCoffeeCard
+          <S.Link
             key={recommendedCoffee.updatedAt}
-            recommendedCoffee={recommendedCoffee}
-          />
+            to={`/article/${recommendedCoffee.id}`}
+          >
+            <RecommendedCoffeeCard recommendedCoffee={recommendedCoffee} />
+          </S.Link>
         ))}
       </S.Cards>
     </S.Wrapper>
