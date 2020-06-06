@@ -1,5 +1,7 @@
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+
+import { styled, mixins, theme } from '@/styles'
+
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -11,7 +13,7 @@ export const Item = styled.div`
 `
 
 export const LinkText = styled(Link)`
-  ${({ theme }) => theme.mixin.text}
-  ${({ theme }) => theme.mixin.resetAnchor}
-  color: ${({ theme }) => theme.color.white};
+  ${mixins.text}
+  ${mixins.resetAnchor}
+  color: ${theme.color.white};
 `

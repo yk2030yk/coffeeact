@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled, theme } from '@/styles'
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: ${({ theme }) => theme.height.header};
+  padding-top: ${theme.height.header};
 `
 
 export const Header = styled.div`

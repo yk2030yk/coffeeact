@@ -1,1 +1,0 @@
-export { RecommendedCoffee } from './RecommendedCoffee'

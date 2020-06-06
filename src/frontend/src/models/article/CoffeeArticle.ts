@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, isValid } from 'date-fns'
 
 export class CoffeeArticle {
   id: string
@@ -28,6 +28,8 @@ export class CoffeeArticle {
   }
 
   public get formatUpdatedAt() {
-    return format(new Date(this.updatedAt), 'yyyy/M/d(eee) hh:mm')
+    const date = new Date(this.updatedAt)
+    if (!isValid(date)) return ''
+    return format(date, 'yyyy/M/d(eee) hh:mm')
   }
 }

@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import { styled, mixins, theme } from '@/styles'
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  ${({ theme }) => theme.mixin.pointer}
+  ${mixins.pointer}
 `
 
 export const CoffeeImageWrapper = styled.div`
@@ -23,16 +23,16 @@ export const Info = styled.div`
 `
 
 export const CoffeeUpdatedAt = styled.p`
-  ${({ theme }) => theme.mixin.smallText}
+  ${mixins.smallText}
 `
 
 export const CoffeeTitle = styled.p`
-  color: ${({ theme }) => theme.color.darkestDungeon};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${theme.color.darkestDungeon};
+  font-weight: ${theme.fontWeight.bold};
   padding-top: 10px;
 `
 
 export const CoffeeDescription = styled.p`
-  ${({ theme }) => theme.mixin.text}
+  ${mixins.text}
   padding-top: 10px;
 `

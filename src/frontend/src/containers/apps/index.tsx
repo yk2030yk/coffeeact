@@ -4,26 +4,23 @@ import { BrowserRouter } from 'react-router-dom'
 import WithScrollToTop from './WithScrollToTop'
 import WithErrorBoundary from './WithErrorBoundary'
 import WithGlobalStyle from './WithGlobalStyle'
-import WithMuiTheme from './WithMuiTheme'
-import WithStyledComponentsTheme from './WithStyledComponentsTheme'
+import WithEmotionTheme from './WithEmotionTheme'
 import WithIntl from './WithIntl'
 import Routes from '../routes'
 
 const App: React.FC = () => (
   <WithIntl>
-    <WithMuiTheme>
-      <WithStyledComponentsTheme>
-        <WithGlobalStyle>
-          <BrowserRouter>
-            <WithErrorBoundary>
-              <WithScrollToTop>
-                <Routes />
-              </WithScrollToTop>
-            </WithErrorBoundary>
-          </BrowserRouter>
-        </WithGlobalStyle>
-      </WithStyledComponentsTheme>
-    </WithMuiTheme>
+    <WithEmotionTheme>
+      <WithGlobalStyle>
+        <BrowserRouter>
+          <WithErrorBoundary>
+            <WithScrollToTop>
+              <Routes />
+            </WithScrollToTop>
+          </WithErrorBoundary>
+        </BrowserRouter>
+      </WithGlobalStyle>
+    </WithEmotionTheme>
   </WithIntl>
 )
 

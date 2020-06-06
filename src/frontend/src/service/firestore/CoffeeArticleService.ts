@@ -31,3 +31,5 @@ export class CoffeeArticleService extends FirestoreService {
     })
   }
 }
+
+export const coffeeArticleService = new CoffeeArticleService()

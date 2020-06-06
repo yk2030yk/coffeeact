@@ -2,12 +2,12 @@ import React from 'react'
 
 import * as S from './index.styled'
 import DefaultTemplate from '../../templates/DefaultTemplate'
-import RecommendedCoffeeCards from '@/components/organisms/home/RecommendedCoffeeCards'
+import RecommendedCoffeeArticleCards from '@/components/organisms/home/RecommendedCoffeeArticleCards'
 
 const Page: React.FC = () => (
   <DefaultTemplate>
     <S.Wrapper>
-      <RecommendedCoffeeCards />
+      <RecommendedCoffeeArticleCards />
     </S.Wrapper>
   </DefaultTemplate>
 )

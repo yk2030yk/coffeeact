@@ -1,8 +1,9 @@
-import { createGlobalStyle } from 'styled-components'
-import { normalize } from 'styled-normalize'
+import { css } from '@emotion/core'
+import emotionNormalize from 'emotion-normalize'
+import { mixins, theme } from '.'
 
-const GlobalStyle = createGlobalStyle`
-  ${normalize}
+export const globalStyle = css`
+  ${emotionNormalize}
 
   * {
     margin: 0;
@@ -18,16 +19,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    ${({ theme }) => theme.mixin.defaultFont}
+    ${mixins.defaultFont}
   }
 
-  ${({ theme }) => theme.media.sm} {
+  ${theme.media.sm} {
     select,
     textarea,
     input {
-      font-size: ${({ theme }) => theme.fontSize.default};
+      font-size: ${theme.fontSize.default};
     }
   }
 `
-
-export default GlobalStyle

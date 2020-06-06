@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import Card from '@/components/atoms/Card'
+import Card from '@/components/atoms/common/Card'
 import Markdown from '@/components/atoms/article/Markdown'
 
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'

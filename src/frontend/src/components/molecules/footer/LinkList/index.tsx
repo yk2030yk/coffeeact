@@ -13,8 +13,8 @@ const links = [
     id: 'app.page.about',
   },
   {
-    path: '/contact',
-    id: 'app.page.contact',
+    path: '/profile',
+    id: 'app.page.profile',
   },
   {
     path: '/help',
