@@ -9,20 +9,20 @@ export const Wrapper = styled.div`
   padding-top: ${theme.height.header};
 `
 
-export const Header = styled.div`
+export const HeaderArea = styled.div`
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
 `
 
-export const Content = styled.div`
+export const ContentArea = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
 `
 
-export const Footer = styled.div`
+export const FooterArea = styled.div`
   width: 100%;
   margin-top: auto;
 `

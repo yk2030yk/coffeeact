@@ -8,7 +8,7 @@ type Props = {
 
 const Card: React.FC<Props> = ({ path }) => {
   const downloadUrl = useDownloadURL(path)
-  return <>{downloadUrl && <img src={downloadUrl} />}</>
+  return <>{downloadUrl && <img src={downloadUrl} alt="" />}</>
 }
 
 export default Card

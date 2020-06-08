@@ -1,8 +1,8 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import Header from '@/components/organisms/Header'
-import Footer from '@/components/organisms/Footer'
+import Header from '@/components/organisms/common/Header'
+import Footer from '@/components/organisms/common/Footer'
 
 type Props = {
   errorTitle: string

@@ -19,7 +19,7 @@
     "zindex",
     "firestore",
     "firebase",
-    "mixinx",
+    "mixins",
     "theming"
   ],
   // flagWords - list of words to be always considered incorrect

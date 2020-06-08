@@ -2,14 +2,14 @@ import React from 'react'
 
 import * as S from './index.styled'
 import DefaultTemplate from '../../templates/DefaultTemplate'
-import Article from '@/components/organisms/article/Article'
+import CoffeeArticleContent from '@/components/molecules/article/CoffeeArticleContent'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 
 const Page: React.FC = () => {
   return (
     <DefaultTemplate>
       <S.Wrapper>
-        <Article
+        <CoffeeArticleContent
           coffeeArticle={
             new CoffeeArticle({
               id: '1',

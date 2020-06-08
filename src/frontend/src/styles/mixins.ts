@@ -53,3 +53,11 @@ export const pointer = css`
 export const resetAnchor = css`
   text-decoration: none;
 `
+
+export const inputBox = css`
+  ${text}
+  padding: 5px;
+  width: 100%;
+  background-color: ${theme.color.greyArea};
+  border: none;
+`

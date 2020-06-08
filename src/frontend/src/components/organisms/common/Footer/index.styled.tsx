@@ -9,3 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 20px 40px;
 `
+
+export const AppIconArea = styled.div`
+  padding: 10px;
+`

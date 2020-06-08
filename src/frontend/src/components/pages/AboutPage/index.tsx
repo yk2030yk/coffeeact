@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './index.styled'
 import DefaultTemplate from '../../templates/DefaultTemplate'
-import AboutMessage from '@/components/organisms/about/AboutMessage'
+import AboutMessage from '@/components/molecules/about/AboutMessage'
 
 const Page: React.FC = () => (
   <DefaultTemplate>

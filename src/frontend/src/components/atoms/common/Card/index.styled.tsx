@@ -1,7 +1,5 @@
 import { styled, mixins } from '@/styles'
 
-export const Wrapper = styled.div``
-
 export const Card = styled.div`
   width: 100%;
   height: auto;

@@ -8,9 +8,7 @@ type Props = {
 }
 
 const FooterIcon: React.FC<Props> = ({ height = 80 }) => (
-  <S.Wrapper>
-    <S.Img src={logoSrc} height={height} />
-  </S.Wrapper>
+  <S.Img src={logoSrc} height={height} />
 )
 
 export default FooterIcon

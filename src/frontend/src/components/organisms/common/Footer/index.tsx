@@ -2,12 +2,14 @@ import React from 'react'
 
 import * as S from './index.styled'
 
-import FooterIcon from '@/components/molecules/footer/FooterIcon'
+import AppIcon from '@/components/atoms/common/AppIcon'
 import LinkList from '@/components/molecules/footer/LinkList'
 
 const Footer: React.FC = () => (
   <S.Wrapper>
-    <FooterIcon />
+    <S.AppIconArea>
+      <AppIcon height={80} />
+    </S.AppIconArea>
     <LinkList />
   </S.Wrapper>
 )

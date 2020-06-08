@@ -1,18 +1,18 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import Header from '@/components/organisms/Header'
-import Footer from '@/components/organisms/Footer'
+import Header from '@/components/organisms/common/Header'
+import Footer from '@/components/organisms/common/Footer'
 
 const Template: React.FC = ({ children }) => (
   <S.Wrapper>
-    <S.Header>
+    <S.HeaderArea>
       <Header />
-    </S.Header>
-    <S.Content>{children}</S.Content>
-    <S.Footer>
+    </S.HeaderArea>
+    <S.ContentArea>{children}</S.ContentArea>
+    <S.FooterArea>
       <Footer />
-    </S.Footer>
+    </S.FooterArea>
   </S.Wrapper>
 )
 

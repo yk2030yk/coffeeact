@@ -1,9 +1,9 @@
 import { styled, mixins, theme } from '@/styles'
 
 export const Wrapper = styled.div`
+  ${mixins.pointer}
   width: 100%;
   height: 100%;
-  ${mixins.pointer}
 `
 
 export const CoffeeImageWrapper = styled.div`
