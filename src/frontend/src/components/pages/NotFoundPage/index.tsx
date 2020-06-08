@@ -1,12 +1,15 @@
 import React from 'react'
 
+import * as S from './index.styled'
 import ErrorTemplate from '../../templates/ErrorTemplate'
+import NotFoundMessage from '@/components/organisms/error/NotFoundMessage'
 
 const Page: React.FC = () => (
-  <ErrorTemplate
-    errorTitle="404 Not Found"
-    errorMessage="指定されたページは存在しません。"
-  />
+  <ErrorTemplate>
+    <S.Content>
+      <NotFoundMessage />
+    </S.Content>
+  </ErrorTemplate>
 )
 
 export default Page

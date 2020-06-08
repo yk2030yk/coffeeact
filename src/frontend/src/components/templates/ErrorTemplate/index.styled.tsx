@@ -22,21 +22,7 @@ export const Content = styled.div`
   padding: 20px;
 `
 
-export const ErrorContent = styled.div``
-
 export const Footer = styled.div`
   width: 100%;
   margin-top: auto;
-`
-
-export const ErrorTitle = styled.div``
-
-export const ErrorMessage = styled.div`
-  margin-top: 30px;
-`
-
-export const Title = styled.p``
-
-export const Text = styled.p`
-  margin-top: 30px;
 `

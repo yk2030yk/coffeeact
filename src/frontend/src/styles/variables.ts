@@ -83,4 +83,9 @@ export const color = {
   blackCat: '#2f2f2f',
   yankeesBlue: '#162e42',
   reactBlue: '#54d3fa',
+  jamaicanJade: '#69ceb7',
+  flintRock: '#969494',
+  oldGreyMare: '#b5b4ad',
+  evilSunzScarlet: '#c11b1b',
+  exodusFruit: '#635ada',
 }

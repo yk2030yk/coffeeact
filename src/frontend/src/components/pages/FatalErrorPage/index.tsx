@@ -1,12 +1,15 @@
 import React from 'react'
 
+import * as S from './index.styled'
 import ErrorTemplate from '../../templates/ErrorTemplate'
+import FatalErrorMessage from '@/components/organisms/error/FatalErrorMessage'
 
 const Page: React.FC = () => (
-  <ErrorTemplate
-    errorTitle="Fatal Error"
-    errorMessage="エラーが発生しました。"
-  />
+  <ErrorTemplate>
+    <S.Content>
+      <FatalErrorMessage />
+    </S.Content>
+  </ErrorTemplate>
 )
 
 export default Page

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ErrorLayout from '../layouts/ErrorLayout'
 import FatalErrorPage from '@/components/pages/FatalErrorPage'
 

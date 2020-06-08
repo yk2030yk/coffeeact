@@ -4,25 +4,12 @@ import * as S from './index.styled'
 import Header from '@/components/organisms/common/Header'
 import Footer from '@/components/organisms/common/Footer'
 
-type Props = {
-  errorTitle: string
-  errorMessage: string
-}
-
-const Template: React.FC<Props> = ({ errorTitle, errorMessage, children }) => (
+const Template: React.FC = ({ children }) => (
   <S.Wrapper>
     <S.Header>
       <Header />
     </S.Header>
-    <S.Content>
-      <S.ErrorTitle>
-        <S.Title>{errorTitle}</S.Title>
-      </S.ErrorTitle>
-      <S.ErrorMessage>
-        <S.Text>{errorMessage}</S.Text>
-      </S.ErrorMessage>
-      <S.ErrorContent>{children}</S.ErrorContent>
-    </S.Content>
+    <S.Content>{children}</S.Content>
     <S.Footer>
       <Footer />
     </S.Footer>
