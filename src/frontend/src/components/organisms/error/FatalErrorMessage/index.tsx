@@ -1,7 +1,6 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import LinkButton from '@/components/atoms/common/LinkButton'
 
 const Page: React.FC = () => (
   <S.Wrapper>
