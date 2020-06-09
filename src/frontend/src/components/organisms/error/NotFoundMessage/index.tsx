@@ -1,22 +1,19 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import LinkButton from '@/components/atoms/common/LinkButton'
+import StatusCodeLogo from '@/components/molecules/error/StatusCodeLogo'
+import TopButton from '@/components/molecules/error/TopButton'
+import ErrorMessage from '@/components/molecules/error/ErrorMessage'
 
 const Page: React.FC = () => (
   <S.Wrapper>
-    <S.ErrorLogo>
-      <S.StatusCode>404</S.StatusCode>
-      <S.StatusLogoMessage>Page Not Found!!</S.StatusLogoMessage>
-    </S.ErrorLogo>
-    <S.MessageBox>
+    <StatusCodeLogo statusCode={404} text={'Page Not Found!!'} />
+    <ErrorMessage>
       <p>お探しのページは見つかりませんでした。</p>
       <p>一時的にアクセスできない状況にあるか、</p>
       <p>移動もしくは削除された可能性があります。</p>
-    </S.MessageBox>
-    <S.TopButtonBox>
-      <LinkButton link="/" text="ホームに戻る" />
-    </S.TopButtonBox>
+    </ErrorMessage>
+    <TopButton />
   </S.Wrapper>
 )
 

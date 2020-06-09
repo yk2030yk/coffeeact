@@ -8,17 +8,17 @@ export class CoffeeArticle {
   updatedAt: string
 
   constructor({
-    id,
-    imgSrc,
-    title,
-    description,
-    updatedAt,
+    id = '',
+    imgSrc = '',
+    title = '',
+    description = '',
+    updatedAt = '',
   }: {
-    id: string
-    imgSrc: string
-    title: string
-    description: string
-    updatedAt: string
+    id?: string
+    imgSrc?: string
+    title?: string
+    description?: string
+    updatedAt?: string
   }) {
     this.id = id
     this.imgSrc = imgSrc

@@ -1,6 +1,5 @@
 import React from 'react'
 
-import logoSrc from '@/assets/images/logo_b.png'
 import * as S from './index.styled'
 
 type Props = {

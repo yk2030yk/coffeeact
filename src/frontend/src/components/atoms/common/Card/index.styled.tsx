@@ -2,7 +2,7 @@ import { styled, mixins } from '@/styles'
 
 export const Card = styled.div`
   width: 100%;
-  height: auto;
+  height: 100%;
   ${mixins.card}
 
   &:hover {

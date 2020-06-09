@@ -49,6 +49,7 @@ export const zindex = {
  */
 export const height = {
   header: '70px',
+  homeHeader: '500px',
 }
 
 /**
@@ -88,4 +89,9 @@ export const color = {
   oldGreyMare: '#b5b4ad',
   evilSunzScarlet: '#c11b1b',
   exodusFruit: '#635ada',
+  christmasSilver: '#e0e0e0',
+  bgWhite: '#fafafa',
+  coronation: '#ececec',
+  plaster: '#eaeaea',
+  aquarellePurple: '#d8dff7',
 }

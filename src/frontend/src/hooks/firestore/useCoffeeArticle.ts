@@ -32,3 +32,18 @@ export const useCoffeeArticles = () => {
 
   return coffeeArticles
 }
+
+export const useNewArrivalCoffeeArticles = () => {
+  const [coffeeArticles, setCoffeeArticles] = useState<CoffeeArticle[]>([])
+
+  const fetch = useCallback(async () => {
+    const articles = await coffeeArticleService.newArrivalList(8)
+    setCoffeeArticles(articles)
+  }, [])
+
+  useEffect(() => {
+    fetch()
+  }, [fetch])
+
+  return coffeeArticles
+}

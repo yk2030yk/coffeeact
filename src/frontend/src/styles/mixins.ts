@@ -45,6 +45,7 @@ export const heading2 = css`
 export const card = css`
   background-color: ${theme.color.white};
   padding: ${theme.space.atom};
+  border: solid 1px ${theme.color.plaster};
 `
 
 export const pointer = css`
@@ -59,8 +60,11 @@ export const inputBox = css`
   ${text}
   padding: 5px;
   width: 100%;
-  background-color: ${theme.color.greyArea};
+  background-color: ${theme.color.coronation};
   border: none;
+  &:focus {
+    outline: none;
+  }
 `
 
 export const button = ({

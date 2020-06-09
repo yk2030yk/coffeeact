@@ -1,25 +1,20 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
 import * as S from './index.styled'
 import DefaultTemplate from '../../templates/DefaultTemplate'
 import CoffeeArticleContent from '@/components/molecules/article/CoffeeArticleContent'
-import { CoffeeArticle } from '@/models/article/CoffeeArticle'
+import { useCoffeeArticle } from '@/hooks/firestore/useCoffeeArticle'
 
 const Page: React.FC = () => {
+  const { articleId } = useParams()
+  const coffeeArticle = useCoffeeArticle(articleId)
   return (
     <DefaultTemplate>
       <S.Wrapper>
-        <CoffeeArticleContent
-          coffeeArticle={
-            new CoffeeArticle({
-              id: '1',
-              imgSrc: 'https://i.picsum.photos/id/0/5616/3744.jpg',
-              title: '南蛮屋Coffee',
-              description: '溝の口駅の近くに点在する珈琲豆専門店。',
-              updatedAt: '2020-05-11 20:30:11',
-            })
-          }
-        />
+        {coffeeArticle && (
+          <CoffeeArticleContent coffeeArticle={coffeeArticle} />
+        )}
       </S.Wrapper>
     </DefaultTemplate>
   )

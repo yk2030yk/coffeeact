@@ -6,15 +6,17 @@ import InputText from '@/components/atoms/article/InputText'
 import TextArea from '@/components/atoms/article/TextArea'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 
-type Props = {}
+type Props = {
+  register: any
+}
 
-const CoffeeArticleEditor: React.FC<Props> = () => (
+const CoffeeArticleEditor: React.FC<Props> = ({ register }) => (
   <S.Wrapper>
     <S.TitleInputText>
-      <InputText value="" />
+      <InputText name="title" value="" register={register} />
     </S.TitleInputText>
     <S.DescriptionTextArea>
-      <TextArea value="" />
+      <TextArea name="description" value="" register={register} />
     </S.DescriptionTextArea>
   </S.Wrapper>
 )

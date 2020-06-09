@@ -15,7 +15,7 @@ const CoffeeArticleCard: React.FC<Props> = ({ coffeeArticle }) => {
     <S.Wrapper>
       <Card>
         <S.CoffeeImageWrapper>
-          <StorageImage path={'/public/IMAG1296.jpg'} />
+          <StorageImage path={coffeeArticle.imgSrc} />
         </S.CoffeeImageWrapper>
         <S.Info>
           <S.CoffeeUpdatedAt>{coffeeArticle.formatUpdatedAt}</S.CoffeeUpdatedAt>

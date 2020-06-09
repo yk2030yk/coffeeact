@@ -14,6 +14,7 @@ export const HeaderArea = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: ${theme.zindex.header};
 `
 
 export const ContentArea = styled.div`

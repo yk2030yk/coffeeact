@@ -1,15 +1,15 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import DefaultTemplate from '../../templates/DefaultTemplate'
-import RecommendedCoffeeArticleCards from '@/components/organisms/home/RecommendedCoffeeArticleCards'
+import HomeTemplate from '../../templates/HomeTemplate'
+import NewArrivalCoffeeArticleCards from '@/components/organisms/home/NewArrivalCoffeeArticleCards'
 
 const Page: React.FC = () => (
-  <DefaultTemplate>
+  <HomeTemplate>
     <S.Wrapper>
-      <RecommendedCoffeeArticleCards />
+      <NewArrivalCoffeeArticleCards />
     </S.Wrapper>
-  </DefaultTemplate>
+  </HomeTemplate>
 )
 
 export default Page

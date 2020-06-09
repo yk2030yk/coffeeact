@@ -17,6 +17,10 @@ export const texts = {
     title: `${APP_NAME}とは`,
   },
 
+  articles: {
+    title: '珈琲記事一覧',
+  },
+
   profile: {
     title: 'Profile',
     writerName: 'TAKAHIRO NEGISHI',
