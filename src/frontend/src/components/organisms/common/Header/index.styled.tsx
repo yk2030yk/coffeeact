@@ -21,11 +21,3 @@ export const Item = styled.div`
 export const HeaderStart = styled.div``
 
 export const HeaderEnd = styled.div``
-
-export const UserIcon = styled(FaUserCircle)`
-  color: ${theme.color.radiantYellow};
-  cursor: pointer;
-  &:hover {
-    color: ${colorUtils.brighten(theme.color.radiantYellow)};
-  }
-`

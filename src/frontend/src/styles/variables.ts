@@ -42,6 +42,7 @@ export const space = {
  */
 export const zindex = {
   header: 500,
+  loading: 600,
 }
 
 /**

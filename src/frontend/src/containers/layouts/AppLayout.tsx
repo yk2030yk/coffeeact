@@ -4,11 +4,7 @@ import { AppContextProvider } from '@/contexts/AppContext'
 import { ErrorContextProvider } from '@/contexts/ErrorContext'
 
 const AppLayout: React.FC = ({ children }) => {
-  return (
-    <AppContextProvider>
-      <ErrorContextProvider>{children}</ErrorContextProvider>
-    </AppContextProvider>
-  )
+  return <ErrorContextProvider>{children}</ErrorContextProvider>
 }
 
 export default AppLayout

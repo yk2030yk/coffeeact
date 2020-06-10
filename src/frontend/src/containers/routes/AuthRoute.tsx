@@ -4,6 +4,7 @@ import { Redirect, RouteProps } from 'react-router-dom'
 
 import { useAppContext } from '@/contexts/AppContext'
 import { SIGN_IN_STATUS } from '@/hooks/auth/useAuth'
+import LoadingPage from '../pages/LoadingPage'
 
 type Props = {
   component: any
@@ -12,14 +13,15 @@ type Props = {
 const AuthRoute: React.FC<Props> = ({ component: Component, ...props }) => {
   const { signInStatus } = useAppContext()
 
-  let comp
   if (signInStatus === SIGN_IN_STATUS.SIGN_IN) {
-    comp = <AppRoute component={Component} {...props} />
-  } else {
-    comp = <Redirect to="/admin/login" />
+    return <AppRoute component={Component} {...props} />
+  } else if (signInStatus === SIGN_IN_STATUS.SIGN_OUT) {
+    return <Redirect to="/admin/login" />
+  } else if (signInStatus === SIGN_IN_STATUS.NONE) {
+    return <AppRoute component={LoadingPage} />
   }
 
-  return <>{comp}</>
+  throw new Error()
 }
 
 export default AuthRoute

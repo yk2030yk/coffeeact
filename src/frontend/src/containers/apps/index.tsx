@@ -7,6 +7,7 @@ import WithGlobalStyle from './WithGlobalStyle'
 import WithEmotionTheme from './WithEmotionTheme'
 import WithIntl from './WithIntl'
 import Routes from '../routes'
+import { AppContextProvider } from '@/contexts/AppContext'
 
 const App: React.FC = () => (
   <WithIntl>
@@ -15,7 +16,9 @@ const App: React.FC = () => (
         <BrowserRouter>
           <WithErrorBoundary>
             <WithScrollToTop>
-              <Routes />
+              <AppContextProvider>
+                <Routes />
+              </AppContextProvider>
             </WithScrollToTop>
           </WithErrorBoundary>
         </BrowserRouter>
