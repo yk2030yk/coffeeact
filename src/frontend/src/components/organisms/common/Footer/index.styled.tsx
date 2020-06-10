@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px 40px;
+  margin-top: 50px;
 `
 
 export const AppIconArea = styled.div`

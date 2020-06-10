@@ -2,6 +2,11 @@ import React from 'react'
 import { Switch } from 'react-router-dom'
 
 import AppRoute from './AppRoute'
+import AuthRoute from './AuthRoute'
+
+import AdminHomePage from '../pages/admin/AdminHomePage'
+import AdminLoginPage from '../pages/admin/AdminLoginPage'
+
 import ProfilePage from '../pages/ProfilePage'
 import ArticlePage from '../pages/ArticlePage'
 import ArticlesPage from '../pages/ArticlesPage'
@@ -14,14 +19,17 @@ import NotFoundPage from '../pages/NotFoundPage'
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <AppRoute exact path="/articles" component={ArticlesPage} />
-      <AppRoute exact path="/article/:articleId" component={ArticlePage} />
-      <AppRoute
+      <AuthRoute
         exact
-        path="/article/:articleId/edit"
+        path="/admin/article/:articleId/edit"
         component={ArticleEditorPage}
       />
+      <AuthRoute exact path="/admin/home" component={AdminHomePage} />
+
+      <AppRoute exact path="/articles" component={ArticlesPage} />
+      <AppRoute exact path="/article/:articleId" component={ArticlePage} />
       <AppRoute exact path="/profile" component={ProfilePage} />
+      <AppRoute exact path="/admin/login" component={AdminLoginPage} />
       <AppRoute exact path="/about" component={AboutPage} />
       <AppRoute exact path="/error" component={FatalErrorPage} />
       <AppRoute exact path="/" component={HomePage} />

@@ -85,6 +85,7 @@ export const button = ({
   border-radius: 5px;
   width: 200px;
   text-align: center;
+  border: none;
   &: hover {
     background-color: ${hoverBgColor};
     color: ${bgFontColor};

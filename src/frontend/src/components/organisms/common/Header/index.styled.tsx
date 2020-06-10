@@ -13,4 +13,5 @@ export const Wrapper = styled.div`
 
 export const Item = styled.div`
   padding-left: 20px;
+  color: black;
 `
