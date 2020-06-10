@@ -1,25 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import * as S from './index.styled'
 import TitleIcon from '@/components/molecules/header/TitleIcon'
+import UserMenu from '@/components/molecules/header/UserMenu'
 import { useAppContext } from '@/contexts/AppContext'
 
 const Header: React.FC = () => {
-  const { user, logout } = useAppContext()
+  const { user } = useAppContext()
+  const [isShowMenu, setIsShowMenu] = useState(false)
+
   return (
-    <S.Wrapper>
-      <S.Item>
-        <TitleIcon />
-      </S.Item>
-      {user && (
-        <>
-          <S.Item>ログイン済み</S.Item>
+    <>
+      <S.Wrapper>
+        <S.HeaderStart>
           <S.Item>
-            <button onClick={() => logout()}>logout</button>
+            <TitleIcon />
           </S.Item>
-        </>
-      )}
-    </S.Wrapper>
+        </S.HeaderStart>
+        <S.HeaderEnd>
+          {user && (
+            <>
+              <S.Item>
+                <S.UserIcon
+                  size={40}
+                  onClick={(e) => setIsShowMenu(!isShowMenu)}
+                />
+              </S.Item>
+            </>
+          )}
+        </S.HeaderEnd>
+      </S.Wrapper>
+      {user && isShowMenu && <UserMenu close={() => setIsShowMenu(false)} />}
+    </>
   )
 }
 

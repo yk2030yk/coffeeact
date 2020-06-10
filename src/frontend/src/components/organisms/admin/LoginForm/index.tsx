@@ -1,6 +1,5 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { FaUserCircle } from 'react-icons/fa'
 
 import * as S from './index.styled'
 import { useAppContext } from '@/contexts/AppContext'

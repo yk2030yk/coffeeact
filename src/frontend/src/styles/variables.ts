@@ -94,4 +94,5 @@ export const color = {
   coronation: '#ececec',
   plaster: '#eaeaea',
   aquarellePurple: '#d8dff7',
+  radiantYellow: '#ff9f24',
 }
