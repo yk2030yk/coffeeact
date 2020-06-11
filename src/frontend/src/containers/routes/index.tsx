@@ -6,6 +6,7 @@ import AuthRoute from './AuthRoute'
 
 import AdminHomePage from '../pages/admin/AdminHomePage'
 import AdminLoginPage from '../pages/admin/AdminLoginPage'
+import AdminArticlesPage from '../pages/admin/AdminArticlesPage'
 
 import ProfilePage from '../pages/ProfilePage'
 import ArticlePage from '../pages/ArticlePage'
@@ -25,6 +26,7 @@ const Routes: React.FC = () => {
         component={ArticleEditorPage}
       />
       <AuthRoute exact path="/admin/home" component={AdminHomePage} />
+      <AuthRoute exact path="/admin/articles" component={AdminArticlesPage} />
 
       <AppRoute exact path="/articles" component={ArticlesPage} />
       <AppRoute exact path="/article/:articleId" component={ArticlePage} />

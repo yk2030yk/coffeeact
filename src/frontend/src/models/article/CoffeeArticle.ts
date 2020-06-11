@@ -1,3 +1,4 @@
+import { firestore } from 'firebase'
 import { format, isValid } from 'date-fns'
 
 export class CoffeeArticle {
@@ -5,20 +6,20 @@ export class CoffeeArticle {
   imgSrc: string
   title: string
   description: string
-  updatedAt: string
+  updatedAt: firestore.Timestamp | undefined
 
   constructor({
     id = '',
     imgSrc = '',
     title = '',
     description = '',
-    updatedAt = '',
+    updatedAt = undefined,
   }: {
     id?: string
     imgSrc?: string
     title?: string
     description?: string
-    updatedAt?: string
+    updatedAt?: firestore.Timestamp | undefined
   }) {
     this.id = id
     this.imgSrc = imgSrc
@@ -28,8 +29,7 @@ export class CoffeeArticle {
   }
 
   public get formatUpdatedAt() {
-    const date = new Date(this.updatedAt)
-    if (!isValid(date)) return ''
-    return format(date, 'yyyy/M/d(eee) hh:mm')
+    if (!this.updatedAt) return ''
+    return format(this.updatedAt.toDate(), 'yyyy/M/d(eee) hh:mm')
   }
 }

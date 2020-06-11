@@ -1,7 +1,8 @@
 import React from 'react'
-import { useLocation, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import * as S from './index.styled'
+import { useQuery } from '@/hooks/common/useQuery'
 
 type Props = {
   maxPage: number
@@ -12,10 +13,6 @@ const range = (max: number) => {
   const range = []
   for (let i = 0; i < max; i++) range.push(i + 1)
   return range
-}
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search)
 }
 
 const Pagination: React.FC<Props> = ({ maxPage }) => {

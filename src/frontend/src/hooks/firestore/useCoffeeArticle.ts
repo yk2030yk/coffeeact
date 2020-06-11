@@ -47,3 +47,18 @@ export const useNewArrivalCoffeeArticles = () => {
 
   return coffeeArticles
 }
+
+export const usePaginationCoffeeArticles = (page: number, limit: number) => {
+  const [coffeeArticles, setCoffeeArticles] = useState<CoffeeArticle[]>([])
+
+  const fetch = useCallback(async () => {
+    const articles = await coffeeArticleService.pagination(page, limit)
+    setCoffeeArticles(articles)
+  }, [page, limit])
+
+  useEffect(() => {
+    fetch()
+  }, [fetch])
+
+  return coffeeArticles
+}

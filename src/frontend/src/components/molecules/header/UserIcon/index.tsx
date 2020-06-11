@@ -6,12 +6,12 @@ import UserMenu from './UserMenu'
 type Props = {}
 
 const TitleIcon: React.FC<Props> = () => {
-  const [isShowMenu, setIsShowMenu] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
-      <S.UserIcon size={40} onClick={() => setIsShowMenu(!isShowMenu)} />
-      {isShowMenu && <UserMenu close={() => setIsShowMenu(false)} />}
+      <S.UserIcon size={40} onClick={() => setIsOpen(!isOpen)} />
+      {isOpen && <UserMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
     </>
   )
 }
