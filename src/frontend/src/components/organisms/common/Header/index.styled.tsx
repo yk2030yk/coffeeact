@@ -1,5 +1,4 @@
-import { styled, theme, colorUtils } from '@/styles'
-import { FaUserCircle } from 'react-icons/fa'
+import { styled, theme } from '@/styles'
 
 export const Wrapper = styled.div`
   background-color: ${theme.color.white};

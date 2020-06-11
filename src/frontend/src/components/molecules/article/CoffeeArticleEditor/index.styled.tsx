@@ -1,4 +1,4 @@
-import { styled, mixins, theme } from '@/styles'
+import { styled, mixins } from '@/styles'
 
 export const Wrapper = styled.div`
   width: 100%;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import * as S from './index.styled'
 import TitleIcon from '@/components/molecules/header/TitleIcon'

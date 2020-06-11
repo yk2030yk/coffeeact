@@ -1,10 +1,8 @@
 import React from 'react'
 
 import * as S from './index.styled'
-
 import InputText from '@/components/atoms/article/InputText'
 import TextArea from '@/components/atoms/article/TextArea'
-import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 
 type Props = {
   register: any

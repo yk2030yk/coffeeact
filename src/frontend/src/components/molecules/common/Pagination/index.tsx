@@ -52,7 +52,7 @@ const Pagination: React.FC<Props> = ({ maxPage }) => {
         <S.Page
           onClick={() => handleMove(page)}
           key={page}
-          selected={page == currentPage}
+          selected={page === currentPage}
           disabled={false}
         >
           <p>{page}</p>

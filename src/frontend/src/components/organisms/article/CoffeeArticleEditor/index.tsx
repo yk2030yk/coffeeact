@@ -1,16 +1,13 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import cryptoRandomString from 'crypto-random-string'
 
 import * as S from './index.styled'
 import CoffeeArticleEditor from '@/components/molecules/article/CoffeeArticleEditor'
+import ImageInput from '@/components/molecules/article/ImageInput'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 import { coffeeArticleService } from '@/service/firestore/CoffeeArticleService'
-import { storageService } from '@/service/storage/StorageService'
 import { useUploadImage } from '@/hooks/storage/useUploadImage'
-import ImageInput from '@/components/molecules/article/ImageInput'
-
-// @ts-ignore
-import cryptoRandomString from 'crypto-random-string'
 
 type FormValues = {
   title: string
@@ -23,7 +20,7 @@ const formValuesToModel = (formValues: FormValues) => {
 
 const Page: React.FC = () => {
   const { upload, setFile } = useUploadImage()
-  const { register, handleSubmit, watch, errors } = useForm<FormValues>()
+  const { register, handleSubmit } = useForm<FormValues>()
 
   const onSubmit = handleSubmit((data) => {
     const article = formValuesToModel(data)
