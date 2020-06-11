@@ -10,8 +10,8 @@ const Circle: React.FC = ({ children }) => {
   return (
     <animated.div
       style={spring}
-      onMouseEnter={(e) => setEnter(true)}
-      onMouseLeave={(e) => setEnter(false)}
+      onMouseEnter={() => setEnter(true)}
+      onMouseLeave={() => setEnter(false)}
     >
       {children}
     </animated.div>

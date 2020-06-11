@@ -10,7 +10,7 @@ const TitleIcon: React.FC<Props> = () => {
 
   return (
     <>
-      <S.UserIcon size={40} onClick={(e) => setIsShowMenu(!isShowMenu)} />
+      <S.UserIcon size={40} onClick={() => setIsShowMenu(!isShowMenu)} />
       {isShowMenu && <UserMenu close={() => setIsShowMenu(false)} />}
     </>
   )

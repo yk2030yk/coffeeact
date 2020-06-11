@@ -12,7 +12,6 @@ export class AuthService {
 
   public onAuthStateChanged(onStateChange: (user: User | null) => void) {
     auth.onAuthStateChanged((user) => {
-      console.log(`user is ${user}`)
       onStateChange(user)
     })
   }
