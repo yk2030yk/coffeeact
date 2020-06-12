@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import * as S from './index.styled'
 import Heading from '@/components/atoms/article/Heading'
-import CoffeeArticleCards from '@/components/molecules/article/CoffeeArticleCards'
+import AdminCoffeeArticleCards from '@/components/molecules/article/AdminCoffeeArticleCards'
 import {
   useCoffeeArticles,
   useCoffeeArticlesFilter,
@@ -27,7 +27,7 @@ const Page: React.FC = () => {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <CoffeeArticleCards coffeeArticles={filtered} />
+      <AdminCoffeeArticleCards coffeeArticles={filtered} />
     </S.Wrapper>
   )
 }

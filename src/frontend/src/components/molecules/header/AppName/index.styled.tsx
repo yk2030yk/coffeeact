@@ -6,5 +6,5 @@ export const Wrapper = styled.div`
   border-radius: 5px;
   font-size: 100px;
   font-weight: 800;
-  color: ${theme.color.blackCat};
+  color: ${theme.color.white};
 `

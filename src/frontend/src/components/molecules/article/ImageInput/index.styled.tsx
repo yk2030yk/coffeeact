@@ -1,11 +1,35 @@
-import { styled, mixins } from '@/styles'
+import { styled, mixins, theme, colorUtils } from '@/styles'
 
 export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  ${mixins.pointer}
+  display: flex;
+  flex-direction: column;
 `
 
-export const PreviewImg = styled.img`
-  height: 100px;
+export const InputFile = styled.input`
+  display: none;
 `
+
+export const InputFileLabel = styled.label`
+  padding: 5px 20px;
+  border-radius: 5px;
+  ${mixins.pointer}
+  ${mixins.button()}
+  background-color: ${theme.color.blueRibbon};
+  color: ${theme.color.white};
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  &:hover {
+    background-color: ${colorUtils.brighten(theme.color.blueRibbon)};
+  }
+`
+export const PreviewImgWrapper = styled.div`
+  height: 200px;
+  overflow: hidden;
+  margin-top: 20px;
+  & > img {
+    max-width: 300px;
+  }
+`
+
+export const PreviewImg = styled.img``

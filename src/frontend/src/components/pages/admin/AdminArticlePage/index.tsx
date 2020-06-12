@@ -2,13 +2,13 @@ import React from 'react'
 
 import * as S from './index.styled'
 import AdminTemplate from '@/components/templates/AdminTemplate'
-import AdminCoffeeArticleList from '@/components/organisms/article/AdminCoffeeArticleList'
+import CoffeeArticleEditor from '@/components/organisms/article/CoffeeArticleEditor'
 
 const Page: React.FC = () => {
   return (
     <AdminTemplate>
       <S.Wrapper>
-        <AdminCoffeeArticleList />
+        <CoffeeArticleEditor />
       </S.Wrapper>
     </AdminTemplate>
   )

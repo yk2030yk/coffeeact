@@ -1,37 +1,54 @@
 import { useState, useCallback, useEffect } from 'react'
 import { coffeeArticleService } from '@/service/firestore/CoffeeArticleService'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
-import { FaAmericanSignLanguageInterpreting } from 'react-icons/fa'
+import { useAsyncTask } from '../common/useAsyncTask'
 
 export const useCoffeeArticle = (id: string) => {
   const [coffeeArticle, setCoffeeArticle] = useState<CoffeeArticle>()
 
-  const fetch = useCallback(async () => {
-    if (!id) return
-    const article = await coffeeArticleService.get(id)
-    setCoffeeArticle(article)
-  }, [id])
+  const asyncTask = useAsyncTask(
+    useCallback(async () => {
+      if (!id) return
+      const article = await coffeeArticleService.get(id)
+      setCoffeeArticle(article)
+    }, [id])
+  )
 
+  const updateModel = useCallback(
+    async (value: any) => {
+      if (!coffeeArticle) return
+      setCoffeeArticle(
+        (article) =>
+          new CoffeeArticle({ ...(article ? article.toJson() : {}), ...value })
+      )
+    },
+    [coffeeArticle]
+  )
+
+  const { execute } = asyncTask
   useEffect(() => {
-    fetch()
-  }, [fetch])
+    execute()
+  }, [execute])
 
-  return coffeeArticle
+  return { coffeeArticle, updateModel, ...asyncTask }
 }
 
 export const useCoffeeArticles = () => {
   const [coffeeArticles, setCoffeeArticles] = useState<CoffeeArticle[]>([])
 
-  const fetch = useCallback(async () => {
-    const articles = await coffeeArticleService.getList()
-    setCoffeeArticles(articles)
-  }, [])
+  const asyncTask = useAsyncTask(
+    useCallback(async () => {
+      const articles = await coffeeArticleService.getList()
+      setCoffeeArticles(articles)
+    }, [])
+  )
 
+  const { execute } = asyncTask
   useEffect(() => {
-    fetch()
-  }, [fetch])
+    execute()
+  }, [execute])
 
-  return coffeeArticles
+  return { coffeeArticles, ...asyncTask }
 }
 
 type FilterCondition = {
@@ -50,9 +67,9 @@ const matchFilterCondition = (
 ) => {
   const { title, description } = condition
 
-  if (title && coffeeArticle.title.indexOf(title) == -1) return false
+  if (title && coffeeArticle.title.indexOf(title) === -1) return false
 
-  if (description && coffeeArticle.description.indexOf(description) == -1)
+  if (description && coffeeArticle.description.indexOf(description) === -1)
     return false
 
   return true

@@ -8,7 +8,7 @@ import { useCoffeeArticle } from '@/hooks/firestore/useCoffeeArticle'
 
 const Page: React.FC = () => {
   const { articleId } = useParams()
-  const coffeeArticle = useCoffeeArticle(articleId)
+  const { coffeeArticle } = useCoffeeArticle(articleId)
   return (
     <DefaultTemplate>
       <S.Wrapper>
