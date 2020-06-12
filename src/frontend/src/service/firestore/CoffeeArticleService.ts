@@ -18,17 +18,9 @@ export class CoffeeArticleService extends FirestoreService {
   }
 
   public async getList() {
-    const querySnapshot = await this.db.collection(COLLECTION_NAME).get()
-    return querySnapshot.docs.map((doc) => this.docToModel(doc))
-  }
-
-  public async pagination(page: number, limit: number) {
-    console.log([page, limit, page * limit])
     const querySnapshot = await this.db
       .collection(COLLECTION_NAME)
       .orderBy('updatedAt', 'desc')
-      .startAt(page * limit)
-      .limit(limit)
       .get()
     return querySnapshot.docs.map((doc) => this.docToModel(doc))
   }

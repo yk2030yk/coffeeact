@@ -1,5 +1,5 @@
 import { firestore } from 'firebase'
-import { format, isValid } from 'date-fns'
+import { format } from 'date-fns'
 
 export class CoffeeArticle {
   id: string
