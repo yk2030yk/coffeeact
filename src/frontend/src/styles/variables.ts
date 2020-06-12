@@ -96,4 +96,6 @@ export const color = {
   plaster: '#eaeaea',
   aquarellePurple: '#d8dff7',
   radiantYellow: '#ff9f24',
+  leadbelcher: '#cacaca',
+  spanishGrey: '#969696',
 }

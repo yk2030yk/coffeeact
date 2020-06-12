@@ -45,9 +45,10 @@ export class CoffeeArticleService extends FirestoreService {
   }
 
   public async create(coffeeArticle: CoffeeArticle) {
-    await this.db
+    const data = await this.db
       .collection(COLLECTION_NAME)
       .add(this.modelToJson(coffeeArticle))
+    return data.id
   }
 
   public async update(coffeeArticle: CoffeeArticle) {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import * as S from './index.styled'
 import Heading from '@/components/atoms/article/Heading'
+import BasicBox from '@/components/atoms/common/BasicBox'
 import AdminCoffeeArticleCards from '@/components/molecules/article/AdminCoffeeArticleCards'
 import {
   useCoffeeArticles,
@@ -16,18 +17,20 @@ const Page: React.FC = () => {
   const filtered = filter({
     title: searchText,
     description: searchText,
-    limit: 5,
   })
 
   return (
     <S.Wrapper>
-      <Heading id="articles.title" />
-      <input
-        type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <AdminCoffeeArticleCards coffeeArticles={filtered} />
+      <BasicBox>
+        <S.InputText
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+      </BasicBox>
+      <BasicBox>
+        <AdminCoffeeArticleCards coffeeArticles={filtered} />
+      </BasicBox>
     </S.Wrapper>
   )
 }

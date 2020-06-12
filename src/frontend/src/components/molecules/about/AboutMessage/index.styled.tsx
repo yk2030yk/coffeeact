@@ -7,8 +7,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `
 
-export const TextBox = styled.div``
-
 export const Text = styled.div`
   ${mixins.text}
   text-align: center;

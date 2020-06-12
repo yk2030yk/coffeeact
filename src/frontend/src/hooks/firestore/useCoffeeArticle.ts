@@ -3,12 +3,15 @@ import { coffeeArticleService } from '@/service/firestore/CoffeeArticleService'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 import { useAsyncTask } from '../common/useAsyncTask'
 
-export const useCoffeeArticle = (id: string) => {
+export const useCoffeeArticle = (id?: string) => {
   const [coffeeArticle, setCoffeeArticle] = useState<CoffeeArticle>()
 
   const asyncTask = useAsyncTask(
     useCallback(async () => {
-      if (!id) return
+      if (!id) {
+        setCoffeeArticle(new CoffeeArticle({}))
+        return
+      }
       const article = await coffeeArticleService.get(id)
       setCoffeeArticle(article)
     }, [id])

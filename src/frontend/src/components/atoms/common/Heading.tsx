@@ -1,5 +1,5 @@
 import { styled, mixins } from '@/styles'
 
-export const Heading = styled.div`
+export default styled.p`
   ${mixins.heading}
 `

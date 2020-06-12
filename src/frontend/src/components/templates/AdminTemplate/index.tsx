@@ -1,10 +1,12 @@
 import React from 'react'
 
 import * as S from './index.styled'
+import BasicBox from '@/components/atoms/common/BasicBox'
+import PageTitle from '@/components/atoms/common/PageTitle'
 import SideMenu from '@/components/organisms/admin/SideMenu'
 import Header from '@/components/organisms/common/Header'
 
-const Template: React.FC = ({ children }) => (
+const Template: React.FC<{ title?: string }> = ({ title = '', children }) => (
   <S.Wrapper>
     <S.LeftContent>
       <SideMenu />
@@ -13,7 +15,10 @@ const Template: React.FC = ({ children }) => (
       <S.HeaderArea>
         <Header />
       </S.HeaderArea>
-      <S.ContentArea>{children}</S.ContentArea>
+      <S.ContentArea>
+        <PageTitle>{title}</PageTitle>
+        <BasicBox>{children}</BasicBox>
+      </S.ContentArea>
     </S.RightContent>
   </S.Wrapper>
 )

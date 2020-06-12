@@ -32,14 +32,12 @@ export const heading = css`
   font-size: ${theme.fontSize.heading};
   font-weight: ${theme.fontWeight.bold};
   color: ${theme.color.davysGrey};
-  padding: ${theme.space.atom};
 `
 
 export const heading2 = css`
   font-size: ${theme.fontSize.heading2};
   font-weight: ${theme.fontWeight.bold};
   color: ${theme.color.davysGrey};
-  padding: ${theme.space.atom};
 `
 
 export const card = css`
@@ -60,8 +58,8 @@ export const inputBox = css`
   ${text}
   padding: 5px;
   width: 100%;
-  background-color: ${theme.color.coronation};
-  border: none;
+  background-color: ${theme.color.white};
+  border: solid 1px ${theme.color.leadbelcher};
   &:focus {
     outline: none;
   }
@@ -78,7 +76,6 @@ export const button = ({
   fontColor?: string
   bgFontColor?: string
 } = {}) => css`
-  margin-top: 20px;
   color: ${fontColor};
   background-color: ${bgColor};
   padding: 10px;
@@ -86,6 +83,7 @@ export const button = ({
   width: 200px;
   text-align: center;
   border: none;
+  cursor: pointer;
   &: hover {
     background-color: ${hoverBgColor};
     color: ${bgFontColor};

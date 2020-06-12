@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import * as S from './index.styled'
 
 import BasicBox from '@/components/atoms/common/BasicBox'
 import SubmitButton from '@/components/atoms/common/SubmitButton'
 import Heading from '@/components/atoms/common/Heading'
-import Border from '@/components/atoms/common/Border'
 
 import AdminCoffeeArticleTitleEditor from '@/components/molecules/article/AdminCoffeeArticleTitleEditor'
 import AdminCoffeeArticleDescriptionEditor from '@/components/molecules/article/AdminCoffeeArticleDescriptionEditor'
@@ -37,8 +36,8 @@ const formValuesToModel = (
 }
 
 const Page: React.FC = () => {
-  const { articleId } = useParams()
-  const { coffeeArticle, updateModel } = useCoffeeArticle(articleId)
+  const history = useHistory()
+  const { coffeeArticle, updateModel } = useCoffeeArticle()
   const { upload, setFile, file } = useUploadImage()
   const { register, handleSubmit } = useForm<FormValues>()
   const [isSaving, setIsSaving] = useState<boolean>(false)
@@ -50,8 +49,9 @@ const Page: React.FC = () => {
     upload(path)
     article.imgSrc = path
     try {
-      await coffeeArticleService.update(article)
+      const id = await coffeeArticleService.create(article)
       alert('success!!')
+      history.push(`/admin/article/${id}`)
     } catch (e) {
       alert('error...')
     }

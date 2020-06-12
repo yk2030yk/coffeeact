@@ -2,13 +2,13 @@ import React from 'react'
 
 import * as S from './index.styled'
 import AdminTemplate from '@/components/templates/AdminTemplate'
-import CoffeeArticleEditor from '@/components/organisms/article/CoffeeArticleEditor'
+import CoffeeArticleCreate from '@/components/organisms/article/CoffeeArticleCreate'
 
 const Page: React.FC = () => {
   return (
-    <AdminTemplate>
+    <AdminTemplate title="新規記事を作成する">
       <S.Wrapper>
-        <CoffeeArticleEditor />
+        <CoffeeArticleCreate />
       </S.Wrapper>
     </AdminTemplate>
   )

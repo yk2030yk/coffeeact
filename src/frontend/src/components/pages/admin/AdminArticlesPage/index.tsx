@@ -6,7 +6,7 @@ import AdminCoffeeArticleList from '@/components/organisms/article/AdminCoffeeAr
 
 const Page: React.FC = () => {
   return (
-    <AdminTemplate>
+    <AdminTemplate title="記事一覧">
       <S.Wrapper>
         <AdminCoffeeArticleList />
       </S.Wrapper>
