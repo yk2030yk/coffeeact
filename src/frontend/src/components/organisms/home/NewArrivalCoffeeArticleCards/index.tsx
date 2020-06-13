@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import { BasicBox, Heading, FormatMessage } from '@/components/atoms/common'
+import { BasicBox, Heading, FormattedMessage } from '@/components/atoms'
 import MoreLink from '@/components/molecules/common/MoreLink'
 import CoffeeArticleCards from '@/components/molecules/article/CoffeeArticleCards'
 import { useNewArrivalCoffeeArticles } from '@/hooks/firestore/useCoffeeArticle'
@@ -12,7 +12,7 @@ const RecommendedCoffeeCards: React.FC = () => {
     <S.Wrapper>
       <BasicBox>
         <Heading>
-          <FormatMessage id="recommended.title" />
+          <FormattedMessage id="recommended.title" />
         </Heading>
       </BasicBox>
       <BasicBox>

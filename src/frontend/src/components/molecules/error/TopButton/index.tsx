@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import { LinkButton } from '@/components/atoms/common'
+import { LinkButton } from '@/components/atoms'
 
 const Page: React.FC = () => (
   <S.TopButtonBox>

@@ -1,7 +1,7 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
 
 import * as S from './index.styled'
+import { FormattedMessage } from '@/components/atoms'
 
 const links = [
   {

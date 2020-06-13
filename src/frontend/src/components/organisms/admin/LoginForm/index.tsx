@@ -9,7 +9,7 @@ import {
   ErrorText,
   SubmitButton,
   CircularProgress,
-} from '@/components/atoms/common'
+} from '@/components/atoms'
 
 type FormValues = {
   email: string

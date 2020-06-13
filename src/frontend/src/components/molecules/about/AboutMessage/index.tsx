@@ -5,8 +5,8 @@ import {
   AppIcon,
   BasicBox,
   Heading,
-  FormatMessage,
-} from '@/components/atoms/common'
+  FormattedMessage,
+} from '@/components/atoms'
 
 const AboutMessage: React.FC = () => (
   <S.Wrapper>
@@ -15,7 +15,7 @@ const AboutMessage: React.FC = () => (
     </BasicBox>
     <BasicBox>
       <Heading>
-        <FormatMessage id="about.title" />
+        <FormattedMessage id="about.title" />
       </Heading>
     </BasicBox>
     <BasicBox>

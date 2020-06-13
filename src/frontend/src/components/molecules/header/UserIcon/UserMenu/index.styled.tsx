@@ -1,4 +1,4 @@
-import { styled, theme, mixins, colorUtils } from '@/styles'
+import { styled, theme, mixins } from '@/styles'
 
 export const Wrapper = styled.div`
   position: fixed;

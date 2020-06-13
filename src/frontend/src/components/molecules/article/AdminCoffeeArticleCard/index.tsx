@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import { Card, StorageImage } from '@/components/atoms/common'
+import { Card, StorageImage } from '@/components/atoms'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 
 type Props = {

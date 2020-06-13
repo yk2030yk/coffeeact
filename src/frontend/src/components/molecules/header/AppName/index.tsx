@@ -1,15 +1,12 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
 
 import * as S from './index.styled'
-import Circle from '@/components/atoms/animation/Circle'
+import { FormattedMessage } from '@/components/atoms'
 
 const AppName: React.FC = () => {
   return (
     <S.Wrapper>
-      <Circle>
-        <FormattedMessage id="app.name" />
-      </Circle>
+      <FormattedMessage id="app.name" />
     </S.Wrapper>
   )
 }

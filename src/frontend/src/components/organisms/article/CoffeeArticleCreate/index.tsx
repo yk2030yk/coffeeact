@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import * as S from './index.styled'
 
-import { BasicBox, SubmitButton, Heading } from '@/components/atoms/common'
+import { BasicBox, SubmitButton, Heading } from '@/components/atoms'
 import AdminCoffeeArticleTitleEditor from '@/components/molecules/article/AdminCoffeeArticleTitleEditor'
 import AdminCoffeeArticleDescriptionEditor from '@/components/molecules/article/AdminCoffeeArticleDescriptionEditor'
 import AdminCoffeeArticleImageEditor from '@/components/molecules/article/AdminCoffeeArticleImageEditor'
