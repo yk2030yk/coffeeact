@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import AppIcon from '@/components/atoms/common/AppIcon'
+import { AppIcon } from '@/components/atoms/common'
 
 const TitleIcon: React.FC = () => (
   <S.Title to="/">

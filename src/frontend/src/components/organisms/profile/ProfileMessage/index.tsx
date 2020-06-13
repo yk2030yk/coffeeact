@@ -1,11 +1,10 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import Heading from '@/components/atoms/article/Heading'
+import { Heading, FormatMessage, BasicBox } from '@/components/atoms/common'
 import ProfileIcon from '@/components/molecules/profile/ProfileIcon'
 import ProfileTable from '@/components/molecules/profile/ProfileTable'
 import WriterName from '@/components/molecules/profile/WriterName'
-import BasicBox from '@/components/atoms/common/BasicBox'
 
 const Profile: React.FC = () => (
   <S.Wrapper>
@@ -13,7 +12,9 @@ const Profile: React.FC = () => (
       <ProfileIcon />
     </BasicBox>
     <BasicBox>
-      <Heading id="profile.title" />
+      <Heading>
+        <FormatMessage id="profile.title" />
+      </Heading>
     </BasicBox>
     <BasicBox>
       <WriterName />

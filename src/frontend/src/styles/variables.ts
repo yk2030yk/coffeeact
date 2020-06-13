@@ -98,4 +98,5 @@ export const color = {
   radiantYellow: '#ff9f24',
   leadbelcher: '#cacaca',
   spanishGrey: '#969696',
+  fusionRed: '#ff6363',
 }

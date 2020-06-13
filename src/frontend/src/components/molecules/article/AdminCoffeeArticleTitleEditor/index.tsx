@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import Input from '@/components/atoms/common/Input'
+import { Input } from '@/components/atoms/common'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 
 type Props = {

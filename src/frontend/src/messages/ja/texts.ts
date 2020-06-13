@@ -8,6 +8,9 @@ export const texts = {
       about: 'About',
       help: 'Help',
       profile: 'Profile',
+      admin: {
+        login: 'Login',
+      },
     },
   },
   recommended: {

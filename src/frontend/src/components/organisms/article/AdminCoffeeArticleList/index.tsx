@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
 import * as S from './index.styled'
-import Heading from '@/components/atoms/article/Heading'
-import BasicBox from '@/components/atoms/common/BasicBox'
+import { BasicBox } from '@/components/atoms/common'
 import AdminCoffeeArticleCards from '@/components/molecules/article/AdminCoffeeArticleCards'
 import {
   useCoffeeArticles,

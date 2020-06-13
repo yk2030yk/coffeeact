@@ -2,12 +2,7 @@ import React, { createContext, useContext } from 'react'
 import { UseContextError } from '@/errors'
 import { useAuth } from '@/hooks/auth/useAuth'
 
-type ContextValue = {
-  user: firebase.User | null
-  signInStatus: string
-  login: (email: string, password: string) => void
-  logout: () => void
-}
+type ContextValue = {} & ReturnType<typeof useAuth>
 
 const AppContext = createContext<ContextValue>({} as ContextValue)
 

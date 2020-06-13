@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
+import { RiAdminLine, RiLogoutBoxRLine } from 'react-icons/ri'
 
 import * as S from './index.styled'
 import { useAppContext } from '@/contexts/AppContext'
@@ -23,9 +24,13 @@ const TitleIcon: React.FC<Props> = ({ isOpen, setIsOpen }) => {
       <S.Wrapper onClick={() => setIsOpen(false)}>
         <S.Menu onClick={(e) => e.stopPropagation()}>
           <S.MenuItem onClick={() => history.push('/admin/home')}>
-            Admin Home
+            <RiAdminLine size={20} />
+            <p>管理画面</p>
           </S.MenuItem>
-          <S.MenuItem onClick={() => logout()}>Sing Out</S.MenuItem>
+          <S.MenuItem onClick={() => logout.execute()}>
+            <RiLogoutBoxRLine size={20} />
+            <p>ログアウトする</p>
+          </S.MenuItem>
         </S.Menu>
       </S.Wrapper>
     </animated.div>

@@ -1,9 +1,7 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import BasicBox from '@/components/atoms/common/BasicBox'
-import Markdown from '@/components/atoms/article/Markdown'
-import StorageImage from '@/components/atoms/common/StorageImage'
+import { BasicBox, Markdown, StorageImage } from '@/components/atoms/common'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 
 type Props = {

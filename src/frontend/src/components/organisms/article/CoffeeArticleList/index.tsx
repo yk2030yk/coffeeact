@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import * as S from './index.styled'
-import Heading from '@/components/atoms/article/Heading'
+import { Heading, BasicBox, Input } from '@/components/atoms/common'
 import CoffeeArticleCards from '@/components/molecules/article/CoffeeArticleCards'
 import {
   useCoffeeArticles,
@@ -21,13 +21,20 @@ const Page: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <Heading id="articles.title" />
-      <input
-        type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
-      />
-      <CoffeeArticleCards coffeeArticles={filtered} />
+      <BasicBox>
+        <Heading id="articles.title" />
+      </BasicBox>
+      <BasicBox>
+        <Input
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          width="300px"
+        />
+      </BasicBox>
+      <BasicBox>
+        <CoffeeArticleCards coffeeArticles={filtered} />
+      </BasicBox>
     </S.Wrapper>
   )
 }

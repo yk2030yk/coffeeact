@@ -1,4 +1,4 @@
-import { styled, theme, mixins } from '@/styles'
+import { styled, theme, mixins, colorUtils } from '@/styles'
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -22,11 +22,15 @@ export const Menu = styled.div`
 
 export const MenuItem = styled.div`
   width: 100%;
-  padding: 3px 10px;
+  padding: 5px 20px;
   ${mixins.text}
-  font-size: 11px;
-  cursor: pointer;
-  font-weight: 600;
+  ${mixins.pointer}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  & > p {
+    margin-left: 10px;
+  }
   &:hover {
     background-color: ${theme.color.whiteSmoke};
   }

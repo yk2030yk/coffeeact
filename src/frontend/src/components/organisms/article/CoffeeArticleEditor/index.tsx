@@ -4,11 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import * as S from './index.styled'
 
-import BasicBox from '@/components/atoms/common/BasicBox'
-import SubmitButton from '@/components/atoms/common/SubmitButton'
-import Heading from '@/components/atoms/common/Heading'
-import Border from '@/components/atoms/common/Border'
-
+import { BasicBox, SubmitButton, Heading } from '@/components/atoms/common'
 import AdminCoffeeArticleTitleEditor from '@/components/molecules/article/AdminCoffeeArticleTitleEditor'
 import AdminCoffeeArticleDescriptionEditor from '@/components/molecules/article/AdminCoffeeArticleDescriptionEditor'
 import AdminCoffeeArticleImageEditor from '@/components/molecules/article/AdminCoffeeArticleImageEditor'

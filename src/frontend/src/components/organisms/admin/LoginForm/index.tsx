@@ -3,6 +3,13 @@ import { useForm } from 'react-hook-form'
 
 import * as S from './index.styled'
 import { useAppContext } from '@/contexts/AppContext'
+import {
+  Input,
+  BasicBox,
+  ErrorText,
+  SubmitButton,
+  CircularProgress,
+} from '@/components/atoms/common'
 
 type FormValues = {
   email: string
@@ -14,26 +21,37 @@ const RecommendedCoffeeCards: React.FC = () => {
   const { register, handleSubmit } = useForm<FormValues>()
 
   const onSubmit = handleSubmit((data) => {
-    login(data.email, data.password)
+    login.execute(data.email, data.password)
   })
 
   return (
     <S.Form onSubmit={onSubmit}>
-      <S.Title>Login to CoffeeAct</S.Title>
-      <S.IconWrapper>
-        <S.Icon size={70} />
-      </S.IconWrapper>
-      <S.FormItem>
-        <S.FormLabel>USERNAME</S.FormLabel>
-        <S.InputText type="text" name="email" ref={register} />
-      </S.FormItem>
-      <S.FormItem>
-        <S.FormLabel>PASSWORD</S.FormLabel>
-        <S.InputText type="password" name="password" ref={register} />
-      </S.FormItem>
-      <S.FormItem>
-        <S.SubmitButton type="submit" value="SignIn" />
-      </S.FormItem>
+      <S.Title>CoffeeActへログイン</S.Title>
+      <BasicBox>
+        <S.IconWrapper>
+          <S.Icon size={70} />
+        </S.IconWrapper>
+      </BasicBox>
+      <BasicBox>
+        <Input type="text" name="email" ref={register} placeholder="USERNAME" />
+      </BasicBox>
+      <BasicBox>
+        <Input
+          type="password"
+          name="password"
+          ref={register}
+          placeholder="PASSWORD"
+        />
+      </BasicBox>
+      <BasicBox>{login.error && <ErrorText>{login.error}</ErrorText>}</BasicBox>
+      {login.isLoading && (
+        <BasicBox>
+          <CircularProgress />
+        </BasicBox>
+      )}
+      <BasicBox>
+        <SubmitButton type="submit" value="ログインする" />
+      </BasicBox>
     </S.Form>
   )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 import * as S from './index.styled'
 import ImageInput from '@/components/molecules/article/ImageInput'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
-import StorageImage from '@/components/atoms/common/StorageImage'
+import { StorageImage } from '@/components/atoms/common'
 
 type Props = {
   coffeeArticle: CoffeeArticle

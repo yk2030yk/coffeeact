@@ -17,8 +17,8 @@ const links = [
     id: 'app.page.profile',
   },
   {
-    path: '/help',
-    id: 'app.page.help',
+    path: '/admin/login',
+    id: 'app.page.admin.login',
   },
 ]
 

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
 import * as S from './index.styled'
-import Input from '@/components/atoms/common/Input'
-import Button from '@/components/atoms/common/Button'
+import { Input, Button } from '@/components/atoms/common'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 
 type Props = {

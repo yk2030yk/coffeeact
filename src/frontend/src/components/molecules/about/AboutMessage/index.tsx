@@ -1,9 +1,12 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import AppIcon from '@/components/atoms/common/AppIcon'
-import BasicBox from '@/components/atoms/common/BasicBox'
-import Heading from '@/components/atoms/article/Heading'
+import {
+  AppIcon,
+  BasicBox,
+  Heading,
+  FormatMessage,
+} from '@/components/atoms/common'
 
 const AboutMessage: React.FC = () => (
   <S.Wrapper>
@@ -11,7 +14,9 @@ const AboutMessage: React.FC = () => (
       <AppIcon />
     </BasicBox>
     <BasicBox>
-      <Heading id="about.title" />
+      <Heading>
+        <FormatMessage id="about.title" />
+      </Heading>
     </BasicBox>
     <BasicBox>
       <S.Text>
