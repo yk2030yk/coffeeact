@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import * as S from './index.styled'
-import { Heading, BasicBox, Input } from '@/components/atoms'
+import { Heading, FormattedMessage, BasicBox } from '@/components/atoms'
 import CoffeeArticleCards from '@/components/molecules/article/CoffeeArticleCards'
 import {
   useCoffeeArticles,
@@ -16,20 +16,22 @@ const Page: React.FC = () => {
   const filtered = filter({
     title: searchText,
     description: searchText,
-    limit: 5,
+    tags: searchText,
   })
 
   return (
     <S.Wrapper>
       <BasicBox>
-        <Heading id="articles.title" />
+        <Heading>
+          <FormattedMessage id="articles.title" />
+        </Heading>
       </BasicBox>
       <BasicBox>
-        <Input
+        <S.InputText
           type="text"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
-          width="300px"
+          placeholder="記事を絞り込む"
         />
       </BasicBox>
       <BasicBox>

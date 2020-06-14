@@ -16,7 +16,6 @@ class LoggerService {
   }
 
   public debug(message: string, option: {} = {}): void {
-    // FIXME: DEV環境のみ出力するようにする
     console.debug(this._logJson(message, option))
   }
 
@@ -25,7 +24,6 @@ class LoggerService {
   }
 
   public error(message: string, option: {} = {}): void {
-    // FIXME: エラーを検知できるようにする(ex: slackに通知するなど)
     console.error(this._logJson(message, option))
   }
 }

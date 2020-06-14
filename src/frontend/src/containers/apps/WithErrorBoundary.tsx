@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect } from 'react-router-dom'
 
 import { loggerService } from '@/service/LoggerService'
+import { sentryService } from '@/service/SentryService'
 
 type Props = {}
 type State = {
@@ -24,6 +25,7 @@ class WithErrorBoundary extends React.Component<Props, State> {
       errorInfo,
     })
     loggerService.error('Application Error', { errorInfo, error })
+    sentryService.send(error, errorInfo)
   }
 
   render(): React.ReactNode {

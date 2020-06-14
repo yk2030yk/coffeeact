@@ -3,7 +3,6 @@ import { styled, mixins, theme } from '@/styles'
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  ${mixins.pointer}
 `
 
 export const CoffeeImageWrapper = styled.div`
@@ -20,6 +19,7 @@ export const CoffeeImage = styled.img`
 export const CoffeeUpdatedAt = styled.p`
   ${mixins.smallText}
 `
+
 export const CoffeeTitle = styled.p`
   color: ${theme.color.darkestDungeon};
   font-weight: ${theme.fontWeight.bold};

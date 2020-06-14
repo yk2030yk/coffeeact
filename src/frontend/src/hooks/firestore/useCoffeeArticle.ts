@@ -57,6 +57,7 @@ export const useCoffeeArticles = () => {
 type FilterCondition = {
   title?: string
   description?: string
+  tags?: string
   between?: {
     start: string
     end: string
@@ -68,14 +69,15 @@ const matchFilterCondition = (
   coffeeArticle: CoffeeArticle,
   condition: FilterCondition
 ) => {
-  const { title, description } = condition
+  const { title, description, tags } = condition
 
-  if (title && coffeeArticle.title.indexOf(title) === -1) return false
+  if (!title && !description && !tags) return true
 
-  if (description && coffeeArticle.description.indexOf(description) === -1)
-    return false
-
-  return true
+  return (
+    (title && coffeeArticle.title.indexOf(title) !== -1) ||
+    (description && coffeeArticle.description.indexOf(description) !== -1) ||
+    (tags && coffeeArticle.tags.indexOf(tags) !== -1)
+  )
 }
 
 export const useCoffeeArticlesFilter = (coffeeArticles: CoffeeArticle[]) => {

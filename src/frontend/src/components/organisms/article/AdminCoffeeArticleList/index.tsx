@@ -16,6 +16,7 @@ const Page: React.FC = () => {
   const filtered = filter({
     title: searchText,
     description: searchText,
+    tags: searchText,
   })
 
   return (
@@ -25,6 +26,7 @@ const Page: React.FC = () => {
           type="text"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+          placeholder="記事を絞り込む"
         />
       </BasicBox>
       <BasicBox>

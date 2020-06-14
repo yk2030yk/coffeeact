@@ -7,12 +7,16 @@ export const Menu = styled.div`
   padding: 10px 0;
 `
 
-export const MenuItem = styled.div`
+export const MenuItem = styled.div<{ selected?: boolean }>`
   width: 100%;
   padding: 5px 20px;
   ${mixins.text}
   color: ${theme.color.white};
   ${mixins.pointer}
+  background-color: ${({ selected }) =>
+    selected
+      ? colorUtils.brighten(theme.color.yankeesBlue)
+      : theme.color.yankeesBlue};
   display: flex;
   flex-direction: row;
   align-items: center;
