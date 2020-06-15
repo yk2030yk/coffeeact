@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 20px;
+  margin-top: ${theme.space.basic};
 `
 
 export const LinkText = styled(Link)`

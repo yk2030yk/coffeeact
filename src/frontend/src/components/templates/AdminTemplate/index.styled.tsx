@@ -30,7 +30,7 @@ export const HeaderArea = styled.div`
 export const ContentArea = styled.div`
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: ${theme.space.basic};
 `
 
 export const FooterArea = styled.div`

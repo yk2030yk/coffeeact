@@ -9,7 +9,7 @@ export const Menu = styled.div`
 
 export const MenuItem = styled.div<{ selected?: boolean }>`
   width: 100%;
-  padding: 5px 20px;
+  padding: 5px ${theme.space.basic};
   ${mixins.text}
   color: ${theme.color.white};
   ${mixins.pointer}

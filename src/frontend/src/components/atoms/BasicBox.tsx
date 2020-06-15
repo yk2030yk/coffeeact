@@ -1,7 +1,7 @@
-import { styled } from '@/styles'
+import { styled, theme } from '@/styles'
 
 export default styled.div`
-  margin-top: 20px;
+  margin-top: ${theme.space.basic};
   &:first-child {
     margin-top: 0;
   }

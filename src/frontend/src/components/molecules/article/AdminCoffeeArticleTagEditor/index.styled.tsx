@@ -1,4 +1,4 @@
-import { styled } from '@/styles'
+import { styled, theme } from '@/styles'
 
 export const InputTagBox = styled.div`
   display: flex;
@@ -8,5 +8,5 @@ export const InputTagBox = styled.div`
 `
 
 export const InputTagBoxItem = styled.div`
-  margin-right: 20px;
+  margin-right: ${theme.space.basic};
 `

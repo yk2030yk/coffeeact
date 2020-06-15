@@ -34,6 +34,7 @@ export const media = {
  * space
  */
 export const space = {
+  basic: '30px',
   atom: '20px',
 }
 

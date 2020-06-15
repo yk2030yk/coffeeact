@@ -9,7 +9,9 @@ const Template: React.FC = ({ children }) => (
     <S.HeaderArea>
       <Header />
     </S.HeaderArea>
-    <S.ContentArea>{children}</S.ContentArea>
+    <S.ContentAreaWrapper>
+      <S.ContentArea>{children}</S.ContentArea>
+    </S.ContentAreaWrapper>
     <S.FooterArea>
       <Footer />
     </S.FooterArea>

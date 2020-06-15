@@ -8,12 +8,12 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: ${theme.zindex.header};
-  padding: 0 20px;
+  padding: 0 ${theme.space.basic};
   border-bottom: solid 1px ${theme.color.christmasSilver};
 `
 
 export const Item = styled.div`
-  padding-left: 20px;
+  padding-left: ${theme.space.basic};
   color: black;
 `
 

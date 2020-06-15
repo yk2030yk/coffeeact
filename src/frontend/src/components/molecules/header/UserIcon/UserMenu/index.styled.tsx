@@ -22,7 +22,7 @@ export const Menu = styled.div`
 
 export const MenuItem = styled.div`
   width: 100%;
-  padding: 5px 20px;
+  padding: 5px ${theme.space.basic};
   ${mixins.text}
   ${mixins.pointer}
   display: flex;

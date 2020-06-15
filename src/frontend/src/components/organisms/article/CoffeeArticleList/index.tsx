@@ -1,23 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import * as S from './index.styled'
-import { Heading, FormattedMessage, BasicBox } from '@/components/atoms'
+import {
+  Heading,
+  FormattedMessage,
+  BasicBox,
+  LoadingBox,
+  Text,
+} from '@/components/atoms'
 import CoffeeArticleCards from '@/components/molecules/article/CoffeeArticleCards'
+import CoffeeArticleLIstFilter from '@/components/molecules/article/CoffeeArticleLIstFilter'
 import {
   useCoffeeArticles,
   useCoffeeArticlesFilter,
+  FilterCondition,
 } from '@/hooks/firestore/useCoffeeArticle'
+import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 
 const Page: React.FC = () => {
-  const [searchText, setSearchText] = useState<string>('')
-  const { coffeeArticles } = useCoffeeArticles()
+  const { coffeeArticles, isLoading, isLoaded } = useCoffeeArticles()
   const filter = useCoffeeArticlesFilter(coffeeArticles)
 
-  const filtered = filter({
-    title: searchText,
-    description: searchText,
-    tags: searchText,
-  })
+  const [filterCondition, setFilterCondition] = useState<FilterCondition>({})
+  const [filteredCoffeeArticles, setFilteredCoffeeArticles] = useState<
+    CoffeeArticle[]
+  >([])
+
+  useEffect(() => {
+    setFilteredCoffeeArticles(filter(filterCondition))
+  }, [setFilteredCoffeeArticles, filter, filterCondition])
 
   return (
     <S.Wrapper>
@@ -27,15 +38,14 @@ const Page: React.FC = () => {
         </Heading>
       </BasicBox>
       <BasicBox>
-        <S.InputText
-          type="text"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          placeholder="記事を絞り込む"
-        />
+        <CoffeeArticleLIstFilter setFilterCondition={setFilterCondition} />
       </BasicBox>
       <BasicBox>
-        <CoffeeArticleCards coffeeArticles={filtered} />
+        {isLoading && <LoadingBox />}
+        {isLoaded && filteredCoffeeArticles.length === 0 && (
+          <Text>一致する記事がありません。</Text>
+        )}
+        <CoffeeArticleCards coffeeArticles={filteredCoffeeArticles} />
       </BasicBox>
     </S.Wrapper>
   )

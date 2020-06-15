@@ -22,7 +22,7 @@ export const StatusLogoMessage = styled.div`
 `
 
 export const MessageBox = styled.div`
-  margin-top: 20px;
+  margin-top: ${theme.space.basic};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 40px;
+  padding: ${theme.space.basic} 40px;
   margin-top: 50px;
 `
 

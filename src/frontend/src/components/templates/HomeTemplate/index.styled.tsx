@@ -20,10 +20,17 @@ export const HomeHeaderArea = styled.div`
   width: 100%;
 `
 
-export const ContentArea = styled.div`
+export const ContentAreaWrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  padding: ${theme.space.basic};
+`
+
+export const ContentArea = styled.div`
+  width: 1000px;
+  height: 100%;
 `
 
 export const FooterArea = styled.div`

@@ -14,13 +14,13 @@ export const Overlay = styled.div`
   display: flex;
   align-items: center;
   border-bottom: solid 1px ${theme.color.plaster};
-  padding: 0 20px;
+  padding: 0 ${theme.space.basic};
   width: 100%;
   height: 500px;
   background-color: rgb(0, 0, 0, 0.4);
 `
 
 export const Item = styled.div`
-  padding-left: 20px;
+  padding-left: ${theme.space.basic};
   color: #fff;
 `

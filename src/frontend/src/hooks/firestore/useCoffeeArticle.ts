@@ -1,7 +1,9 @@
 import { useState, useCallback, useEffect } from 'react'
+
 import { coffeeArticleService } from '@/service/firestore/CoffeeArticleService'
 import { CoffeeArticle } from '@/models/article/CoffeeArticle'
 import { useAsyncTask } from '../common/useAsyncTask'
+import { isBetween } from '@/utils/date'
 
 export const useCoffeeArticle = (id?: string) => {
   const [coffeeArticle, setCoffeeArticle] = useState<CoffeeArticle>()
@@ -54,13 +56,13 @@ export const useCoffeeArticles = () => {
   return { coffeeArticles, ...asyncTask }
 }
 
-type FilterCondition = {
+export type FilterCondition = {
   title?: string
   description?: string
   tags?: string
   between?: {
-    start: string
-    end: string
+    start: Date
+    end: Date
   }
   limit?: number
 }
@@ -69,15 +71,26 @@ const matchFilterCondition = (
   coffeeArticle: CoffeeArticle,
   condition: FilterCondition
 ) => {
-  const { title, description, tags } = condition
+  const { title, description, tags, between } = condition
 
-  if (!title && !description && !tags) return true
+  const isMatch = () => {
+    if (!title && !description && !tags) return true
+    return (
+      (title && coffeeArticle.title.indexOf(title) !== -1) ||
+      (description && coffeeArticle.description.indexOf(description) !== -1) ||
+      (tags && coffeeArticle.tags.indexOf(tags) !== -1)
+    )
+  }
 
-  return (
-    (title && coffeeArticle.title.indexOf(title) !== -1) ||
-    (description && coffeeArticle.description.indexOf(description) !== -1) ||
-    (tags && coffeeArticle.tags.indexOf(tags) !== -1)
-  )
+  const isBetweenDate = () => {
+    if (!between) return true
+    return (
+      coffeeArticle.updatedAt &&
+      isBetween(coffeeArticle.updatedAt.toDate(), between.start, between.end)
+    )
+  }
+
+  return isMatch() && isBetweenDate()
 }
 
 export const useCoffeeArticlesFilter = (coffeeArticles: CoffeeArticle[]) => {

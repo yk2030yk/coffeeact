@@ -10,7 +10,7 @@ export const InputFile = styled.input`
 `
 
 export const InputFileLabel = styled.label`
-  padding: 5px 20px;
+  padding: 5px ${theme.space.basic};
   border-radius: 5px;
   ${mixins.pointer}
   ${mixins.button()}
@@ -26,7 +26,7 @@ export const InputFileLabel = styled.label`
 export const PreviewImgWrapper = styled.div`
   height: 200px;
   overflow: hidden;
-  margin-top: 20px;
+  margin-top: ${theme.space.basic};
   & > img {
     max-width: 300px;
   }

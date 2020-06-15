@@ -13,7 +13,9 @@ const Template: React.FC = ({ children }) => (
     <S.HomeHeaderArea>
       <HomeHeader />
     </S.HomeHeaderArea>
-    <S.ContentArea>{children}</S.ContentArea>
+    <S.ContentAreaWrapper>
+      <S.ContentArea>{children}</S.ContentArea>
+    </S.ContentAreaWrapper>
     <S.FooterArea>
       <Footer />
     </S.FooterArea>
