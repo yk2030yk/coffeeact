@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { startOfMonth } from 'date-fns'
 
 import * as S from './index.styled'
-//import { BasicBox, Markdown, StorageImage } from '@/components/atoms'
 import DatePick from '../DatePick'
 import { FilterCondition } from '@/hooks/firestore/useCoffeeArticle'
 type Props = {

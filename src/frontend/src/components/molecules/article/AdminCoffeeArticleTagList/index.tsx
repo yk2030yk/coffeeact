@@ -21,7 +21,7 @@ const CoffeeArticleEditor: React.FC<Props> = ({
   return (
     <S.TagList>
       {coffeeArticle.tags.map((tag) => (
-        <S.TagLabel key={tag} onClick={(e) => deleteTag(tag)}>
+        <S.TagLabel key={tag} onClick={() => deleteTag(tag)}>
           <S.Tag>{tag}</S.Tag>
           <RiCloseLine size={20} />
         </S.TagLabel>

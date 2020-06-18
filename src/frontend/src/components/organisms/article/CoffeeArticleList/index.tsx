@@ -6,10 +6,10 @@ import {
   FormattedMessage,
   BasicBox,
   LoadingBox,
-  Text,
 } from '@/components/atoms'
 import CoffeeArticleCards from '@/components/molecules/article/CoffeeArticleCards'
 import CoffeeArticleLIstFilter from '@/components/molecules/article/CoffeeArticleLIstFilter'
+import NotFoundCoffeeArticles from '@/components/molecules/article/NotFoundCoffeeArticles'
 import {
   useCoffeeArticles,
   useCoffeeArticlesFilter,
@@ -43,7 +43,7 @@ const Page: React.FC = () => {
       <BasicBox>
         {isLoading && <LoadingBox />}
         {isLoaded && filteredCoffeeArticles.length === 0 && (
-          <Text>一致する記事がありません。</Text>
+          <NotFoundCoffeeArticles />
         )}
         <CoffeeArticleCards coffeeArticles={filteredCoffeeArticles} />
       </BasicBox>
