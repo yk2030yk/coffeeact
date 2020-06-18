@@ -4,31 +4,31 @@ import { Switch } from 'react-router-dom'
 import AppRoute from './AppRoute'
 import AuthRoute from './AuthRoute'
 
-import AdminHomePage from '../pages/admin/AdminHomePage'
-import AdminLoginPage from '../pages/admin/AdminLoginPage'
-import AdminArticlesPage from '../pages/admin/AdminArticlesPage'
-import AdminArticleCreatePage from '../pages/admin/AdminArticleCreatePage'
-import AdminArticleEditorPage from '../pages/admin/AdminArticleEditorPage'
+import AdminHomePage from '@/containers/pages/admin/AdminHomePage'
+import AdminLoginPage from '@/containers/pages/admin/AdminLoginPage'
+import AdminArticlesPage from '@/containers/pages/coffeArticle/admin/AdminCoffeeArticlesPage'
+import AdminArticleCreatePage from '@/containers/pages/coffeArticle/admin/AdminCoffeeArticleCreatePage'
+import AdminArticleEditorPage from '@/containers/pages/coffeArticle/admin/AdminCoffeeArticleEditorPage'
 
-import ProfilePage from '../pages/ProfilePage'
-import ArticlePage from '../pages/ArticlePage'
-import ArticlesPage from '../pages/ArticlesPage'
-import ArticleEditorPage from '../pages/ArticleEditorPage'
-import HomePage from '../pages/HomePage'
-import AboutPage from '../pages/AboutPage'
-import FatalErrorPage from '../pages/FatalErrorPage'
-import NotFoundPage from '../pages/NotFoundPage'
+import ProfilePage from '@/containers/pages/profile/ProfilePage'
+import ArticlePage from '@/containers/pages/coffeArticle/user/CoffeeArticlesListPage'
+import ArticlesPage from '@/containers/pages/coffeArticle/user/CoffeeArticlesListPage'
+
+import HomePage from '@/containers/pages/home/HomePage'
+import AboutPage from '@/containers/pages/about/AboutPage'
+import FatalErrorPage from '@/containers/pages/error/FatalErrorPage'
+import NotFoundPage from '@/containers/pages/error/NotFoundPage'
 
 const Routes: React.FC = () => {
   return (
     <Switch>
+      <AuthRoute exact path="/admin/home" component={AdminHomePage} />
+      <AuthRoute exact path="/admin/articles" component={AdminArticlesPage} />
       <AuthRoute
         exact
         path="/admin/article/:articleId/edit"
-        component={ArticleEditorPage}
+        component={AdminArticleEditorPage}
       />
-      <AuthRoute exact path="/admin/home" component={AdminHomePage} />
-      <AuthRoute exact path="/admin/articles" component={AdminArticlesPage} />
       <AuthRoute
         exact
         path="/admin/article/create"

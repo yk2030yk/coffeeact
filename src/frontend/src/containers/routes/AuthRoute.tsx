@@ -4,7 +4,7 @@ import { Redirect, RouteProps } from 'react-router-dom'
 
 import { useAppContext } from '@/contexts/AppContext'
 import { SIGN_IN_STATUS } from '@/hooks/auth/useAuth'
-import LoadingPage from '../pages/LoadingPage'
+import LoadingPage from '../pages/global/LoadingPage'
 
 type Props = {
   component: any
