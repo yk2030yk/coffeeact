@@ -43,7 +43,13 @@ const Page: React.FC = () => {
         <CoffeeArticleLIstFilter setFilterCondition={setFilterCondition} />
       </BasicBox>
       <BasicBox>
-        {isLoading && <LoadingPlaceholder />}
+        {isLoading && (
+          <>
+            <LoadingPlaceholder />
+            <LoadingPlaceholder />
+            <LoadingPlaceholder />
+          </>
+        )}
         {isLoaded && filteredCoffeeArticles.length === 0 && (
           <NotFoundCoffeeArticles />
         )}
