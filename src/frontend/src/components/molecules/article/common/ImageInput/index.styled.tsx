@@ -23,6 +23,7 @@ export const InputFileLabel = styled.label`
     background-color: ${colorUtils.brighten(theme.color.blueRibbon)};
   }
 `
+
 export const PreviewImgWrapper = styled.div`
   height: 200px;
   overflow: hidden;

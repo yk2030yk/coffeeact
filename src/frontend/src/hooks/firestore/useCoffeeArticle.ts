@@ -114,14 +114,17 @@ export const useCoffeeArticlesFilter = (coffeeArticles: CoffeeArticle[]) => {
 export const useNewArrivalCoffeeArticles = () => {
   const [coffeeArticles, setCoffeeArticles] = useState<CoffeeArticle[]>([])
 
-  const fetch = useCallback(async () => {
-    const articles = await coffeeArticleService.newArrivalList(8)
-    setCoffeeArticles(articles)
-  }, [])
+  const asyncTask = useAsyncTask(
+    useCallback(async () => {
+      const articles = await coffeeArticleService.newArrivalList(8)
+      setCoffeeArticles(articles)
+    }, [])
+  )
 
+  const { execute } = asyncTask
   useEffect(() => {
-    fetch()
-  }, [fetch])
+    execute()
+  }, [execute])
 
-  return coffeeArticles
+  return { coffeeArticles, ...asyncTask }
 }

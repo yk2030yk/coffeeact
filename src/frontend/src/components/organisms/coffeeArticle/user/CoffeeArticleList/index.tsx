@@ -5,7 +5,7 @@ import {
   Heading,
   FormattedMessage,
   BasicBox,
-  LoadingBox,
+  LoadingPlaceholder,
 } from '@/components/atoms'
 import {
   CoffeeArticleCards,
@@ -43,7 +43,7 @@ const Page: React.FC = () => {
         <CoffeeArticleLIstFilter setFilterCondition={setFilterCondition} />
       </BasicBox>
       <BasicBox>
-        {isLoading && <LoadingBox />}
+        {isLoading && <LoadingPlaceholder />}
         {isLoaded && filteredCoffeeArticles.length === 0 && (
           <NotFoundCoffeeArticles />
         )}

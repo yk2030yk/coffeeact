@@ -13,7 +13,7 @@ const CoffeeArticleCards: React.FC<Props> = ({ coffeeArticles }) => {
       {coffeeArticles.map((coffeeArticle) => (
         <S.Link
           key={coffeeArticle.id}
-          to={`/admin/article/${coffeeArticle.id}`}
+          to={`/admin/coffee/article/${coffeeArticle.id}`}
         >
           <AdminCoffeeArticleCard coffeeArticle={coffeeArticle} />
         </S.Link>

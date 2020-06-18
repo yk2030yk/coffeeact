@@ -10056,6 +10056,11 @@ react-app-rewired@^2.1.5:
   dependencies:
     semver "^5.6.0"
 
+react-content-loader@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-5.0.4.tgz#1493491d2f6b309d281d84144a655417ea734486"
+  integrity sha512-hxv4Td1kQxFOmIUbBZ2S3HGZ/jJr28aJvM+8fndm9TmNOE7tSde7WSTL6R68aTS6qE0BA3ptcWIErrP704pQSw==
+
 react-date-range@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-date-range/-/react-date-range-1.0.3.tgz#effd22d7c743c9504583490ea02c10dfa3918eb9"

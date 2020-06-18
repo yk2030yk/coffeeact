@@ -8,27 +8,52 @@ const RecommendedCoffeeCards: React.FC = () => {
   const { pathname } = useLocation()
   return (
     <S.Menu>
-      <S.MenuItem
-        onClick={() => history.push('/admin/home')}
-        selected={pathname === '/admin/home'}
-      >
-        <TiHomeOutline size={20} />
-        <p>ホーム</p>
-      </S.MenuItem>
-      <S.MenuItem
-        onClick={() => history.push('/admin/article/create')}
-        selected={pathname === '/admin/article/create'}
-      >
-        <TiDocumentAdd size={20} />
-        <p>新規記事作成</p>
-      </S.MenuItem>
-      <S.MenuItem
-        onClick={() => history.push('/admin/articles')}
-        selected={pathname === '/admin/articles'}
-      >
-        <TiThList size={20} />
-        <p>記事一覧</p>
-      </S.MenuItem>
+      <S.MenuContent>
+        <S.MenuTitle>ホーム</S.MenuTitle>
+        <S.MenuItem
+          onClick={() => history.push('/admin/home')}
+          selected={pathname === '/admin/home'}
+        >
+          <TiHomeOutline size={20} />
+          <p>ホーム</p>
+        </S.MenuItem>
+
+        <S.MenuDivider />
+        <S.MenuTitle>珈琲記事</S.MenuTitle>
+        <S.MenuItem
+          onClick={() => history.push('/admin/coffee/article/create')}
+          selected={pathname === '/admin/coffee/article/create'}
+        >
+          <TiDocumentAdd size={20} />
+          <p>新規記事作成</p>
+        </S.MenuItem>
+
+        <S.MenuItem
+          onClick={() => history.push('/admin/coffee/articles')}
+          selected={pathname === '/admin/coffee/articles'}
+        >
+          <TiThList size={20} />
+          <p>記事一覧</p>
+        </S.MenuItem>
+
+        <S.MenuDivider />
+        <S.MenuTitle>通常記事</S.MenuTitle>
+        <S.MenuItem
+          onClick={() => history.push('/admin/article/create')}
+          selected={pathname === '/admin/article/create'}
+        >
+          <TiDocumentAdd size={20} />
+          <p>新規記事作成</p>
+        </S.MenuItem>
+
+        <S.MenuItem
+          onClick={() => history.push('/admin/articles')}
+          selected={pathname === '/admin/articles'}
+        >
+          <TiThList size={20} />
+          <p>記事一覧</p>
+        </S.MenuItem>
+      </S.MenuContent>
     </S.Menu>
   )
 }

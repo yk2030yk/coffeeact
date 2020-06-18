@@ -7,6 +7,13 @@ export const Menu = styled.div`
   padding: 10px 0;
 `
 
+export const MenuContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+
 export const MenuItem = styled.div<{ selected?: boolean }>`
   width: 100%;
   padding: 5px ${theme.space.basic};
@@ -26,4 +33,17 @@ export const MenuItem = styled.div<{ selected?: boolean }>`
   &:hover {
     background-color: ${colorUtils.brighten(theme.color.yankeesBlue)};
   }
+`
+
+export const MenuTitle = styled.div`
+  padding: 5px ${theme.space.basic};
+  ${mixins.text}
+  color: ${theme.color.white};
+  font-weight: 800;
+`
+
+export const MenuDivider = styled.div`
+  background-color: #324a5f;
+  height: 1px;
+  width: 90%;
 `

@@ -13,8 +13,13 @@ export const texts = {
       },
     },
   },
-  recommended: {
-    title: '最近の珈琲',
+  home: {
+    newArrivalCoffeeArticle: {
+      title: '最近の珈琲',
+    },
+    newArrivalArticle: {
+      title: '最近の記事',
+    },
   },
   about: {
     title: `${APP_NAME}とは`,

@@ -11,7 +11,10 @@ const CoffeeArticleCards: React.FC<Props> = ({ coffeeArticles }) => {
   return (
     <S.Cards>
       {coffeeArticles.map((coffeeArticle) => (
-        <S.Link key={coffeeArticle.id} to={`/article/${coffeeArticle.id}`}>
+        <S.Link
+          key={coffeeArticle.id}
+          to={`/coffee/article/${coffeeArticle.id}`}
+        >
           <CoffeeArticleCard coffeeArticle={coffeeArticle} />
         </S.Link>
       ))}
