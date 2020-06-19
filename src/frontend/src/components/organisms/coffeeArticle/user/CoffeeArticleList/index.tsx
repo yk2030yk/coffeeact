@@ -45,9 +45,9 @@ const Page: React.FC = () => {
       <BasicBox>
         {isLoading && (
           <>
-            <LoadingPlaceholder />
-            <LoadingPlaceholder />
-            <LoadingPlaceholder />
+            <LoadingPlaceholder type="article" />
+            <LoadingPlaceholder type="article" />
+            <LoadingPlaceholder type="article" />
           </>
         )}
         {isLoaded && filteredCoffeeArticles.length === 0 && (

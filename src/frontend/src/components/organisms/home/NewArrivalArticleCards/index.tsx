@@ -22,9 +22,9 @@ const RecommendedCoffeeCards: React.FC = () => {
       </BasicBox>
       {isLoading ? (
         <>
-          <LoadingPlaceholder />
-          <LoadingPlaceholder />
-          <LoadingPlaceholder />
+          <LoadingPlaceholder type="article" />
+          <LoadingPlaceholder type="article" />
+          <LoadingPlaceholder type="article" />
         </>
       ) : (
         <>

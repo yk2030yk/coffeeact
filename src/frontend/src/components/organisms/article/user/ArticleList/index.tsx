@@ -41,7 +41,7 @@ const Page: React.FC = () => {
         <ArticleLIstFilter setFilterCondition={setFilterCondition} />
       </BasicBox>
       <BasicBox>
-        {isLoading && <LoadingPlaceholder />}
+        {isLoading && <LoadingPlaceholder type="article" />}
         {isLoaded && filteredArticles.length === 0 && <NotFoundArticles />}
         <ArticleCards articles={filteredArticles} />
       </BasicBox>

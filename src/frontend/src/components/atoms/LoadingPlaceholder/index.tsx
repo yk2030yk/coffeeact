@@ -1,17 +1,27 @@
 import React from 'react'
-import ContentLoader from 'react-content-loader'
 
+import ArticleLoadingPlaceholder from './ArticleLoadingPlaceholder'
 import * as S from './index.styled'
 
-const LoadingPlaceholder: React.FC = () => (
-  <S.Wrapper>
-    <ContentLoader viewBox="0 0 380 70">
-      <rect x="0" y="0" rx="3" ry="3" width="70" height="70" />
-      <rect x="80" y="5" rx="3" ry="3" width="100%" height="5" />
-      <rect x="80" y="20" rx="3" ry="3" width="100%" height="5" />
-      <rect x="80" y="35" rx="3" ry="3" width="100%" height="5" />
-    </ContentLoader>
-  </S.Wrapper>
-)
+const placeholderType = {
+  default: 'default',
+  article: 'article',
+  image: 'image',
+} as const
+
+const Placeholders = {
+  [placeholderType.default]: ArticleLoadingPlaceholder,
+  [placeholderType.article]: ArticleLoadingPlaceholder,
+  [placeholderType.image]: ArticleLoadingPlaceholder,
+}
+
+type Props = {
+  type?: typeof placeholderType[keyof typeof placeholderType]
+}
+
+const LoadingPlaceholder: React.FC<Props> = ({ type = 'default' }) => {
+  const Placeholder = Placeholders[type]
+  return <S.Wrapper>{Placeholder && <Placeholder />}</S.Wrapper>
+}
 
 export default LoadingPlaceholder
