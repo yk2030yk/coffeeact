@@ -14,9 +14,6 @@ export const texts = {
     },
   },
   home: {
-    newArrivalCoffeeArticle: {
-      title: '最近の珈琲',
-    },
     newArrivalArticle: {
       title: '最近の記事',
     },

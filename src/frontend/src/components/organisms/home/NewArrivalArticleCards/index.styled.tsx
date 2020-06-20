@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
 export const Cards = styled.div`
   width: 100%;
   display: grid;
-  grid-gap: ${theme.space.basic};
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: ${theme.space.atom};
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 `
 
 export const Link = styled(RouterLink)`

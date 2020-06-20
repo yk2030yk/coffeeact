@@ -11,14 +11,8 @@ import AdminArticlesPage from '@/containers/pages/article/admin/AdminArticlesPag
 import AdminArticleCreatePage from '@/containers/pages/article/admin/AdminArticleCreatePage'
 import AdminArticleEditorPage from '@/containers/pages/article/admin/AdminArticleEditorPage'
 
-import AdminCoffeeArticlesPage from '@/containers/pages/coffeArticle/admin/AdminCoffeeArticlesPage'
-import AdminCoffeeArticleCreatePage from '@/containers/pages/coffeArticle/admin/AdminCoffeeArticleCreatePage'
-import AdminCoffeeArticleEditorPage from '@/containers/pages/coffeArticle/admin/AdminCoffeeArticleEditorPage'
-
 import ArticlePage from '@/containers/pages/article/user/ArticlePage'
 import ArticlesPage from '@/containers/pages/article/user/ArticlesListPage'
-import CoffeeArticlePage from '@/containers/pages/coffeArticle/user/CoffeeArticlePage'
-import CoffeeArticlesPage from '@/containers/pages/coffeArticle/user/CoffeeArticlesListPage'
 
 import HomePage from '@/containers/pages/home/HomePage'
 import ProfilePage from '@/containers/pages/profile/ProfilePage'
@@ -43,35 +37,9 @@ const Routes: React.FC = () => {
         path="/admin/article/:articleId"
         component={AdminArticleEditorPage}
       />
-
-      {/* coffee article */}
-      <AuthRoute
-        exact
-        path="/admin/coffee/articles"
-        component={AdminCoffeeArticlesPage}
-      />
-      <AuthRoute
-        exact
-        path="/admin/coffee/article/create"
-        component={AdminCoffeeArticleCreatePage}
-      />
-      <AuthRoute
-        exact
-        path="/admin/coffee/article/:articleId"
-        component={AdminCoffeeArticleEditorPage}
-      />
-
       {/* coffee article */}
       <AppRoute exact path="/articles" component={ArticlesPage} />
       <AppRoute exact path="/article/:articleId" component={ArticlePage} />
-
-      {/* coffee article */}
-      <AppRoute exact path="/coffee/articles" component={CoffeeArticlesPage} />
-      <AppRoute
-        exact
-        path="/coffee/article/:articleId"
-        component={CoffeeArticlePage}
-      />
 
       <AppRoute exact path="/profile" component={ProfilePage} />
       <AppRoute exact path="/admin/login" component={AdminLoginPage} />

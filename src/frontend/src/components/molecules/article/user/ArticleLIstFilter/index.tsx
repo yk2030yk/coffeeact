@@ -3,7 +3,8 @@ import { startOfMonth } from 'date-fns'
 
 import * as S from './index.styled'
 import DatePick from '@/components/molecules/article/common/DatePick'
-import { FilterCondition } from '@/hooks/firestore/useCoffeeArticle'
+import { FilterCondition } from '@/hooks/firestore/useArticle'
+
 type Props = {
   setFilterCondition: (condition: FilterCondition) => void
 }

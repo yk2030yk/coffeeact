@@ -11,7 +11,7 @@ import {
   ArticleCards,
   ArticleLIstFilter,
 } from '@/components/molecules/article/user'
-import NotFoundArticles from '@/components/molecules/coffeeArticle/common/NotFoundCoffeeArticle'
+import NotFoundArticle from '@/components/molecules/article/common/NotFoundArticle'
 import {
   useArticles,
   useArticlesFilter,
@@ -42,7 +42,7 @@ const Page: React.FC = () => {
       </BasicBox>
       <BasicBox>
         {isLoading && <LoadingPlaceholder type="article" />}
-        {isLoaded && filteredArticles.length === 0 && <NotFoundArticles />}
+        {isLoaded && filteredArticles.length === 0 && <NotFoundArticle />}
         <ArticleCards articles={filteredArticles} />
       </BasicBox>
     </S.Wrapper>

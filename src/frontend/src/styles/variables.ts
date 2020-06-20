@@ -11,10 +11,11 @@ export const fontFamily = {
  */
 export const fontSize = {
   smallText: '11px',
-  text: '14px',
-  default: '16px',
-  heading2: '18px',
-  heading: '22px',
+  text: '13px',
+  default: '13px',
+  heading2: '16px',
+  heading: '18px',
+  pageTitle: '20px',
   big: '42px',
 }
 
@@ -42,8 +43,9 @@ export const space = {
  * z-index
  */
 export const zindex = {
-  header: 500,
-  loading: 600,
+  header: 300,
+  modal: 500,
+  loading: 700,
 }
 
 /**

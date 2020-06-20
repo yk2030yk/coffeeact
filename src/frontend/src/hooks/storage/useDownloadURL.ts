@@ -3,7 +3,7 @@ import { storage } from '@/service/firebase'
 import { useAsyncTask } from '@/hooks/common/useAsyncTask'
 
 export const useDownloadURL = (path: string) => {
-  const [downloadURL, setDownloadURL] = useState()
+  const [downloadURL, setDownloadURL] = useState<string>()
 
   const asyncTask = useAsyncTask(
     useCallback(async () => {

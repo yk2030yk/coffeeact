@@ -41,9 +41,7 @@ export const heading2 = css`
 `
 
 export const card = css`
-  background-color: ${theme.color.white};
   padding: ${theme.space.atom};
-  border: solid 1px ${theme.color.plaster};
 `
 
 export const pointer = css`
@@ -70,20 +68,23 @@ export const button = ({
   hoverBgColor = colorUtils.brighten(theme.color.evilSunzScarlet),
   fontColor = theme.color.white,
   bgFontColor = theme.color.white,
+  width = 'auto',
 }: {
   bgColor?: string
   hoverBgColor?: string
   fontColor?: string
   bgFontColor?: string
+  width?: string
 } = {}) => css`
   color: ${fontColor};
   background-color: ${bgColor};
   padding: 10px;
   border-radius: 5px;
-  width: 200px;
+  width: ${width};
   text-align: center;
   border: none;
   cursor: pointer;
+  display: inline-block;
   &: hover {
     background-color: ${hoverBgColor};
     color: ${bgFontColor};
