@@ -25,7 +25,7 @@ type Props = {
 
 const AdminArticleForm: React.FC<Props> = ({ articleId, handleSubmit }) => {
   const { article, updateModel } = useArticle(articleId)
-  const { upload, setBlob, src } = useUploadImage()
+  const { upload, setBlob, src, blob } = useUploadImage()
   const { register, handleSubmit: handleSubmitHookForm } = useForm<FormValues>()
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
   const modal = useModal()
@@ -33,9 +33,11 @@ const AdminArticleForm: React.FC<Props> = ({ articleId, handleSubmit }) => {
   const onSubmit = handleSubmitHookForm(async (data) => {
     setIsSubmitting(true)
     const newArticle = formValuesToModel(data, article)
-    const path = `public/${randomString()}.png`
-    upload(path)
-    newArticle.imgSrc = path
+    if (blob) {
+      const path = `public/${randomString()}.png`
+      upload(path)
+      newArticle.imgSrc = path
+    }
     await handleSubmit(newArticle)
     setIsSubmitting(false)
   })

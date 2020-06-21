@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import * as S from './index.styled'
-import UserMenu from './UserMenu'
+import UserMenu from '../UserMenu'
 
 type Props = {}
 

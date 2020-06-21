@@ -1,4 +1,4 @@
-import { styled, mixins, theme, colorUtils } from '@/styles'
+import { styled } from '@/styles'
 
 export const Wrapper = styled.div<{ color: string }>`
   width: 300px;
