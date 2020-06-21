@@ -6,31 +6,32 @@ import WithErrorBoundary from './WithErrorBoundary'
 import WithGlobalStyle from './WithGlobalStyle'
 import WithEmotionTheme from './WithEmotionTheme'
 import WithIntl from './WithIntl'
-import WithRecoil from './WithRecoil'
+// import WithRecoil from './WithRecoil'
 import WithSentry from './WithSentry'
 import Routes from '../routes'
 import { AppContextProvider } from '@/contexts/AppContext'
+import { PageContextProvider } from '@/contexts/PageContext'
 
 const App: React.FC = () => (
-  <WithRecoil>
-    <WithSentry>
-      <WithIntl>
-        <WithEmotionTheme>
-          <WithGlobalStyle>
-            <BrowserRouter>
-              <WithErrorBoundary>
-                <WithScrollToTop>
-                  <AppContextProvider>
+  <WithSentry>
+    <WithIntl>
+      <WithEmotionTheme>
+        <WithGlobalStyle>
+          <BrowserRouter>
+            <WithErrorBoundary>
+              <WithScrollToTop>
+                <AppContextProvider>
+                  <PageContextProvider>
                     <Routes />
-                  </AppContextProvider>
-                </WithScrollToTop>
-              </WithErrorBoundary>
-            </BrowserRouter>
-          </WithGlobalStyle>
-        </WithEmotionTheme>
-      </WithIntl>
-    </WithSentry>
-  </WithRecoil>
+                  </PageContextProvider>
+                </AppContextProvider>
+              </WithScrollToTop>
+            </WithErrorBoundary>
+          </BrowserRouter>
+        </WithGlobalStyle>
+      </WithEmotionTheme>
+    </WithIntl>
+  </WithSentry>
 )
 
 export default App

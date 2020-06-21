@@ -46,6 +46,7 @@ export const zindex = {
   header: 300,
   modal: 500,
   loading: 700,
+  snackbar: 900,
 }
 
 /**

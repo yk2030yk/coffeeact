@@ -4,17 +4,19 @@ import { useHistory } from 'react-router-dom'
 import AdminArticleForm from '../AdminArticleForm'
 import { Article } from '@/models/article/Article'
 import { articleService } from '@/service/firestore/ArticleService'
+import { usePageContext } from '@/contexts/PageContext'
 
 const AdminArticleCreateForm: React.FC = () => {
   const history = useHistory()
+  const { pushSnackbarMessage } = usePageContext()
 
   const handleSubmit = async (article: Article) => {
     try {
       const id = await articleService.create(article)
-      alert('success!!')
+      pushSnackbarMessage('作成に成功しました。')
       history.push(`/admin/article/${id}`)
     } catch (e) {
-      alert('error...')
+      pushSnackbarMessage('作成に失敗しました。', true)
     }
   }
 
