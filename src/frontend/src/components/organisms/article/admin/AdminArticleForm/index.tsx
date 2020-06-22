@@ -11,12 +11,24 @@ import {
   AdminArticleTagEditor,
   AdminArticleTagList,
   AdminArticleImageCropperModal,
+  AdminArticlePublishStatusSelectBox,
 } from '@/components/molecules/article/admin'
-import { Article } from '@/models/article/Article'
+import { Article, PUBLISH_STATUS } from '@/models/article/Article'
 import { useUploadImage } from '@/hooks/storage/useUploadImage'
 import { useModal } from '@/hooks/common/useModal'
 import { useArticle } from '@/hooks/firestore/useArticle'
 import { randomString } from '@/utils/util'
+
+const PublishStatusOptions = [
+  {
+    value: PUBLISH_STATUS.PUBLISH,
+    label: '公開',
+  },
+  {
+    value: PUBLISH_STATUS.UN_PUBLISH,
+    label: '非公開',
+  },
+]
 
 type Props = {
   articleId?: string
@@ -54,6 +66,15 @@ const AdminArticleForm: React.FC<Props> = ({ articleId, handleSubmit }) => {
             <BasicBox>
               <AdminArticleImage src={src} path={article.imgSrc} />
             </BasicBox>
+
+            <BasicBox>
+              <AdminArticlePublishStatusSelectBox
+                options={PublishStatusOptions}
+                article={article}
+                register={register}
+              />
+            </BasicBox>
+
             <BasicBox>
               <Heading>記事タグ</Heading>
             </BasicBox>

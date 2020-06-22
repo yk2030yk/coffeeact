@@ -14,6 +14,7 @@ const ArticleCard: React.FC<Props> = ({ article }) => {
       <Card>
         <S.CoffeeImageWrapper>
           <StorageImage path={article.imgSrc} />
+          {article.isNewArrival && <S.NewArrivalIcon>new</S.NewArrivalIcon>}
         </S.CoffeeImageWrapper>
         <S.Info>
           <S.CoffeeUpdatedAt>{article.formatUpdatedAt}</S.CoffeeUpdatedAt>

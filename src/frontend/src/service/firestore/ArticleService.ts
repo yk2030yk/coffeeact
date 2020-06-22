@@ -1,7 +1,7 @@
 import { firestore } from 'firebase'
 
 import { FirestoreService } from './FirestoreService'
-import { Article } from '@/models/article/Article'
+import { Article, PUBLISH_STATUS } from '@/models/article/Article'
 
 const COLLECTION_NAME = 'articles'
 
@@ -13,12 +13,16 @@ export class ArticleService extends FirestoreService {
   }
 
   private modelToJson(article: Article) {
+    const timestamp = firestore.FieldValue.serverTimestamp()
     return {
+      publishStatus: article.publishStatus,
       description: article.description,
       imgSrc: article.imgSrc,
       title: article.title,
       tags: article.tags,
-      updatedAt: firestore.FieldValue.serverTimestamp(),
+      createdAt:
+        article.createdAt === undefined ? timestamp : article.createdAt,
+      updatedAt: timestamp,
     }
   }
 
@@ -27,18 +31,27 @@ export class ArticleService extends FirestoreService {
     return this.docToModel(doc)
   }
 
-  public async getList() {
-    const querySnapshot = await this.db
-      .collection(COLLECTION_NAME)
-      .orderBy('updatedAt', 'desc')
-      .get()
+  public async getList(isOnlyPublish = true) {
+    const ref = this.db.collection(COLLECTION_NAME)
+
+    let query
+    if (isOnlyPublish) {
+      query = ref
+        .where('publishStatus', '==', PUBLISH_STATUS.PUBLISH)
+        .orderBy('createdAt', 'desc')
+    } else {
+      query = ref.orderBy('createdAt', 'desc')
+    }
+
+    const querySnapshot = await query.get()
     return querySnapshot.docs.map((doc) => this.docToModel(doc))
   }
 
   public async newArrivalList(limit = 10) {
     const querySnapshot = await this.db
       .collection(COLLECTION_NAME)
-      .orderBy('updatedAt', 'desc')
+      .where('publishStatus', '==', PUBLISH_STATUS.PUBLISH)
+      .orderBy('createdAt', 'desc')
       .limit(limit)
       .get()
     return querySnapshot.docs.map((doc) => this.docToModel(doc))

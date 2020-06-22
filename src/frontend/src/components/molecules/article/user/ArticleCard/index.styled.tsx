@@ -1,4 +1,4 @@
-import { styled, mixins, theme } from '@/styles'
+import { styled, mixins, theme, colorUtils } from '@/styles'
 
 export const Wrapper = styled.div`
   ${mixins.pointer}
@@ -8,9 +8,8 @@ export const Wrapper = styled.div`
 
 export const CoffeeImageWrapper = styled.div`
   width: 100%;
-  height: 200px;
-  overflow: hidden;
   border-radius: 3px;
+  position: relative;
 
   & > img {
     width: 100%;
@@ -30,4 +29,13 @@ export const CoffeeTitle = styled.p`
   color: $ color.darkestDungeon};
   font-weight: ${theme.fontWeight.bold};
   padding-top: 10px;
+`
+
+export const NewArrivalIcon = styled.div`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 10px 15px;
+  color: ${theme.color.white};
+  background-color: ${colorUtils.alpha(theme.color.fusionRed)};
 `

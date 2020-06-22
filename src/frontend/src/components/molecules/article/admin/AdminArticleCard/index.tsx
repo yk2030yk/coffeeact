@@ -10,10 +10,13 @@ type Props = {
 
 const ArticleCard: React.FC<Props> = ({ article }) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper isPublish={article.isPublish}>
       <Card>
         <S.CoffeeImageWrapper>
           <StorageImage path={article.imgSrc} />
+          <S.PublishIcon isPublish={article.isPublish}>
+            {article.isPublish ? '公開中' : '非公開'}
+          </S.PublishIcon>
         </S.CoffeeImageWrapper>
         <S.Info>
           <S.CoffeeUpdatedAt>{article.formatUpdatedAt}</S.CoffeeUpdatedAt>
