@@ -20,12 +20,12 @@ import AboutPage from '@/containers/pages/about/AboutPage'
 import FatalErrorPage from '@/containers/pages/error/FatalErrorPage'
 import NotFoundPage from '@/containers/pages/error/NotFoundPage'
 
+import ExperimentPage from '@/containers/pages/experiment/ExperimentPage'
+
 const Routes: React.FC = () => {
   return (
     <Switch>
       <AuthRoute exact path="/admin/home" component={AdminHomePage} />
-
-      {/* article */}
       <AuthRoute exact path="/admin/articles" component={AdminArticlesPage} />
       <AuthRoute
         exact
@@ -37,9 +37,10 @@ const Routes: React.FC = () => {
         path="/admin/article/:articleId"
         component={AdminArticleEditorPage}
       />
-      {/* coffee article */}
       <AppRoute exact path="/articles" component={ArticlesPage} />
       <AppRoute exact path="/article/:articleId" component={ArticlePage} />
+
+      <AppRoute exact path="/experiment" component={ExperimentPage} />
 
       <AppRoute exact path="/profile" component={ProfilePage} />
       <AppRoute exact path="/admin/login" component={AdminLoginPage} />
