@@ -31,26 +31,18 @@ export class ArticleService extends FirestoreService {
     return this.docToModel(doc)
   }
 
-  public async getList(isOnlyPublish = true) {
-    const ref = this.db.collection(COLLECTION_NAME)
-
-    let query
-    if (isOnlyPublish) {
-      query = ref
-        .where('publishStatus', '==', PUBLISH_STATUS.PUBLISH)
-        .orderBy('createdAt', 'desc')
-    } else {
-      query = ref.orderBy('createdAt', 'desc')
-    }
-
-    const querySnapshot = await query.get()
+  public async getList() {
+    const querySnapshot = await this.db
+      .collection(COLLECTION_NAME)
+      .orderBy('createdAt', 'desc')
+      .get()
     return querySnapshot.docs.map((doc) => this.docToModel(doc))
   }
 
   public async newArrivalList(limit = 10) {
     const querySnapshot = await this.db
       .collection(COLLECTION_NAME)
-      .where('publishStatus', '==', PUBLISH_STATUS.PUBLISH)
+      // .where('publishStatus', '==', PUBLISH_STATUS.PUBLISH)
       .orderBy('createdAt', 'desc')
       .limit(limit)
       .get()
