@@ -1,13 +1,9 @@
 import React from 'react'
-import AppLayout from '../../layouts/AppLayout'
+
 import LoadingPage from '@/components/pages/global/LoadingPage'
 
 const PageContainer: React.FC = () => {
-  return (
-    <AppLayout>
-      <LoadingPage />
-    </AppLayout>
-  )
+  return <LoadingPage />
 }
 
 export default PageContainer
