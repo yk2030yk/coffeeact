@@ -1,13 +1,15 @@
 import React from 'react'
-
+import { useRecoilValue } from 'recoil'
 import * as S from './index.styled'
 import InfoSnackbarMessage from '@/components/molecules/common/InfoSnackbarMessage'
 import ErrorSnackbarMessage from '@/components/molecules/common/ErrorSnackbarMessage'
-import { usePageContext } from '@/contexts/PageContext'
-import { SnackbarType } from '@/hooks/common/useSnackbar'
+import {
+  snackbarMessagesState,
+  SnackbarType,
+} from '@/recoil/global/snackbar/atoms'
 
 const Header: React.FC = () => {
-  const { snackbarMessages } = usePageContext()
+  const snackbarMessages = useRecoilValue(snackbarMessagesState)
   return (
     <>
       {snackbarMessages.length > 0 && (

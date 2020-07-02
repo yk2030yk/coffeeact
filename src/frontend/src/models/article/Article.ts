@@ -15,7 +15,7 @@ export type PublishStatus = typeof PUBLISH_STATUS[keyof typeof PUBLISH_STATUS]
 export class Article extends BaseModel {
   public readonly id: string
   public readonly publishStatus: PublishStatus
-  public readonly imgSrc: string
+  public imgSrc: string
   public readonly title: string
   public readonly description: string
   public readonly tags: string[]
