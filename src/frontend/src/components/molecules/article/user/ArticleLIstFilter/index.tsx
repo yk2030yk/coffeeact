@@ -1,45 +1,23 @@
-import React, { useState, useEffect } from 'react'
-import { startOfMonth } from 'date-fns'
-
+import React, { useEffect } from 'react'
+import { useRecoilState } from 'recoil'
 import * as S from './index.styled'
-import DatePick from '@/components/molecules/article/common/DatePick'
-import { FilterCondition } from '@/hooks/firestore/useArticle'
+import { articlesFilterState } from '@/recoil/article/atoms'
 
-type Props = {
-  setFilterCondition: (condition: FilterCondition) => void
-}
-
-const Article: React.FC<Props> = ({ setFilterCondition }) => {
-  const [searchText, setSearchText] = useState<string>('')
-
-  const today = new Date()
-  const [startDate, setStartDate] = useState(startOfMonth(today))
-  const [endDate, setEndDate] = useState(today)
+const Article: React.FC = () => {
+  const [filter, setFilter] = useRecoilState(articlesFilterState)
 
   useEffect(() => {
-    setFilterCondition({
-      title: searchText,
-      description: searchText,
-      tags: searchText,
-      between: {
-        start: startDate,
-        end: endDate,
-      },
-    })
-  }, [setFilterCondition, searchText, startDate, endDate])
+    return () => setFilter({ keyword: '' })
+  }, [setFilter])
 
   return (
     <S.Wrapper>
-      <DatePick
-        startDate={startDate}
-        setStartDate={setStartDate}
-        endDate={endDate}
-        setEndDate={setEndDate}
-      />
       <S.InputText
         type="text"
-        value={searchText}
-        onChange={(e) => setSearchText(e.target.value)}
+        value={filter.keyword}
+        onChange={(e) =>
+          setFilter((old) => ({ ...old, keyword: e.target.value }))
+        }
         placeholder="キーワードで記事を絞り込む"
       />
     </S.Wrapper>

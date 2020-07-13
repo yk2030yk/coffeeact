@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRecoilValueLoadable } from 'recoil'
 
 import * as S from './index.styled'
 import {
@@ -9,10 +10,36 @@ import {
 } from '@/components/atoms'
 import MoreLink from '@/components/molecules/common/MoreLink'
 import { ArticleCards } from '@/components/molecules/article/user'
-import { useNewArrivalArticles } from '@/hooks/firestore/useArticle'
+import { articlesSelector } from '@/recoil/article/selectors'
 
+const Cards: React.FC = () => {
+  const loadable = useRecoilValueLoadable(articlesSelector)
+
+  switch (loadable.state) {
+    case 'loading':
+      return (
+        <>
+          <LoadingPlaceholder type="article" />
+          <LoadingPlaceholder type="article" />
+          <LoadingPlaceholder type="article" />
+        </>
+      )
+    case 'hasValue':
+      return (
+        <>
+          <BasicBox>
+            <ArticleCards articles={loadable.contents} />
+          </BasicBox>
+          <BasicBox>
+            <MoreLink text="もっと見る" link="/articles" />
+          </BasicBox>
+        </>
+      )
+    default:
+      return null
+  }
+}
 const RecommendedCoffeeCards: React.FC = () => {
-  const { articles, isLoading } = useNewArrivalArticles()
   return (
     <S.Wrapper>
       <BasicBox>
@@ -20,22 +47,7 @@ const RecommendedCoffeeCards: React.FC = () => {
           <FormattedMessage id="home.newArrivalArticle.title" />
         </Heading>
       </BasicBox>
-      {isLoading ? (
-        <>
-          <LoadingPlaceholder type="article" />
-          <LoadingPlaceholder type="article" />
-          <LoadingPlaceholder type="article" />
-        </>
-      ) : (
-        <>
-          <BasicBox>
-            <ArticleCards articles={articles} />
-          </BasicBox>
-          <BasicBox>
-            <MoreLink text="もっと見る" link="/articles" />
-          </BasicBox>
-        </>
-      )}
+      <Cards />
     </S.Wrapper>
   )
 }

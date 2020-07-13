@@ -42,7 +42,7 @@ export class Article extends BaseModel {
     createdAt?: firestore.Timestamp | undefined
     updatedAt?: firestore.Timestamp | undefined
     doc?: firestore.DocumentSnapshot | undefined
-  }) {
+  } = {}) {
     super(doc)
     this.id = id
     this.publishStatus = publishStatus

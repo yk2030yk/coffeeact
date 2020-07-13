@@ -1,7 +1,7 @@
 import { firestore } from 'firebase'
 
 import { FirestoreService } from './FirestoreService'
-import { Article, PUBLISH_STATUS } from '@/models/article/Article'
+import { Article } from '@/models/article/Article'
 
 const COLLECTION_NAME = 'articles'
 
@@ -9,7 +9,7 @@ export class ArticleService extends FirestoreService {
   private docToModel(doc: firestore.DocumentSnapshot) {
     const data = doc.data() as ConstructorParameters<typeof Article>[0]
     const id = doc.id
-    return new Article({ ...data, id, doc })
+    return new Article({ ...data, id })
   }
 
   private modelToJson(article: Article) {
@@ -42,7 +42,6 @@ export class ArticleService extends FirestoreService {
   public async newArrivalList(limit = 10) {
     const querySnapshot = await this.db
       .collection(COLLECTION_NAME)
-      // .where('publishStatus', '==', PUBLISH_STATUS.PUBLISH)
       .orderBy('createdAt', 'desc')
       .limit(limit)
       .get()

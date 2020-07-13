@@ -1,3 +1,3 @@
-import { styled, mixins } from '@/styles'
+import { styled } from '@/styles'
 
 export default styled.option``
