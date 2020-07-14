@@ -2,13 +2,13 @@ import React from 'react'
 
 import * as S from './index.styled'
 import DefaultTemplate from '@/components/templates/DefaultTemplate'
-import ArticleList from '@/components/organisms/article/user/ArticleList'
+import ArticleListBox from '@/components/organisms/article/user/ArticleListBox'
 
 const Page: React.FC = () => {
   return (
     <DefaultTemplate>
       <S.Wrapper>
-        <ArticleList />
+        <ArticleListBox />
       </S.Wrapper>
     </DefaultTemplate>
   )

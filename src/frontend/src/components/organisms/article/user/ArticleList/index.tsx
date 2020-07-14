@@ -1,43 +1,28 @@
 import React from 'react'
 import { useRecoilValueLoadable } from 'recoil'
 
-import * as S from './index.styled'
-import {
-  Heading,
-  FormattedMessage,
-  BasicBox,
-  LoadingPlaceholder,
-} from '@/components/atoms'
-import {
-  ArticleCards,
-  ArticleLIstFilter,
-} from '@/components/molecules/article/user'
+import { LoadingPlaceholder } from '@/components/atoms'
+import { ArticleCards } from '@/components/molecules/article/user'
 import NotFoundArticle from '@/components/molecules/article/common/NotFoundArticle'
 import { filteredArticlesSelector } from '@/recoil/article/selectors'
 
-const Page: React.FC = () => {
+const ArticleList: React.FC = () => {
   const articlesLoadable = useRecoilValueLoadable(filteredArticlesSelector)
-  return (
-    <S.Wrapper>
-      <BasicBox>
-        <Heading>
-          <FormattedMessage id="articles.title" />
-        </Heading>
-      </BasicBox>
 
-      <BasicBox>
-        <ArticleLIstFilter />
-      </BasicBox>
-
-      <BasicBox>
-        {articlesLoadable.state === 'hasValue' && (
-          <ArticleCards articles={articlesLoadable.contents} />
-        )}
-        {articlesLoadable.state === 'hasError' && <p>error</p>}
-        {articlesLoadable.state === 'loading' && <LoadingPlaceholder />}
-      </BasicBox>
-    </S.Wrapper>
-  )
+  switch (articlesLoadable.state) {
+    case 'hasValue':
+      if (articlesLoadable.contents.length === 0) {
+        return <NotFoundArticle />
+      } else {
+        return <ArticleCards articles={articlesLoadable.contents} />
+      }
+    case 'loading':
+      return <LoadingPlaceholder />
+    case 'hasError':
+      return null
+    default:
+      return null
+  }
 }
 
-export default Page
+export default ArticleList
