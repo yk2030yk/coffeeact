@@ -1,11 +1,6 @@
 import { atom } from 'recoil'
 import { PUBLISH_STATUS, PublishStatus } from '@/models/article/Article'
 
-export const idState = atom<string | undefined>({
-  key: 'idState',
-  default: undefined,
-})
-
 export const imageSrcState = atom<string>({
   key: 'imageSrcState',
   default: '',

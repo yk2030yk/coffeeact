@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
-import { useHistory } from 'react-router-dom'
 
 import { SubmitButton } from '@/components/atoms'
 import { previewImageSrcBlobState } from '@/recoil/articleForm/atom'

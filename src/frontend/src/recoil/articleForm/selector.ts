@@ -2,7 +2,6 @@ import { selector } from 'recoil'
 
 import * as validate from './validate'
 import {
-  idState,
   titleState,
   imageSrcState,
   descriptionState,
@@ -11,6 +10,14 @@ import {
   previewImageSrcBlobState,
 } from './atom'
 import { ArticleForm } from '@/models/ArticleForm'
+
+export const previewImageSrcBlobUrlSelector = selector<string>({
+  key: 'previewImageSrcBlobUrlSelector',
+  get: ({ get }) => {
+    const blob = get(previewImageSrcBlobState)
+    return blob ? URL.createObjectURL(blob) : ''
+  },
+})
 
 export const articleFormSelector = selector<ArticleForm>({
   key: 'formValuesState',

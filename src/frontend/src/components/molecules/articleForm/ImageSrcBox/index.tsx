@@ -19,7 +19,7 @@ export const ImageSrcBox: React.FC<Props> = ({ defaultValue = '' }) => {
         </>
       ) : (
         <p onClick={toggleEdit}>
-          <PreviewImageSrc path={defaultValue} />
+          <PreviewImageSrc defaultValue={defaultValue} />
         </p>
       )}
     </>
