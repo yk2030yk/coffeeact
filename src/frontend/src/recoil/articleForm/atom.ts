@@ -1,24 +1,47 @@
-import { atom, selector } from 'recoil'
-import { Article, PUBLISH_STATUS } from '@/models/article/Article'
-import { ArticleForm } from '@/models/ArticleForm'
-import { articleService } from '@/service/firestore/ArticleService'
+import { atom } from 'recoil'
+import { PUBLISH_STATUS, PublishStatus } from '@/models/article/Article'
 
-export const editArticleIdState = atom<string>({
-  key: 'editArticleIdState',
+export const idState = atom<string | undefined>({
+  key: 'idState',
+  default: undefined,
+})
+
+export const imageSrcState = atom<string>({
+  key: 'imageSrcState',
   default: '',
 })
 
-export const articleFormState = selector<ArticleForm>({
-  key: 'articleFormState',
-  get: async ({ get }) => {
-    const id = get(editArticleIdState)
-    const article = id ? await articleService.get(id) : undefined
-    return {
-      publishStatus: article?.publishStatus || PUBLISH_STATUS.UN_PUBLISH,
-      imgSrc: article?.imgSrc || '',
-      title: article?.title || '',
-      description: article?.description || '',
-      tags: article?.tags || [],
-    }
-  },
+export const titleState = atom<string>({
+  key: 'titleState',
+  default: '',
+})
+
+export const descriptionState = atom<string>({
+  key: 'descriptionState',
+  default: '',
+})
+
+export const tagsState = atom<string[]>({
+  key: 'tagsState',
+  default: [],
+})
+
+export const publishStatusState = atom<PublishStatus>({
+  key: 'publishStatusState',
+  default: PUBLISH_STATUS.UN_PUBLISH,
+})
+
+export const inputImageSrcState = atom<string>({
+  key: 'inputImageSrcState',
+  default: '',
+})
+
+export const croppedImageSrcState = atom<string>({
+  key: 'croppedImageSrcState',
+  default: '',
+})
+
+export const previewImageSrcBlobState = atom<Blob | undefined>({
+  key: 'previewImageSrcBlobState',
+  default: undefined,
 })

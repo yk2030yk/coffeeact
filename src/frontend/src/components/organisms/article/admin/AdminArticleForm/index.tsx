@@ -14,10 +14,8 @@ import {
   AdminArticlePublishStatusSelectBox,
 } from '@/components/molecules/article/admin'
 import { Article, PUBLISH_STATUS } from '@/models/article/Article'
-import { useUploadImage } from '@/hooks/storage/useUploadImage'
 import { useModal } from '@/hooks/common/useModal'
 import { useArticle } from '@/hooks/firestore/useArticle'
-import { randomString } from '@/utils/util'
 
 const PublishStatusOptions = [
   {
@@ -37,7 +35,7 @@ type Props = {
 
 const AdminArticleForm: React.FC<Props> = ({ articleId, handleSubmit }) => {
   const { article, updateModel } = useArticle(articleId)
-  const { upload, setBlob, src, blob } = useUploadImage()
+
   const { register, handleSubmit: handleSubmitHookForm } = useForm<FormValues>()
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
   const modal = useModal()
@@ -45,11 +43,7 @@ const AdminArticleForm: React.FC<Props> = ({ articleId, handleSubmit }) => {
   const onSubmit = handleSubmitHookForm(async (data) => {
     setIsSubmitting(true)
     const newArticle = formValuesToModel(data, article)
-    if (blob) {
-      const path = `public/${randomString()}.png`
-      upload(path)
-      newArticle.imgSrc = path
-    }
+
     await handleSubmit(newArticle)
     setIsSubmitting(false)
   })
@@ -58,13 +52,13 @@ const AdminArticleForm: React.FC<Props> = ({ articleId, handleSubmit }) => {
     <S.Wrapper>
       {article && (
         <>
-          <AdminArticleImageCropperModal modal={modal} handleFinish={setBlob} />
+          <AdminArticleImageCropperModal
+            modal={modal}
+            handleFinish={(blob: Blob) => {}}
+          />
           <form onSubmit={onSubmit}>
             <BasicBox>
               <Button onClick={() => modal.open()}>画像を選ぶ</Button>
-            </BasicBox>
-            <BasicBox>
-              <AdminArticleImage src={src} path={article.imgSrc} />
             </BasicBox>
 
             <BasicBox>

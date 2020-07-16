@@ -11,7 +11,7 @@ const AdminArticleEditForm: React.FC = () => {
   const { pushSnackbarMessage } = useSnackbarMessages()
   const handleSubmit = async (article: Article) => {
     try {
-      await articleService.update(article)
+      await articleService.update(article.id, article)
       pushSnackbarMessage('更新に成功しました。', false)
     } catch (e) {
       pushSnackbarMessage('更新に失敗しました。', true)

@@ -85,8 +85,16 @@ export const button = ({
   border: none;
   cursor: pointer;
   display: inline-block;
-  &: hover {
-    background-color: ${hoverBgColor};
+
+  &:disabled {
+    background-color: ${colorUtils.darken(bgColor)};
     color: ${bgFontColor};
+  }
+
+  &:hover {
+    &:not([disabled]) {
+      background-color: ${hoverBgColor};
+      color: ${bgFontColor};
+    }
   }
 `

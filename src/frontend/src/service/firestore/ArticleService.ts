@@ -2,6 +2,7 @@ import { firestore } from 'firebase'
 
 import { FirestoreService } from './FirestoreService'
 import { Article } from '@/models/article/Article'
+import { ArticleForm } from '@/models/ArticleForm'
 
 const COLLECTION_NAME = 'articles'
 
@@ -12,16 +13,11 @@ export class ArticleService extends FirestoreService {
     return new Article({ ...data, id })
   }
 
-  private modelToJson(article: Article) {
+  private formToJson(articleForm: ArticleForm) {
     const timestamp = firestore.FieldValue.serverTimestamp()
     return {
-      publishStatus: article.publishStatus,
-      description: article.description,
-      imgSrc: article.imgSrc,
-      title: article.title,
-      tags: article.tags,
-      createdAt:
-        article.createdAt === undefined ? timestamp : article.createdAt,
+      ...articleForm,
+      createdAt: timestamp,
       updatedAt: timestamp,
     }
   }
@@ -48,16 +44,19 @@ export class ArticleService extends FirestoreService {
     return querySnapshot.docs.map((doc) => this.docToModel(doc))
   }
 
-  public async create(article: Article) {
+  public async create(articleForm: ArticleForm) {
     const data = await this.db
       .collection(COLLECTION_NAME)
-      .add(this.modelToJson(article))
+      .add(this.formToJson(articleForm))
     return data.id
   }
 
-  public async update(article: Article) {
-    if (!article.doc) throw new Error('ドキュメントがありません。')
-    await article.doc.ref.update(this.modelToJson(article))
+  public async update(id: string, articleForm: ArticleForm) {
+    const doc = await this.db.collection(COLLECTION_NAME).doc(id).get()
+
+    if (!doc) throw new Error('ドキュメントがありません。')
+
+    await doc.ref.update(articleForm)
   }
 }
 
