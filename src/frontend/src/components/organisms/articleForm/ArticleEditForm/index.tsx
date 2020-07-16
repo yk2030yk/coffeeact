@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useRecoilValueLoadable } from 'recoil'
 
 import { ArticleForm } from '../ArticleForm'
-import { CreateButton } from '@/components/molecules/articleForm/CreateButton'
+import { UpdateButton } from '@/components/molecules/articleForm/UpdateButton'
 import { articleSelector } from '@/recoil/article/selectors'
 
 export const ArticleEditForm: React.FC = () => {
@@ -15,7 +15,7 @@ export const ArticleEditForm: React.FC = () => {
       return (
         <ArticleForm
           article={loadable.contents}
-          ActionButton={<CreateButton />}
+          ActionButton={<UpdateButton articleId={articleId} />}
         />
       )
     case 'loading':
