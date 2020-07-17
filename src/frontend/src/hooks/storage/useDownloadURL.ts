@@ -10,7 +10,6 @@ export const useDownloadURL = (path: string) => {
   const asyncTask = useAsyncTask(
     useCallback(async () => {
       if (!path) {
-        console.log(defaultArticleImageSrc)
         setDownloadURL(defaultArticleImageSrc)
         return
       }
@@ -24,6 +23,7 @@ export const useDownloadURL = (path: string) => {
   const { execute } = asyncTask
   useEffect(() => {
     execute()
+    return () => setDownloadURL(defaultArticleImageSrc)
   }, [execute])
 
   return downloadURL

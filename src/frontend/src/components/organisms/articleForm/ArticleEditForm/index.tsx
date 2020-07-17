@@ -4,6 +4,7 @@ import { useRecoilValueLoadable } from 'recoil'
 
 import { ArticleForm } from '../ArticleForm'
 import { UpdateButton } from '@/components/molecules/articleForm/UpdateButton'
+import { DeleteButton } from '@/components/molecules/articleForm/DeleteButton'
 import { articleSelector } from '@/recoil/article/selectors'
 
 export const ArticleEditForm: React.FC = () => {
@@ -15,7 +16,12 @@ export const ArticleEditForm: React.FC = () => {
       return (
         <ArticleForm
           article={loadable.contents}
-          ActionButton={<UpdateButton articleId={articleId} />}
+          ActionButton={
+            <>
+              <UpdateButton articleId={articleId} />
+              <DeleteButton articleId={articleId} />
+            </>
+          }
         />
       )
     case 'loading':

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ArticleLoadingPlaceholder from './ArticleLoadingPlaceholder'
+import * as loadingPlaceholders from './loadingPlaceholders'
 import * as S from './index.styled'
 
 const placeholderType = {
@@ -10,9 +10,9 @@ const placeholderType = {
 } as const
 
 const Placeholders = {
-  [placeholderType.default]: ArticleLoadingPlaceholder,
-  [placeholderType.article]: ArticleLoadingPlaceholder,
-  [placeholderType.image]: ArticleLoadingPlaceholder,
+  [placeholderType.default]: loadingPlaceholders.ArticleLoadingPlaceholder,
+  [placeholderType.article]: loadingPlaceholders.ArticleLoadingPlaceholder,
+  [placeholderType.image]: loadingPlaceholders.ImageLoadingPlaceholder,
 }
 
 type Props = {

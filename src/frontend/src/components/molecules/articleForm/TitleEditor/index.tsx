@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState } from 'recoil'
+
 import * as S from './index.styled'
 import { Input } from '@/components/atoms'
-
 import { titleState } from '@/recoil/articleForm/atom'
 
 type Props = {
@@ -11,11 +11,12 @@ type Props = {
 
 export const TitleEditor: React.FC<Props> = ({ defaultValue = '' }) => {
   const [title, setTitle] = useRecoilState(titleState)
+  const reset = useResetRecoilState(titleState)
 
   useEffect(() => {
-    if (!defaultValue) return
-    setTitle(defaultValue)
-  }, [defaultValue, setTitle])
+    if (defaultValue) setTitle(defaultValue)
+    return () => reset()
+  }, [defaultValue, setTitle, reset])
 
   return (
     <S.Wrapper>

@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil'
 import * as S from './index.styled'
 import { TextArea } from '@/components/atoms'
 import { descriptionState } from '@/recoil/articleForm/atom'
+import { useResetRecoilState } from 'recoil'
 
 type Props = {
   defaultValue?: string
@@ -11,11 +12,12 @@ type Props = {
 
 export const DescriptionEditor: React.FC<Props> = ({ defaultValue = '' }) => {
   const [description, setDescription] = useRecoilState(descriptionState)
+  const reset = useResetRecoilState(descriptionState)
 
   useEffect(() => {
-    if (!defaultValue) return
-    setDescription(defaultValue)
-  }, [defaultValue, setDescription])
+    if (defaultValue) setDescription(defaultValue)
+    return () => reset()
+  }, [defaultValue, setDescription, reset])
 
   return (
     <S.Wrapper>

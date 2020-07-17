@@ -58,6 +58,10 @@ export class ArticleService extends FirestoreService {
 
     await doc.ref.update(articleForm)
   }
+
+  public async delete(id: string) {
+    await this.db.collection(COLLECTION_NAME).doc(id).delete()
+  }
 }
 
 export const articleService = new ArticleService()

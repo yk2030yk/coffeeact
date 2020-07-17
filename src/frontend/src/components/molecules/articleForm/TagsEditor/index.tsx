@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSetRecoilState } from 'recoil'
+import { useSetRecoilState, useResetRecoilState } from 'recoil'
 
 import * as S from './index.styled'
 import { Input, Button } from '@/components/atoms'
@@ -11,6 +11,7 @@ type Props = {
 
 export const TagsEditor: React.FC<Props> = ({ defaultValue = [] }) => {
   const setTags = useSetRecoilState(tagsState)
+  const reset = useResetRecoilState(tagsState)
   const [inputTag, setInputTag] = useState<string>('')
 
   const addTag = () => {
@@ -23,9 +24,9 @@ export const TagsEditor: React.FC<Props> = ({ defaultValue = [] }) => {
   }
 
   useEffect(() => {
-    if (!defaultValue || defaultValue.length === 0) return
-    setTags(defaultValue)
-  }, [defaultValue, setTags])
+    if (defaultValue && defaultValue.length !== 0) setTags(defaultValue)
+    return () => reset()
+  }, [defaultValue, setTags, reset])
 
   return (
     <S.InputTagBox>
