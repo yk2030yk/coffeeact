@@ -3,7 +3,9 @@ import { FaUserCircle } from 'react-icons/fa'
 
 export const Form = styled.form`
   width: 500px;
-  ${mixins.card}
+  border: solid 1px #c5c5c5;
+  border-radius: 5px;
+  background-color: ${theme.color.white};
   display: flex;
   flex-direction: column;
   padding: 60px;

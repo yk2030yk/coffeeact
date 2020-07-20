@@ -7,12 +7,12 @@ import AuthRoute from './AuthRoute'
 import AdminHomePage from '@/containers/pages/admin/AdminHomePage'
 import AdminLoginPage from '@/containers/pages/admin/AdminLoginPage'
 
-import AdminArticlesPage from '@/containers/pages/article/admin/AdminArticlesPage'
-import AdminArticleCreatePage from '@/containers/pages/article/admin/AdminArticleCreatePage'
-import AdminArticleEditorPage from '@/containers/pages/article/admin/AdminArticleEditorPage'
+import AdminArticlesPage from '@/containers/pages/article/AdminArticlesPage'
+import AdminArticleCreatePage from '@/containers/pages/article/AdminArticleCreatePage'
+import AdminArticleEditorPage from '@/containers/pages/article/AdminArticleEditorPage'
 
-import ArticlePage from '@/containers/pages/article/user/ArticlePage'
-import ArticlesPage from '@/containers/pages/article/user/ArticlesListPage'
+import ArticlePage from '@/containers/pages/article/ArticlePage'
+import ArticlesPage from '@/containers/pages/article/ArticlesListPage'
 
 import HomePage from '@/containers/pages/home/HomePage'
 import ProfilePage from '@/containers/pages/profile/ProfilePage'

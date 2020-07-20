@@ -18,9 +18,10 @@ export const useSnackbarMessages = () => {
   const pushSnackbarMessage = useCallback(
     (message: string, isError: boolean) => {
       const sm = createSnackbarMessage(message, isError)
+      setSnackbarMessages((old) => [...old, sm])
       setTimeout(() => {
         setSnackbarMessages((old) => old.filter((m) => m.id !== sm.id))
-      }, 1000)
+      }, 2000)
     },
     [setSnackbarMessages]
   )

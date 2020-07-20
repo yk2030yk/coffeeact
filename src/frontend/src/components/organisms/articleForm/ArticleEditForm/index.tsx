@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useRecoilValueLoadable } from 'recoil'
 
+import * as S from './index.styled'
 import { ArticleForm } from '../ArticleForm'
 import { UpdateButton } from '@/components/molecules/articleForm/UpdateButton'
 import { DeleteButton } from '@/components/molecules/articleForm/DeleteButton'
@@ -17,10 +18,10 @@ export const ArticleEditForm: React.FC = () => {
         <ArticleForm
           article={loadable.contents}
           ActionButton={
-            <>
+            <S.ButtonArea>
               <UpdateButton articleId={articleId} />
               <DeleteButton articleId={articleId} />
-            </>
+            </S.ButtonArea>
           }
         />
       )

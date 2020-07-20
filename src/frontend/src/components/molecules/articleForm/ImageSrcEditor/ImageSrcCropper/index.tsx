@@ -35,15 +35,12 @@ export const ImageSrcCropper: React.FC = () => {
   }
 
   return (
-    <>
-      <Text>元画像</Text>
-      <ReactCrop
-        src={inputImageSrc}
-        crop={crop}
-        onImageLoaded={handleImageLoaded}
-        onChange={handleCrop}
-        onComplete={handelComplete}
-      />
-    </>
+    <ReactCrop
+      src={inputImageSrc}
+      crop={crop}
+      onImageLoaded={handleImageLoaded}
+      onChange={handleCrop}
+      onComplete={handelComplete}
+    />
   )
 }

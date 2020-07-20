@@ -28,17 +28,10 @@ export const ArticleForm: React.FC<Props> = ({
       </BasicBox>
 
       <BasicBox>
-        <Heading2>タイトル</Heading2>
+        <Heading2>公開設定</Heading2>
       </BasicBox>
       <BasicBox>
-        <TitleEditor defaultValue={article.title} />
-      </BasicBox>
-
-      <BasicBox>
-        <Heading2>本文</Heading2>
-      </BasicBox>
-      <BasicBox>
-        <DescriptionEditor defaultValue={article.description} />
+        <PublishStatusSelectBox defaultValue={article.publishStatus} />
       </BasicBox>
 
       <BasicBox>
@@ -52,10 +45,17 @@ export const ArticleForm: React.FC<Props> = ({
       </BasicBox>
 
       <BasicBox>
-        <Heading2>公開設定</Heading2>
+        <Heading2>タイトル</Heading2>
       </BasicBox>
       <BasicBox>
-        <PublishStatusSelectBox defaultValue={article.publishStatus} />
+        <TitleEditor defaultValue={article.title} />
+      </BasicBox>
+
+      <BasicBox>
+        <Heading2>本文</Heading2>
+      </BasicBox>
+      <BasicBox>
+        <DescriptionEditor defaultValue={article.description} />
       </BasicBox>
 
       <BasicBox>{ActionButton}</BasicBox>

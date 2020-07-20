@@ -16,7 +16,7 @@ export const InputImageSrc: React.FC = () => {
   }
 
   return (
-    <>
+    <div>
       <S.InputFile
         id={INPUT_ID}
         type="file"
@@ -24,6 +24,6 @@ export const InputImageSrc: React.FC = () => {
         onChange={onChange}
       />
       <S.InputFileLabel htmlFor={INPUT_ID}>画像を選択する</S.InputFileLabel>
-    </>
+    </div>
   )
 }

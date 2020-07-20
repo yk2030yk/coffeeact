@@ -64,8 +64,8 @@ export const inputBox = css`
 `
 
 export const button = ({
-  bgColor = theme.color.evilSunzScarlet,
-  hoverBgColor = colorUtils.brighten(theme.color.evilSunzScarlet),
+  bgColor = theme.color.yankeesBlue,
+  hoverBgColor = colorUtils.brighten(theme.color.yankeesBlue),
   fontColor = theme.color.white,
   bgFontColor = theme.color.white,
   width = 'auto',
@@ -78,8 +78,8 @@ export const button = ({
 } = {}) => css`
   color: ${fontColor};
   background-color: ${bgColor};
-  padding: 10px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 3px;
   width: ${width};
   text-align: center;
   border: none;

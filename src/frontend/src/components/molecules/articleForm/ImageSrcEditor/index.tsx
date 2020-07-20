@@ -13,10 +13,16 @@ export const ImageSrcEditor: React.FC = () => {
         <InputImageSrc />
       </BasicBox>
       <BasicBox>
-        <S.CropperArea>
-          <ImageSrcCropper />
-          <PreviewCroppedImageSrc />
-        </S.CropperArea>
+        <S.CropperBox>
+          <S.CropperArea>
+            <S.CropperAreaItem>
+              <ImageSrcCropper />
+            </S.CropperAreaItem>
+            <S.CropperAreaItem>
+              <PreviewCroppedImageSrc />
+            </S.CropperAreaItem>
+          </S.CropperArea>
+        </S.CropperBox>
       </BasicBox>
     </S.Wrapper>
   )

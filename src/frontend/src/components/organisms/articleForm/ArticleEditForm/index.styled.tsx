@@ -1,7 +1,7 @@
-import { styled, mixins } from '@/styles'
+import { styled, theme } from '@/styles'
 
-export const Wrapper = styled.div``
-
-export const SaveButton = styled.input`
-  ${mixins.button()}
+export const ButtonArea = styled.div`
+  & > input {
+    margin-right: ${theme.space.basic};
+  }
 `

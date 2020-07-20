@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil'
 import { RiCloseLine } from 'react-icons/ri'
 
 import * as S from './index.styled'
+import { Tag } from '@/components/atoms'
 import { tagsState } from '@/recoil/articleForm/atom'
 
 export const TagsList: React.FC = () => {
@@ -18,10 +19,9 @@ export const TagsList: React.FC = () => {
       {tags.length > 0 ? (
         <S.TagList>
           {tags.map((tag) => (
-            <S.TagLabel key={tag} onClick={() => deleteTag(tag)}>
-              <S.Tag>{tag}</S.Tag>
-              <RiCloseLine size={20} />
-            </S.TagLabel>
+            <Tag key={tag} onClick={() => deleteTag(tag)}>
+              {tag}
+            </Tag>
           ))}
         </S.TagList>
       ) : (

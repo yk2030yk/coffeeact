@@ -103,4 +103,5 @@ export const color = {
   leadbelcher: '#cacaca',
   spanishGrey: '#969696',
   fusionRed: '#ff6363',
+  asparagus: '#78ad56',
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 
 import * as S from './index.styled'
-import { SelectBox, Option } from '@/components/atoms'
+import { SelectBox } from '@/components/atoms'
 import { PUBLISH_STATUS, PublishStatus } from '@/models/article/Article'
 import { publishStatusState } from '@/recoil/articleForm/atom'
 
@@ -31,19 +31,20 @@ export const PublishStatusSelectBox: React.FC<Props> = ({
     setPublishStatus(defaultValue)
   }, [defaultValue, setPublishStatus])
 
+  const handleChange = (value: string) => {
+    if (PUBLISH_STATUS.PUBLISH === value || PUBLISH_STATUS.UN_PUBLISH === value)
+      setPublishStatus(value)
+  }
+
   return (
     <S.Wrapper>
       <SelectBox
         name="publishStatus"
         defaultValue={publishStatus}
         value={publishStatus}
-      >
-        {PublishStatusOptions.map((option) => (
-          <Option key={option.value} value={option.value}>
-            {option.label}
-          </Option>
-        ))}
-      </SelectBox>
+        onChange={handleChange}
+        options={PublishStatusOptions}
+      />
     </S.Wrapper>
   )
 }

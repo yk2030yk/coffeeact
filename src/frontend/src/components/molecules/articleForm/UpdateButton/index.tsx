@@ -11,6 +11,7 @@ import { articleService } from '@/service/firestore/ArticleService'
 import { useUploadImage } from '@/hooks/storage/useUploadImage'
 import { randomString } from '@/utils/util'
 import { useAsyncTask } from '@/hooks/common/useAsyncTask'
+import { useSnackbarMessages } from '@/recoil/global/snackbar/hooks'
 
 type Props = {
   articleId: string
@@ -21,6 +22,7 @@ export const UpdateButton: React.FC<Props> = ({ articleId }) => {
   const articleForm = useRecoilValue(articleFormSelector)
   const blob = useRecoilValue(previewImageSrcBlobState)
   const { upload } = useUploadImage()
+  const { pushSnackbarMessage } = useSnackbarMessages()
 
   const { execute, isLoading } = useAsyncTask(async () => {
     const imgSrc = articleForm.imgSrc || `public/${randomString()}.png`
@@ -29,6 +31,7 @@ export const UpdateButton: React.FC<Props> = ({ articleId }) => {
       ...articleForm,
       imgSrc,
     })
+    pushSnackbarMessage('更新しました。', false)
   })
 
   return (
