@@ -26,11 +26,18 @@ export const ContentAreaWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: ${theme.space.basic};
+
+  @media screen and (max-width: 480px) {
+    padding: 5px;
+  }
 `
 
 export const ContentArea = styled.div`
   width: 1000px;
   height: 100%;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 `
 
 export const FooterArea = styled.div`

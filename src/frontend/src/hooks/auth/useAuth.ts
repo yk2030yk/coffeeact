@@ -31,6 +31,7 @@ export const useAuth = () => {
   }, [])
 
   const login = useAsyncTask(
+    'login',
     useCallback(
       async (email: string, password: string) => {
         try {
@@ -45,6 +46,7 @@ export const useAuth = () => {
   )
 
   const logout = useAsyncTask(
+    'logout',
     useCallback(async () => {
       await authService.logout()
       history.push('/')

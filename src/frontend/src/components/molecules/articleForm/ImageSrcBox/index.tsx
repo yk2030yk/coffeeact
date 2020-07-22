@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import * as S from './index.styled'
+import { Button, BasicBox } from '@/components/atoms'
 import { ImageSrcEditor } from '../ImageSrcEditor'
 import { PreviewImageSrc } from '../PreviewImageSrc'
 
@@ -14,13 +16,17 @@ export const ImageSrcBox: React.FC<Props> = ({ defaultValue = '' }) => {
     <>
       {isEdit ? (
         <>
-          <ImageSrcEditor />
-          <p onClick={toggleEdit}>完了</p>
+          <BasicBox>
+            <ImageSrcEditor />
+          </BasicBox>
+          <BasicBox>
+            <Button onClick={toggleEdit}>完了</Button>
+          </BasicBox>
         </>
       ) : (
-        <p onClick={toggleEdit}>
+        <S.ImgWrapper onClick={toggleEdit}>
           <PreviewImageSrc defaultValue={defaultValue} />
-        </p>
+        </S.ImgWrapper>
       )}
     </>
   )

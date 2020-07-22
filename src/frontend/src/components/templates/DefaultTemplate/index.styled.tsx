@@ -28,6 +28,10 @@ export const ContentAreaWrapper = styled.div`
 export const ContentArea = styled.div`
   width: 1000px;
   height: 100%;
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 `
 
 export const FooterArea = styled.div`

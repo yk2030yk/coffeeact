@@ -19,6 +19,10 @@ export const TagsEditor: React.FC<Props> = ({ defaultValue = [] }) => {
       alert('入力されたタグが空です')
       return
     }
+    if (inputTag.length > 10) {
+      alert('入力されたタグが不正')
+      return
+    }
     setTags((old) => [...old, inputTag])
     setInputTag('')
   }
@@ -34,6 +38,7 @@ export const TagsEditor: React.FC<Props> = ({ defaultValue = [] }) => {
         <Input
           type="text"
           value={inputTag}
+          maxLength={10}
           onChange={(e) => setInputTag(e.target.value)}
         />
       </S.InputTagBoxItem>

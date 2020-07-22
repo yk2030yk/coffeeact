@@ -1,6 +1,12 @@
-import { selector, selectorFamily } from 'recoil'
-import { articlesFilterState } from './atoms'
+import { articlesFilterState, articlesState } from './atoms'
 import { articleService } from '@/service/firestore/ArticleService'
+import {
+  createSelectorWithKey,
+  createSelectorFamilyWithKey,
+} from '@/recoil/utils'
+
+const selector = createSelectorWithKey('article')
+const selectorFamily = createSelectorFamilyWithKey('article')
 
 export const articleSelector = selectorFamily({
   key: 'articleSelector',
@@ -15,7 +21,7 @@ export const articlesSelector = selector({
 export const filteredArticlesSelector = selector({
   key: 'filteredArticlesSelector',
   get: ({ get }) => {
-    const articles = get(articlesSelector)
+    const articles = get(articlesState)
     const { keyword } = get(articlesFilterState)
 
     if (!keyword) return articles

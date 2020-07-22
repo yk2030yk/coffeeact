@@ -43,8 +43,10 @@ const RecommendedCoffeeCards: React.FC = () => {
           placeholder="PASSWORD"
         />
       </BasicBox>
-      <BasicBox>{login.error && <ErrorText>{login.error}</ErrorText>}</BasicBox>
-      {login.isLoading && (
+      <BasicBox>
+        {login.loadable.hasError && <ErrorText>ログインエラー</ErrorText>}
+      </BasicBox>
+      {login.loadable.isLoading && (
         <BasicBox>
           <CircularProgress />
         </BasicBox>

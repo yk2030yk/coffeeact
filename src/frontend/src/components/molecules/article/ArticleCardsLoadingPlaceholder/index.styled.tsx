@@ -1,5 +1,4 @@
-import { styled, mixins, theme } from '@/styles'
-import { Link as RouterLink } from 'react-router-dom'
+import { styled, theme } from '@/styles'
 
 export const Cards = styled.div`
   width: 100%;
@@ -11,8 +10,4 @@ export const Cards = styled.div`
     display: flex;
     flex-direction: column;
   }
-`
-
-export const Link = styled(RouterLink)`
-  ${mixins.resetAnchor}
 `

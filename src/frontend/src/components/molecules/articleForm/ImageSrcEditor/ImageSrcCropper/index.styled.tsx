@@ -24,18 +24,8 @@ export const InputFileLabel = styled.label`
   ${mixins.button()}
 `
 
-export const ImageGroup = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-`
+export const ImageGroup = styled.div``
 
 export const ImageWrapper = styled.div`
   width: 100%;
-  & > img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-  }
 `

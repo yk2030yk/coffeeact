@@ -1,4 +1,4 @@
-import { styled, mixins, theme } from '@/styles'
+import { styled, mixins } from '@/styles'
 import { Link as RouterLink } from 'react-router-dom'
 
 export const Cards = styled.div`

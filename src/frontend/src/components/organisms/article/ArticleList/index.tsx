@@ -1,9 +1,12 @@
 import React from 'react'
-import { useRecoilValueLoadable } from 'recoil'
+import { useRecoilValue } from 'recoil'
 
-import { LoadingPlaceholder } from '@/components/atoms'
-import { NotFoundArticle } from '@/components/molecules/article'
+import {
+  NotFoundArticle,
+  ArticleCardsLoadingPlaceholder,
+} from '@/components/molecules/article'
 import { filteredArticlesSelector } from '@/recoil/article/selectors'
+import { loadableSelector } from '@/recoil/global/loadable/atoms'
 import { Article } from '@/models/article/Article'
 
 type Props = {
@@ -11,20 +14,18 @@ type Props = {
 }
 
 export const ArticleList: React.FC<Props> = ({ ArticleCardsComponent }) => {
-  const articlesLoadable = useRecoilValueLoadable(filteredArticlesSelector)
+  const articles = useRecoilValue(filteredArticlesSelector)
+  const loadable = useRecoilValue(loadableSelector('articles'))
 
-  switch (articlesLoadable.state) {
-    case 'hasValue':
-      if (articlesLoadable.contents.length === 0) {
-        return <NotFoundArticle />
-      } else {
-        return <ArticleCardsComponent articles={articlesLoadable.contents} />
-      }
-    case 'loading':
-      return <LoadingPlaceholder />
-    case 'hasError':
-      return null
-    default:
-      return null
+  if (loadable.isLoaded()) {
+    if (articles.length === 0) {
+      return <NotFoundArticle />
+    } else {
+      return <ArticleCardsComponent articles={articles} />
+    }
+  } else if (loadable.isLoading()) {
+    return <ArticleCardsLoadingPlaceholder length={10} />
+  } else {
+    return null
   }
 }

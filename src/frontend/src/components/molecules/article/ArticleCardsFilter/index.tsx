@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState } from 'recoil'
 
 import * as S from './index.styled'
 import { articlesFilterState } from '@/recoil/article/atoms'
 
 export const ArticleCardsFilter: React.FC = () => {
   const [filter, setFilter] = useRecoilState(articlesFilterState)
+  const resetFilter = useResetRecoilState(articlesFilterState)
 
   useEffect(() => {
-    return () => setFilter({ keyword: '' })
-  }, [setFilter])
+    return () => resetFilter()
+  }, [resetFilter])
 
   return (
     <S.Wrapper>

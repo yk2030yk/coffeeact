@@ -1,5 +1,8 @@
-import { atom } from 'recoil'
 import { PUBLISH_STATUS, PublishStatus } from '@/models/article/Article'
+import { ArticleForm } from '@/models/ArticleForm'
+import { createAtomWithKey } from '@/recoil/utils'
+
+const atom = createAtomWithKey('articleForm')
 
 export const imageSrcState = atom<string>({
   key: 'imageSrcState',
@@ -38,5 +41,10 @@ export const croppedImageSrcState = atom<string>({
 
 export const previewImageSrcBlobState = atom<Blob | undefined>({
   key: 'previewImageSrcBlobState',
+  default: undefined,
+})
+
+export const postRequestState = atom<undefined | ArticleForm>({
+  key: 'postRequestState',
   default: undefined,
 })

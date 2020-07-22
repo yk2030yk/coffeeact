@@ -6,11 +6,13 @@ import * as S from './index.styled'
 import { ArticleForm } from '../ArticleForm'
 import { UpdateButton } from '@/components/molecules/articleForm/UpdateButton'
 import { DeleteButton } from '@/components/molecules/articleForm/DeleteButton'
-import { articleSelector } from '@/recoil/article/selectors'
+import { articleState } from '@/recoil/article/atoms'
+import { useArticle } from '@/recoil/article/hooks'
 
 export const ArticleEditForm: React.FC = () => {
   const { articleId } = useParams<{ articleId: string }>()
-  const loadable = useRecoilValueLoadable(articleSelector(articleId))
+  useArticle(articleId)
+  const loadable = useRecoilValueLoadable(articleState)
 
   switch (loadable.state) {
     case 'hasValue':

@@ -24,7 +24,7 @@ export const UpdateButton: React.FC<Props> = ({ articleId }) => {
   const { upload } = useUploadImage()
   const { pushSnackbarMessage } = useSnackbarMessages()
 
-  const { execute, isLoading } = useAsyncTask(async () => {
+  const { execute, loadable } = useAsyncTask('updateArticle', async () => {
     const imgSrc = articleForm.imgSrc || `public/${randomString()}.png`
     if (blob) await upload(imgSrc, blob)
     await articleService.update(articleId, {
@@ -37,7 +37,7 @@ export const UpdateButton: React.FC<Props> = ({ articleId }) => {
   return (
     <SubmitButton
       type="submit"
-      disabled={!isValid || isLoading}
+      disabled={!isValid || loadable.isLoading()}
       onClick={execute}
       value={'更新する'}
     />

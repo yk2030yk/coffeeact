@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useRecoilValue } from 'recoil'
 import { useHistory } from 'react-router-dom'
 
@@ -20,16 +20,19 @@ export const DeleteButton: React.FC<Props> = ({ articleId }) => {
   const isValid = useRecoilValue(isValidSelector)
   const articleForm = useRecoilValue(articleFormSelector)
 
-  const { execute, isLoading } = useAsyncTask(async () => {
-    storageService.delete(articleForm.imgSrc)
-    await articleService.delete(articleId)
-    history.push('/admin/articles')
-  })
+  const { execute, loadable } = useAsyncTask(
+    'deleteArticle',
+    useCallback(async () => {
+      storageService.delete(articleForm.imgSrc)
+      await articleService.delete(articleId)
+      history.push('/admin/articles')
+    }, [articleId, articleForm, history])
+  )
 
   return (
     <SubmitButton
       type="submit"
-      disabled={!isValid || isLoading}
+      disabled={!isValid || loadable.isLoading()}
       onClick={execute}
       value={'削除する'}
     />

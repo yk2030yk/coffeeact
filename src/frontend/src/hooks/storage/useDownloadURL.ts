@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 import defaultArticleImageSrc from '@/assets/images/defaultArticleImage.png'
 import { storage } from '@/service/firebase'
@@ -8,6 +8,7 @@ export const useDownloadURL = (path: string) => {
   const [downloadURL, setDownloadURL] = useState<string>()
 
   const asyncTask = useAsyncTask(
+    'downloadURLTask',
     useCallback(async () => {
       if (!path) {
         setDownloadURL(defaultArticleImageSrc)

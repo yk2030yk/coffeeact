@@ -1,21 +1,18 @@
 import React from 'react'
-import { useRecoilValueLoadable } from 'recoil'
+import { useRecoilValue } from 'recoil'
 
 import * as S from './index.styled'
-import { BasicBox, Tag, StorageImage } from '@/components/atoms'
-import { articleSelector } from '@/recoil/article/selectors'
+import { BasicBox, StorageImage } from '@/components/atoms'
+import { articleState } from '@/recoil/article/atoms'
+import { loadableSelector } from '@/recoil/global/loadable/atoms'
 import { ArticleTags } from '../ArticleTags'
 
-type Props = {
-  id: string
-}
+export const ArticleContent: React.FC = () => {
+  const article = useRecoilValue(articleState)
+  const loadable = useRecoilValue(loadableSelector('article'))
 
-export const ArticleContent: React.FC<Props> = ({ id }) => {
-  const loadable = useRecoilValueLoadable(articleSelector(id))
+  if (!loadable.isLoaded) return <div>loading...</div>
 
-  if (loadable.state !== 'hasValue') return null
-
-  const article = loadable.contents
   return (
     <S.Wrapper>
       <BasicBox>

@@ -2,15 +2,15 @@ import React from 'react'
 
 import * as S from './index.styled'
 import HomeTemplate from '@/components/templates/HomeTemplate'
-import NewArrivalArticleCards from '@/components/organisms/home/NewArrivalArticleCards'
-import { useFetchArticles } from '@/recoil/article/hooks'
+import { CurrentArticleListBox } from '@/components/organisms/article/CurrentArticleListBox'
+import { useArticles } from '@/recoil/article/hooks'
 
 const Page: React.FC = () => {
-  useFetchArticles()
+  useArticles()
   return (
     <HomeTemplate>
       <S.Wrapper>
-        <NewArrivalArticleCards />
+        <CurrentArticleListBox />
       </S.Wrapper>
     </HomeTemplate>
   )

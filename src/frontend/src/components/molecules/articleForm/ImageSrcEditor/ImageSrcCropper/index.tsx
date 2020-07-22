@@ -4,7 +4,6 @@ import ReactCrop, { Crop } from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
 
 import { getCroppedBlob } from './util'
-import { Text } from '@/components/atoms'
 import {
   inputImageSrcState,
   croppedImageSrcState,
