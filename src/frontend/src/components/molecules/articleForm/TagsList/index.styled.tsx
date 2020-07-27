@@ -1,4 +1,4 @@
-import { styled, theme, colorUtils, mixins } from '@/styles'
+import { styled } from '@/styles'
 
 export const TagList = styled.div`
   display: flex;

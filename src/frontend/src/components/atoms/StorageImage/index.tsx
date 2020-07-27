@@ -22,7 +22,7 @@ const Card: React.FC<Props> = ({ path }) => {
       if (loadable.contents) {
         return <img src={loadable.contents} alt="" />
       } else {
-        return <img src={''} />
+        return <img src={''} alt="" />
       }
     case 'loading':
       return <ImageLoader />

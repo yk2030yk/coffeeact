@@ -27,5 +27,9 @@ export const PreviewImageSrc: React.FC<Props> = ({ defaultValue }) => {
     }
   }, [defaultValue, setImgSrc, reset, resetBlob])
 
-  return <>{blobUrl ? <img src={blobUrl} /> : <StorageImage path={imgSrc} />}</>
+  return (
+    <>
+      {blobUrl ? <img src={blobUrl} alt="" /> : <StorageImage path={imgSrc} />}
+    </>
+  )
 }

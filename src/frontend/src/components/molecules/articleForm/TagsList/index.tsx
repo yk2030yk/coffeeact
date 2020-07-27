@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
-import { RiCloseLine } from 'react-icons/ri'
 
 import * as S from './index.styled'
 import { Tag } from '@/components/atoms'
