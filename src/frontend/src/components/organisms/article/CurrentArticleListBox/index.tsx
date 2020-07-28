@@ -6,6 +6,7 @@ import MoreLink from '@/components/molecules/common/MoreLink'
 import {
   ArticleCardsFilter,
   ArticleCards,
+  ArticleCardsLoadingPlaceholder,
 } from '@/components/molecules/article'
 import { ArticleList } from '../ArticleList'
 
@@ -21,7 +22,10 @@ export const CurrentArticleListBox: React.FC = () => {
         <ArticleCardsFilter />
       </BasicBox>
       <BasicBox>
-        <ArticleList ArticleCardsComponent={ArticleCards} />
+        <ArticleList
+          ArticleCardsComponent={ArticleCards}
+          LoadingPlaceholderComponent={ArticleCardsLoadingPlaceholder}
+        />
       </BasicBox>
       <BasicBox>
         <MoreLink text="もっと見る" link="/articles" />

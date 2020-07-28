@@ -5,6 +5,7 @@ import { Heading, FormattedMessage, BasicBox } from '@/components/atoms'
 import {
   ArticleCardsFilter,
   ArticleCards,
+  ArticleCardsLoadingPlaceholder,
 } from '@/components/molecules/article'
 import { ArticleList } from '../ArticleList'
 
@@ -20,7 +21,10 @@ export const ArticleListBox: React.FC = () => {
         <ArticleCardsFilter />
       </BasicBox>
       <BasicBox>
-        <ArticleList ArticleCardsComponent={ArticleCards} />
+        <ArticleList
+          ArticleCardsComponent={ArticleCards}
+          LoadingPlaceholderComponent={ArticleCardsLoadingPlaceholder}
+        />
       </BasicBox>
     </S.Wrapper>
   )

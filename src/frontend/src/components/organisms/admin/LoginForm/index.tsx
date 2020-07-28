@@ -33,7 +33,13 @@ const RecommendedCoffeeCards: React.FC = () => {
         </S.IconWrapper>
       </BasicBox>
       <BasicBox>
-        <Input type="text" name="email" ref={register} placeholder="USERNAME" />
+        <Input
+          type="text"
+          name="email"
+          ref={register}
+          placeholder="USERNAME"
+          disabled={login.loadable.isLoading()}
+        />
       </BasicBox>
       <BasicBox>
         <Input
@@ -41,12 +47,13 @@ const RecommendedCoffeeCards: React.FC = () => {
           name="password"
           ref={register}
           placeholder="PASSWORD"
+          disabled={login.loadable.isLoading()}
         />
       </BasicBox>
       <BasicBox>
-        {login.loadable.hasError && <ErrorText>ログインエラー</ErrorText>}
+        {login.loadable.hasError() && <ErrorText>ログインエラー</ErrorText>}
       </BasicBox>
-      {login.loadable.isLoading && (
+      {login.loadable.isLoading() && (
         <BasicBox>
           <CircularProgress />
         </BasicBox>

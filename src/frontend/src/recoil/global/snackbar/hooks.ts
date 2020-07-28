@@ -16,7 +16,7 @@ export const useSnackbarMessages = () => {
   )
 
   const pushSnackbarMessage = useCallback(
-    (message: string, isError: boolean) => {
+    (message: string, isError = false) => {
       const sm = createSnackbarMessage(message, isError)
       setSnackbarMessages((old) => [...old, sm])
       setTimeout(() => {

@@ -44,6 +44,11 @@ export const loadableState = atomFamily<State, string>({
   default: STATE.beforeLoad,
 })
 
+export const errorState = atomFamily<string | undefined, string>({
+  key: 'errorState',
+  default: undefined,
+})
+
 export const loadableSelector = selectorFamily({
   key: 'loadableSelector',
   get: (id: string) => ({ get }) => new Loadable(get(loadableState(id))),
