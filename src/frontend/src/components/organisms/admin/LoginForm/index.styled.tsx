@@ -1,5 +1,5 @@
 import { styled, mixins, theme } from '@/styles'
-import { FaUserCircle } from 'react-icons/fa'
+import { FaUserCircle } from '@/components/atoms/icons'
 
 export const Form = styled.form`
   width: 500px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { RiInformationLine } from 'react-icons/ri'
+import { RiInformationLine } from '@/components/atoms/icons'
 
 import { theme, colorUtils } from '@/styles'
 import SnackbarMessage from '../SnackbarMessage'

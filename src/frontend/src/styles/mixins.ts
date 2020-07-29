@@ -17,7 +17,7 @@ export const defaultFont = css`
 export const text = css`
   font-size: ${theme.fontSize.text};
   font-weight: ${theme.fontWeight.normal};
-  color: ${theme.color.charcoalSmudge};
+  color: ${theme.color.reactBlueDark};
   line-height: 32px;
   letter-spacing: 1.5px;
 `

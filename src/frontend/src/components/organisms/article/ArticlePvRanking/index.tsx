@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { FaChessKing } from '@/components/atoms/icons'
 
 import * as S from './index.styled'
-import { Heading, FormattedMessage, BasicBox } from '@/components/atoms'
+import { TitleWithIcon, BasicBox } from '@/components/atoms'
 import { ArticlePvRankingCards } from '@/components/molecules/article'
 import { articlePVService } from '@/service/firestore/ArticlePVService'
 import { articleService } from '@/service/firestore/ArticleService'
@@ -22,9 +23,10 @@ export const ArticlePvRanking: React.FC = () => {
   return (
     <S.Wrapper>
       <BasicBox>
-        <Heading>
-          <FormattedMessage id="home.ranking.title" />
-        </Heading>
+        <TitleWithIcon
+          IconComponent={<FaChessKing size={20} color={'#e6b422'} />}
+          id="home.ranking.title"
+        />
       </BasicBox>
       <BasicBox>
         <ArticlePvRankingCards articles={articles} />

@@ -1,5 +1,5 @@
 import { styled, theme, colorUtils } from '@/styles'
-import { FaUserCircle } from 'react-icons/fa'
+import { FaUserCircle } from '@/components/atoms/icons'
 
 export const UserIcon = styled(FaUserCircle)`
   color: ${theme.color.radiantYellow};

@@ -17,7 +17,6 @@ type Props = {
 
 export const DeleteButton: React.FC<Props> = ({ articleId }) => {
   const history = useHistory()
-  const isValid = useRecoilValue(isValidSelector)
   const articleForm = useRecoilValue(articleFormSelector)
 
   const { execute, loadable } = useAsyncTask(
@@ -32,7 +31,7 @@ export const DeleteButton: React.FC<Props> = ({ articleId }) => {
   return (
     <SubmitButton
       type="submit"
-      disabled={!isValid || loadable.isLoading()}
+      disabled={loadable.isLoading()}
       onClick={execute}
       value={'削除する'}
     />

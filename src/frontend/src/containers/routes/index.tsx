@@ -11,6 +11,8 @@ import AdminArticlesPage from '@/containers/pages/article/AdminArticlesPage'
 import AdminArticleCreatePage from '@/containers/pages/article/AdminArticleCreatePage'
 import AdminArticleEditorPage from '@/containers/pages/article/AdminArticleEditorPage'
 
+import AdminArticleTagEditorPage from '@/containers/pages/articleTag/AdminArticleTagEditorPage'
+
 import ArticlePage from '@/containers/pages/article/ArticlePage'
 import ArticlesPage from '@/containers/pages/article/ArticlesListPage'
 
@@ -37,6 +39,12 @@ const Routes: React.FC = () => {
         path="/admin/article/:articleId"
         component={AdminArticleEditorPage}
       />
+      <AuthRoute
+        exact
+        path="/admin/tag"
+        component={AdminArticleTagEditorPage}
+      />
+
       <AppRoute exact path="/articles" component={ArticlesPage} />
       <AppRoute exact path="/article/:articleId" component={ArticlePage} />
 

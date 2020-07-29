@@ -32,7 +32,7 @@ export const CoffeeUpdatedAt = styled.p`
 `
 
 export const CoffeeTitle = styled.p`
-  color: $ color.darkestDungeon};
+  color: ${theme.color.darkestDungeon};
   font-weight: ${theme.fontWeight.bold};
   padding-top: 10px;
   margin-bottom: 10px;

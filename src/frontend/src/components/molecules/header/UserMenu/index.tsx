@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
-import { RiAdminLine, RiLogoutBoxRLine } from 'react-icons/ri'
+import { RiAdminLine, RiLogoutBoxRLine } from '@/components/atoms/icons'
 
 import * as S from './index.styled'
 import { useAppContext } from '@/contexts/AppContext'

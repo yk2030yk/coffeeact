@@ -43,25 +43,14 @@ export class ArticleService extends FirestoreService {
   public async getList(condition: GetListCondition) {
     const collection = this.db.collection(COLLECTION_NAME)
 
-    let query
-    if (condition.orderBy)
-      query = (query || collection).orderBy(
-        condition.orderBy || 'createdAt',
-        'desc'
-      )
+    let query = collection.orderBy(
+      condition.orderBy ? condition.orderBy : 'createdAt',
+      'desc'
+    )
 
-    if (condition.limit) query = (query || collection).limit(condition.limit)
+    if (condition.limit) query = query.limit(condition.limit)
 
-    const querySnapshot = await (query || collection).get()
-    return querySnapshot.docs.map((doc) => this.docToModel(doc))
-  }
-
-  public async newArrivalList(limit = 10) {
-    const querySnapshot = await this.db
-      .collection(COLLECTION_NAME)
-      .orderBy('createdAt', 'desc')
-      .limit(limit)
-      .get()
+    const querySnapshot = await query.get()
     return querySnapshot.docs.map((doc) => this.docToModel(doc))
   }
 

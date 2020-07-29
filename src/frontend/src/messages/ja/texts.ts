@@ -20,6 +20,9 @@ export const texts = {
     ranking: {
       title: '人気の記事',
     },
+    searchArticleByTag: {
+      title: 'タグから探す',
+    },
   },
   about: {
     title: `${APP_NAME}とは`,

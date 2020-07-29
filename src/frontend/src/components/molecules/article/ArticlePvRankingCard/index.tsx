@@ -12,9 +12,7 @@ type Props = {
 export const ArticlePvRankingCard: React.FC<Props> = ({ rank, article }) => {
   return (
     <S.Wrapper>
-      <S.GridItem>
-        <S.RankNumber>{rank + '位'}</S.RankNumber>
-      </S.GridItem>
+      <S.RankNumberIcon rank={rank}>{rank + '位'}</S.RankNumberIcon>
       <S.CoffeeImageWrapper>
         <StorageImage path={article.imgSrc} />
       </S.CoffeeImageWrapper>

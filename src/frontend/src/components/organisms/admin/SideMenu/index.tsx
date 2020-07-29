@@ -1,7 +1,12 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import * as S from './index.styled'
-import { TiHomeOutline, TiDocumentAdd, TiThList } from 'react-icons/ti'
+import {
+  TiHomeOutline,
+  TiDocumentAdd,
+  TiThList,
+  TiTags,
+} from '@/components/atoms/icons'
 
 const RecommendedCoffeeCards: React.FC = () => {
   const history = useHistory()
@@ -35,6 +40,14 @@ const RecommendedCoffeeCards: React.FC = () => {
         >
           <TiThList size={20} />
           <p>記事一覧</p>
+        </S.MenuItem>
+
+        <S.MenuItem
+          onClick={() => history.push('/admin/tag')}
+          selected={pathname === '/admin/tag'}
+        >
+          <TiTags size={20} />
+          <p>タグ編集</p>
         </S.MenuItem>
       </S.MenuContent>
     </S.Menu>

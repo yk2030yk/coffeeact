@@ -12,9 +12,9 @@ export const Wrapper = styled.div`
 export const LinkText = styled(Link)`
   ${mixins.text}
   ${mixins.resetAnchor}
-  color: ${theme.color.davysGrey};
+  color: ${theme.color.reactBlueDark};
   font-weight: 600;
   &:hover {
-    color: ${colorUtils.brighten(theme.color.davysGrey)};
+    color: ${colorUtils.brighten(theme.color.reactBlueDark)};
   }
 `

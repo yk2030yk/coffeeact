@@ -1,5 +1,6 @@
 import React from 'react'
-import { RiCloseLine } from 'react-icons/ri'
+
+import { RiCloseLine } from '@/components/atoms/icons'
 import * as S from './index.styled'
 import { ModalProps } from '@/hooks/common/useModal'
 

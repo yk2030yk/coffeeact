@@ -9,6 +9,8 @@ import {
 } from '@/components/molecules/article'
 import { ArticleList } from '../ArticleList'
 
+const condition = {}
+
 export const ArticleListBox: React.FC = () => {
   return (
     <S.Wrapper>
@@ -24,6 +26,7 @@ export const ArticleListBox: React.FC = () => {
         <ArticleList
           ArticleCardsComponent={ArticleCards}
           LoadingPlaceholderComponent={ArticleCardsLoadingPlaceholder}
+          condition={condition}
         />
       </BasicBox>
     </S.Wrapper>
