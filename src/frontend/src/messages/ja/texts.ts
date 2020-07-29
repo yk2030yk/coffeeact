@@ -17,6 +17,9 @@ export const texts = {
     newArrivalArticle: {
       title: '最近の記事',
     },
+    ranking: {
+      title: '人気の記事',
+    },
   },
   about: {
     title: `${APP_NAME}とは`,

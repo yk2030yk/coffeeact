@@ -20,7 +20,7 @@ export const globalStyle = css`
 
   body {
     ${mixins.defaultFont}
-    background-color: ${theme.color.bgWhite};
+    background-color: ${theme.color.white};
   }
 
   ${theme.media.sm} {

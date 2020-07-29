@@ -1,8 +1,11 @@
 import { useEffect, useCallback } from 'react'
-import { useSetRecoilState, useResetRecoilState } from 'recoil'
+import { useSetRecoilState, useResetRecoilState, useRecoilState } from 'recoil'
 
-import { articleState, articlesState } from './atoms'
-import { articleService } from '@/service/firestore/ArticleService'
+import { articleState, articlesState, articlesConditionState } from './atoms'
+import {
+  articleService,
+  GetListCondition,
+} from '@/service/firestore/ArticleService'
 import { useAsyncTask } from '@/hooks/common/useAsyncTask'
 
 export const useArticle = (id: string) => {
@@ -23,19 +26,29 @@ export const useArticle = (id: string) => {
   }, [execute, resetArticle])
 }
 
-export const useArticles = () => {
+export const useArticles = (defaultCondition: GetListCondition = {}) => {
+  const [condition, setCondition] = useRecoilState(articlesConditionState)
   const setArticles = useSetRecoilState(articlesState)
   const resetArticles = useResetRecoilState(articlesState)
 
   const { execute } = useAsyncTask(
     'articles',
     useCallback(async () => {
-      setArticles(await articleService.getList())
-    }, [setArticles])
+      setArticles(await articleService.getList(condition))
+    }, [setArticles, condition])
   )
 
   useEffect(() => {
     execute()
-    return () => resetArticles()
+    return () => {
+      resetArticles()
+    }
   }, [execute, resetArticles])
+
+  useEffect(() => {
+    setCondition(defaultCondition)
+    return () => {
+      setCondition({})
+    }
+  }, [setCondition, defaultCondition])
 }

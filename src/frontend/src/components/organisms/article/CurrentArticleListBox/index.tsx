@@ -4,7 +4,6 @@ import * as S from './index.styled'
 import { Heading, FormattedMessage, BasicBox } from '@/components/atoms'
 import MoreLink from '@/components/molecules/common/MoreLink'
 import {
-  ArticleCardsFilter,
   ArticleCards,
   ArticleCardsLoadingPlaceholder,
 } from '@/components/molecules/article'
@@ -17,9 +16,6 @@ export const CurrentArticleListBox: React.FC = () => {
         <Heading>
           <FormattedMessage id="home.newArrivalArticle.title" />
         </Heading>
-      </BasicBox>
-      <BasicBox>
-        <ArticleCardsFilter />
       </BasicBox>
       <BasicBox>
         <ArticleList
