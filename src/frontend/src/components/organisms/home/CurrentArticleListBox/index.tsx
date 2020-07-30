@@ -1,14 +1,15 @@
 import React from 'react'
-import { RiArticleLine } from '@/components/atoms/icons'
 
 import * as S from './index.styled'
-import { TitleWithIcon, BasicBox } from '@/components/atoms'
+import { RiArticleLine } from '@/components/atoms/icons'
+import { BasicBox } from '@/components/atoms'
 import MoreLink from '@/components/molecules/common/MoreLink'
 import {
-  ArticleCards,
-  ArticleCardsLoadingPlaceholder,
+  CurrentArticleCards,
+  CurrentArticleCardsLoadingPlaceholder,
 } from '@/components/molecules/article'
-import { ArticleList } from '../ArticleList'
+import { MainContentTitle } from '@/components/molecules/home/MainContentTitle'
+import { ArticleList } from '@/components/organisms/article/ArticleList'
 
 const condition = { limit: 6 }
 
@@ -16,15 +17,15 @@ export const CurrentArticleListBox: React.FC = () => {
   return (
     <S.Wrapper>
       <BasicBox>
-        <TitleWithIcon
-          IconComponent={<RiArticleLine size={25} color={'#6b1224'} />}
+        <MainContentTitle
+          IconComponent={<RiArticleLine size={30} />}
           id="home.newArrivalArticle.title"
         />
       </BasicBox>
       <BasicBox>
         <ArticleList
-          ArticleCardsComponent={ArticleCards}
-          LoadingPlaceholderComponent={ArticleCardsLoadingPlaceholder}
+          ArticleCardsComponent={CurrentArticleCards}
+          LoadingPlaceholderComponent={CurrentArticleCardsLoadingPlaceholder}
           condition={condition}
         />
       </BasicBox>

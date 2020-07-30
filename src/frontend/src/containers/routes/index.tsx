@@ -15,6 +15,7 @@ import AdminArticleTagEditorPage from '@/containers/pages/articleTag/AdminArticl
 
 import ArticlePage from '@/containers/pages/article/ArticlePage'
 import ArticlesPage from '@/containers/pages/article/ArticlesListPage'
+import SearchResultArticlesListPage from '@/containers/pages/article/SearchResultArticlesListPage'
 
 import HomePage from '@/containers/pages/home/HomePage'
 import ProfilePage from '@/containers/pages/profile/ProfilePage'
@@ -46,6 +47,11 @@ const Routes: React.FC = () => {
       />
 
       <AppRoute exact path="/articles" component={ArticlesPage} />
+      <AppRoute
+        exact
+        path="/articles/search"
+        component={SearchResultArticlesListPage}
+      />
       <AppRoute exact path="/article/:articleId" component={ArticlePage} />
 
       <AppRoute exact path="/experiment" component={ExperimentPage} />

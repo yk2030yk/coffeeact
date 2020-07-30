@@ -1,12 +1,15 @@
 import { styled, mixins } from '@/styles'
 import { Link as RouterLink } from 'react-router-dom'
 
-export const Wrapper = styled.div`
+export const Cards = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 `
 
 export const Link = styled(RouterLink)`
   ${mixins.resetAnchor}
-  margin-bottom: 20px;
-  display: block;
+  width: 400px;
 `

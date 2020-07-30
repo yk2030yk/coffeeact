@@ -4,8 +4,7 @@ import { BasicBox, Heading2 } from '@/components/atoms'
 import { TitleEditor } from '@/components/molecules/articleForm/TitleEditor'
 import { ImageSrcBox } from '@/components/molecules/articleForm/ImageSrcBox'
 import { DescriptionEditor } from '@/components/molecules/articleForm/DescriptionEditor'
-import { TagsEditor } from '@/components/molecules/articleForm/TagsEditor'
-import { TagsList } from '@/components/molecules/articleForm/TagsList'
+import { TagEditor } from '@/components/molecules/articleForm/TagEditor'
 import { PublishStatusSelectBox } from '@/components/molecules/articleForm/PublishStatusSelectBox'
 import { Article } from '@/models/article/Article'
 
@@ -38,10 +37,7 @@ export const ArticleForm: React.FC<Props> = ({
         <Heading2>タグ</Heading2>
       </BasicBox>
       <BasicBox>
-        <TagsEditor defaultValue={article.tags} />
-      </BasicBox>
-      <BasicBox>
-        <TagsList />
+        <TagEditor defaultValue={article.tags} />
       </BasicBox>
 
       <BasicBox>

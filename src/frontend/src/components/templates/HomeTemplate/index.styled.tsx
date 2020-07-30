@@ -24,20 +24,27 @@ export const ContentAreaWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
-  padding: ${theme.space.basic};
-
-  @media screen and (max-width: 480px) {
-    padding: 5px;
-  }
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 `
 
 export const ContentArea = styled.div`
-  width: 1000px;
+  width: 1200px;
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 1fr 300px;
+`
+
+export const MainContentArea = styled.div`
+  width: 100%;
   height: 100%;
-  @media screen and (max-width: 480px) {
-    width: 100%;
-  }
+`
+
+export const SideContentArea = styled.div`
+  width: 300px;
+  height: 100%;
+  padding-top: 30px;
 `
 
 export const FooterArea = styled.div`

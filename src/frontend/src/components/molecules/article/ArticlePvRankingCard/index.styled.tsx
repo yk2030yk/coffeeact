@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   width: 100%;
   padding: 20px;
   background-color: ${theme.color.white};
-  border: 1px solid #eaeaeb;
   border-radius: 6px;
   position: relative;
 `

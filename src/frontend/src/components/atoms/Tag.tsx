@@ -1,11 +1,10 @@
-import { styled } from '@/styles'
+import { styled, theme } from '@/styles'
 
 export const Tag = styled.div`
-  width: 80px;
   text-align: center;
-  background-color: #cbe5ff;
-  color: #717171;
+  background-color: #4caf50;
+  color: ${theme.color.white};
   border-radius: 3px;
-  padding: 5px;
-  font-size: 10px;
+  padding: 10px 15px;
+  font-size: 11px;
 `

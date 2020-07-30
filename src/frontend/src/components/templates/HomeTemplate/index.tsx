@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 import * as S from './index.styled'
 import Header from '@/components/organisms/common/Header'
 import HomeHeader from '@/components/organisms/common/HomeHeader'
 import Footer from '@/components/organisms/common/Footer'
 
-const Template: React.FC = ({ children }) => (
+type Props = {
+  mainContent: ReactElement
+  sideContent: ReactElement
+}
+const Template: React.FC<Props> = ({ mainContent, sideContent }) => (
   <S.Wrapper>
     <S.HeaderArea>
       <Header />
@@ -14,7 +18,10 @@ const Template: React.FC = ({ children }) => (
       <HomeHeader />
     </S.HomeHeaderArea>
     <S.ContentAreaWrapper>
-      <S.ContentArea>{children}</S.ContentArea>
+      <S.ContentArea>
+        <S.MainContentArea>{mainContent}</S.MainContentArea>
+        <S.SideContentArea>{sideContent}</S.SideContentArea>
+      </S.ContentArea>
     </S.ContentAreaWrapper>
     <S.FooterArea>
       <Footer />

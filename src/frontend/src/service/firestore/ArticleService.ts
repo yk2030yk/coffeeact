@@ -9,6 +9,7 @@ const COLLECTION_NAME = 'articles'
 export type GetListCondition = {
   limit?: number
   orderBy?: string
+  tag?: string
 }
 
 export class ArticleService extends FirestoreService {
@@ -47,6 +48,10 @@ export class ArticleService extends FirestoreService {
       condition.orderBy ? condition.orderBy : 'createdAt',
       'desc'
     )
+
+    // if (condition.tag) {
+    //   query = query.where('tags', 'array-contains', condition.tag)
+    // }
 
     if (condition.limit) query = query.limit(condition.limit)
 

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { FaChessKing } from '@/components/atoms/icons'
 
 import * as S from './index.styled'
-import { TitleWithIcon, BasicBox } from '@/components/atoms'
+import { BasicBox } from '@/components/atoms'
 import { ArticlePvRankingCards } from '@/components/molecules/article'
+import { SideContentTitle } from '@/components/molecules/home/SideContentTitle'
 import { articlePVService } from '@/service/firestore/ArticlePVService'
 import { articleService } from '@/service/firestore/ArticleService'
 import { Article } from '@/models/article/Article'
@@ -23,7 +24,7 @@ export const ArticlePvRanking: React.FC = () => {
   return (
     <S.Wrapper>
       <BasicBox>
-        <TitleWithIcon
+        <SideContentTitle
           IconComponent={<FaChessKing size={20} color={'#e6b422'} />}
           id="home.ranking.title"
         />

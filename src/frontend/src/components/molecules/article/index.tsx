@@ -11,3 +11,5 @@ export { AdminArticleCardLoadingPlaceholder } from './AdminArticleCardLoadingPla
 export { AdminArticleCardsLoadingPlaceholder } from './AdminArticleCardsLoadingPlaceholder'
 export { ArticlePvRankingCard } from './ArticlePvRankingCard'
 export { ArticlePvRankingCards } from './ArticlePvRankingCards'
+export { CurrentArticleCards } from './CurrentArticleCards'
+export { CurrentArticleCardsLoadingPlaceholder } from './CurrentArticleCardsLoadingPlaceholder'

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
+import { Link } from 'react-router-dom'
 
 import * as S from './index.styled'
 import { Tag } from '@/components/atoms'
@@ -14,7 +15,15 @@ export const SearchArticleByTagList: React.FC = () => {
     <S.Wrapper>
       <S.TagListBox>
         {tagList.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
+          <Link
+            key={tag}
+            to={{
+              pathname: '/articles/search',
+              search: `?tag=${tag}`,
+            }}
+          >
+            <Tag>{tag}</Tag>
+          </Link>
         ))}
       </S.TagListBox>
     </S.Wrapper>

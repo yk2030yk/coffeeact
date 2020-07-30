@@ -3,25 +3,31 @@ import React from 'react'
 import * as S from './index.styled'
 import { BasicBox } from '@/components/atoms'
 import HomeTemplate from '@/components/templates/HomeTemplate'
-import { CurrentArticleListBox } from '@/components/organisms/article/CurrentArticleListBox'
-import { ArticlePvRanking } from '@/components/organisms/article/ArticlePvRanking'
-import { SearchArticleByTag } from '@/components/organisms/articleTag/SearchArticleByTag'
+import { CurrentArticleListBox } from '@/components/organisms/home/CurrentArticleListBox'
+import { ArticlePvRanking } from '@/components/organisms/home/ArticlePvRanking'
+import { SearchArticleByTag } from '@/components/organisms/home/SearchArticleByTag'
 
 const Page: React.FC = () => {
   return (
-    <HomeTemplate>
-      <S.Wrapper>
-        <BasicBox>
-          <CurrentArticleListBox />
-        </BasicBox>
-        <BasicBox>
-          <ArticlePvRanking />
-        </BasicBox>
-        <BasicBox>
-          <SearchArticleByTag />
-        </BasicBox>
-      </S.Wrapper>
-    </HomeTemplate>
+    <HomeTemplate
+      mainContent={
+        <S.Wrapper>
+          <BasicBox>
+            <CurrentArticleListBox />
+          </BasicBox>
+        </S.Wrapper>
+      }
+      sideContent={
+        <S.Wrapper>
+          <BasicBox>
+            <ArticlePvRanking />
+          </BasicBox>
+          <BasicBox>
+            <SearchArticleByTag />
+          </BasicBox>
+        </S.Wrapper>
+      }
+    />
   )
 }
 
