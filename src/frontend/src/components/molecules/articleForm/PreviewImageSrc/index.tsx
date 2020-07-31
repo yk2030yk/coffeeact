@@ -4,8 +4,8 @@ import { StorageImage } from '@/components/atoms'
 import {
   imageSrcState,
   previewImageSrcBlobState,
-} from '@/recoil/articleForm/atom'
-import { previewImageSrcBlobUrlSelector } from '@/recoil/articleForm/selector'
+  previewImageSrcBlobUrlSelector,
+} from '@/recoil/articleForm'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { useResetRecoilState } from 'recoil'
 

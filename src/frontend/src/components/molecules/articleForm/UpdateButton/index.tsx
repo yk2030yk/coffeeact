@@ -2,11 +2,11 @@ import React from 'react'
 import { useRecoilValue } from 'recoil'
 
 import { SubmitButton } from '@/components/atoms'
-import { previewImageSrcBlobState } from '@/recoil/articleForm/atom'
 import {
+  previewImageSrcBlobState,
   isValidSelector,
   articleFormSelector,
-} from '@/recoil/articleForm/selector'
+} from '@/recoil/articleForm'
 import { articleService } from '@/service/firestore/ArticleService'
 import { useUploadImage } from '@/hooks/storage/useUploadImage'
 import { randomString } from '@/utils/util'

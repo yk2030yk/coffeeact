@@ -3,9 +3,8 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 
 import * as S from './index.styled'
 import { BasicBox, Heading2, Tag } from '@/components/atoms'
-import { tagsState } from '@/recoil/articleForm/atom'
-import { tagListState } from '@/recoil/articleTag/atoms'
-import { useArticleTagList } from '@/recoil/articleTag/hooks'
+import { tagsState } from '@/recoil/articleForm'
+import { tagListState, useArticleTagList } from '@/recoil/articleTag'
 
 type Props = {
   defaultValue?: string[]

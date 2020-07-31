@@ -3,10 +3,7 @@ import { useRecoilValue } from 'recoil'
 import { useHistory } from 'react-router-dom'
 
 import { SubmitButton } from '@/components/atoms'
-import {
-  isValidSelector,
-  articleFormSelector,
-} from '@/recoil/articleForm/selector'
+import { articleFormSelector } from '@/recoil/articleForm'
 import { articleService } from '@/service/firestore/ArticleService'
 import { storageService } from '@/service/storage/StorageService'
 import { useAsyncTask } from '@/hooks/common/useAsyncTask'

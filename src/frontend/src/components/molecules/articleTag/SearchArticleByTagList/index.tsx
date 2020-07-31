@@ -3,8 +3,7 @@ import { useRecoilValue } from 'recoil'
 
 import * as S from './index.styled'
 import { Tag } from '@/components/atoms'
-import { tagListState } from '@/recoil/articleTag/atoms'
-import { useArticleTagList } from '@/recoil/articleTag/hooks'
+import { tagListState, useArticleTagList } from '@/recoil/articleTag'
 
 export const SearchArticleByTagList: React.FC = () => {
   useArticleTagList()

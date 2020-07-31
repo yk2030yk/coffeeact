@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 
 import * as S from './index.styled'
-import { articlesFilterState } from '@/recoil/article/atoms'
+import { articlesFilterState } from '@/recoil/article'
 
 export const ArticleCardsFilter: React.FC = () => {
   const [filter, setFilter] = useRecoilState(articlesFilterState)

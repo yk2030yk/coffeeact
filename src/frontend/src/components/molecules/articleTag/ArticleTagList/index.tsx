@@ -2,11 +2,11 @@ import React from 'react'
 import { useRecoilValue } from 'recoil'
 
 import * as S from './index.styled'
-import { tagListState } from '@/recoil/articleTag/atoms'
 import {
+  tagListState,
   useArticleTagList,
   useFetchArticleTagList,
-} from '@/recoil/articleTag/hooks'
+} from '@/recoil/articleTag'
 import { articleTagService } from '@/service/firestore/ArticleTagService'
 import { Button } from '@/components/atoms'
 

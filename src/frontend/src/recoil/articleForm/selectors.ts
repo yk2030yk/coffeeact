@@ -1,5 +1,6 @@
+import { createSelectorWithKey } from '../utils'
+import { NAME_SPACE } from '../namespace'
 import * as validate from './validate'
-import { createSelectorWithKey } from '@/recoil/utils'
 import {
   titleState,
   imageSrcState,
@@ -8,13 +9,13 @@ import {
   publishStatusState,
   previewImageSrcBlobState,
   postRequestState,
-} from './atom'
+} from './atoms'
 import { ArticleForm } from '@/models/ArticleForm'
 import { articleService } from '@/service/firestore/ArticleService'
 import { storageService } from '@/service/storage/StorageService'
 import { randomString } from '@/utils/util'
 
-const selector = createSelectorWithKey('articleForm')
+const selector = createSelectorWithKey(NAME_SPACE.articleForm)
 
 export const previewImageSrcBlobUrlSelector = selector<string>({
   key: 'previewImageSrcBlobUrlSelector',

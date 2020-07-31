@@ -3,13 +3,13 @@ import { useRecoilValue } from 'recoil'
 import { useHistory } from 'react-router-dom'
 
 import { SubmitButton } from '@/components/atoms'
-import { postRequestState } from '@/recoil/articleForm/atom'
 import {
+  postRequestState,
   isValidSelector,
   articleFormSelector,
   postSelector,
-} from '@/recoil/articleForm/selector'
-import { useSnackbarMessages } from '@/recoil/global/snackbar/hooks'
+} from '@/recoil/articleForm'
+import { useSnackbarMessages } from '@/recoil/global/snackbar'
 import { useRecoilValueLoadable } from 'recoil'
 import { useSetRecoilState } from 'recoil'
 

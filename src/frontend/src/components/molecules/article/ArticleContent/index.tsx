@@ -3,8 +3,8 @@ import { useRecoilValue } from 'recoil'
 
 import * as S from './index.styled'
 import { BasicBox, StorageImage } from '@/components/atoms'
-import { articleState } from '@/recoil/article/atoms'
-import { loadableSelector } from '@/recoil/global/loadable/atoms'
+import { articleState } from '@/recoil/article'
+import { loadableSelector } from '@/recoil/global/loadable'
 import { ArticleTags } from '../ArticleTags'
 
 export const ArticleContent: React.FC = () => {
