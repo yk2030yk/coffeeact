@@ -8,7 +8,7 @@ import {
   inputImageSrcState,
   croppedImageSrcState,
   previewImageSrcBlobState,
-} from '@/recoil/articleForm/atom'
+} from '@/recoil/articleForm'
 
 const aspect = 16 / 8
 

@@ -6,8 +6,7 @@ import * as S from './index.styled'
 import { ArticleForm } from '../ArticleForm'
 import { UpdateButton } from '@/components/molecules/articleForm/UpdateButton'
 import { DeleteButton } from '@/components/molecules/articleForm/DeleteButton'
-import { articleState } from '@/recoil/article/atoms'
-import { useArticle } from '@/recoil/article/hooks'
+import { articleState, useArticle } from '@/recoil/article'
 
 export const ArticleEditForm: React.FC = () => {
   const { articleId } = useParams<{ articleId: string }>()

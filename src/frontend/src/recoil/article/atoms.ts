@@ -1,8 +1,10 @@
-import { createAtomWithKey } from '@/recoil/utils'
+import { createAtomWithKey } from '../utils'
+import { NAME_SPACE } from '../namespace'
+
 import { Article } from '@/models/article/Article'
 import { GetListCondition } from '@/service/firestore/ArticleService'
 
-const atom = createAtomWithKey('article')
+const atom = createAtomWithKey(NAME_SPACE.article)
 
 export const articleState = atom<Article>({
   key: 'articleState',

@@ -1,7 +1,8 @@
+import { createSelectorWithKey } from '../utils'
+import { NAME_SPACE } from '../namespace'
 import { articlesFilterState, articlesState } from './atoms'
-import { createSelectorWithKey } from '@/recoil/utils'
 
-const selector = createSelectorWithKey('article')
+const selector = createSelectorWithKey(NAME_SPACE.article)
 
 export const filteredArticlesSelector = selector({
   key: 'filteredArticlesSelector',

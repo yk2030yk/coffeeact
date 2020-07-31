@@ -1,5 +1,5 @@
 import { FirestoreService } from './FirestoreService'
-
+import { ArticlePvConverter } from '@/models/ArticlePv'
 const COLLECTION_NAME = 'articles_pv'
 
 export class ArticlePVService extends FirestoreService {
@@ -21,13 +21,15 @@ export class ArticlePVService extends FirestoreService {
     }
   }
 
-  public async getTopPvIdList(limit = 5) {
+  public async getArticlePvList(limit = 5) {
     const querySnapshot = await this.db
       .collection(COLLECTION_NAME)
+      .withConverter(ArticlePvConverter)
       .orderBy('pv', 'desc')
       .limit(limit)
       .get()
-    return querySnapshot.docs.map((doc) => doc.data().id)
+
+    return querySnapshot.docs.map((doc) => doc.data())
   }
 }
 

@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil'
 import * as S from './index.styled'
 import { SelectBox } from '@/components/atoms'
 import { PUBLISH_STATUS, PublishStatus } from '@/models/article/Article'
-import { publishStatusState } from '@/recoil/articleForm/atom'
+import { publishStatusState } from '@/recoil/articleForm'
 
 const PublishStatusOptions = [
   {

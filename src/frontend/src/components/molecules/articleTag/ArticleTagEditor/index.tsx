@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
+import { useRecoilValue } from 'recoil'
 
 import * as S from './index.styled'
 import { Input, Button } from '@/components/atoms'
 import { articleTagService } from '@/service/firestore/ArticleTagService'
-import { useFetchArticleTagList } from '@/recoil/articleTag/hooks'
-import { tagListState } from '@/recoil/articleTag/atoms'
-import { useRecoilValue } from 'recoil'
+import { tagListState, useFetchArticleTagList } from '@/recoil/articleTag'
 
 const validateInputTag = (inputTag: string, tagList: string[]) => {
   if (!inputTag) return '入力されたタグが空です'

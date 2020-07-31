@@ -3,7 +3,7 @@ import { useRecoilState, useResetRecoilState } from 'recoil'
 
 import * as S from './index.styled'
 import { Input } from '@/components/atoms'
-import { titleState } from '@/recoil/articleForm/atom'
+import { titleState } from '@/recoil/articleForm'
 
 type Props = {
   defaultValue?: string

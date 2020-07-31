@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil'
 
 import * as S from './index.styled'
 import { BasicBox, Tag, Heading2 } from '@/components/atoms'
-import { tagsState } from '@/recoil/articleForm/atom'
+import { tagsState } from '@/recoil/articleForm'
 
 export const SelectedTagList: React.FC = () => {
   const [tags, setTags] = useRecoilState(tagsState)

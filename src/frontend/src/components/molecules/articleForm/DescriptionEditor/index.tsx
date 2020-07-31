@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 
 import * as S from './index.styled'
-import { descriptionState } from '@/recoil/articleForm/atom'
+import { descriptionState } from '@/recoil/articleForm'
 import { useResetRecoilState } from 'recoil'
 
 import { Editor } from '@tinymce/tinymce-react'

@@ -1,8 +1,10 @@
+import { createAtomWithKey } from '../utils'
+import { NAME_SPACE } from '../namespace'
+
 import { PUBLISH_STATUS, PublishStatus } from '@/models/article/Article'
 import { ArticleForm } from '@/models/ArticleForm'
-import { createAtomWithKey } from '@/recoil/utils'
 
-const atom = createAtomWithKey('articleForm')
+const atom = createAtomWithKey(NAME_SPACE.articleForm)
 
 export const imageSrcState = atom<string>({
   key: 'imageSrcState',

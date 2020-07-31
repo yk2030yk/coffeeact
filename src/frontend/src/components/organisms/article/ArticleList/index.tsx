@@ -2,10 +2,9 @@ import React from 'react'
 import { useRecoilValue } from 'recoil'
 
 import { NotFoundArticle } from '@/components/molecules/article'
-import { filteredArticlesSelector } from '@/recoil/article/selectors'
-import { loadableSelector } from '@/recoil/global/loadable/atoms'
+import { filteredArticlesSelector, useArticles } from '@/recoil/article'
+import { loadableSelector } from '@/recoil/global/loadable'
 import { Article } from '@/models/article/Article'
-import { useArticles } from '@/recoil/article/hooks'
 import { GetListCondition } from '@/service/firestore/ArticleService'
 
 type Props = {
