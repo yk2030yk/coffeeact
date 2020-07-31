@@ -1,14 +1,23 @@
 import React from 'react'
 
 import * as S from './index.styled'
-import { ArticleSummary } from '@/components/molecules/dashboard/ArticleSummary'
+import { ArticlePvSummary } from '@/components/molecules/dashboard/ArticlePvSummary'
+import { DummyChart } from './chart'
 
 type Props = {}
 
 export const AdminDashboard: React.FC<Props> = () => {
   return (
     <S.Wrapper>
-      <ArticleSummary />
+      <S.DummyCard>
+        <ArticlePvSummary />
+      </S.DummyCard>
+      <S.DummyCard />
+      <S.DummyCard />
+      <S.DummyCard />
+      <S.GraphCard>
+        <DummyChart />
+      </S.GraphCard>
     </S.Wrapper>
   )
 }

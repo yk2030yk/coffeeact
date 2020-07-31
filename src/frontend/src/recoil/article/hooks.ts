@@ -14,10 +14,10 @@ export const useArticle = (id: string) => {
 
   const { execute } = useAsyncTask(
     'article',
-    useCallback(async () => setArticle(await articleService.get(id)), [
-      setArticle,
-      id,
-    ])
+    useCallback(async () => {
+      const article = await articleService.get(id)
+      if (article) setArticle(article)
+    }, [setArticle, id])
   )
 
   useEffect(() => {

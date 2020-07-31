@@ -12,6 +12,17 @@ export const PUBLISH_STATUS = {
 
 export type PublishStatus = typeof PUBLISH_STATUS[keyof typeof PUBLISH_STATUS]
 
+type ArticleDocumentData = {
+  id?: string
+  publishStatus?: PublishStatus
+  imgSrc?: string
+  title?: string
+  description?: string
+  tags?: string[]
+  createdAt?: firestore.Timestamp | undefined
+  updatedAt?: firestore.Timestamp | undefined
+}
+
 export class Article extends BaseModel {
   public readonly id: string
   public readonly publishStatus: PublishStatus
@@ -31,19 +42,8 @@ export class Article extends BaseModel {
     tags = [],
     createdAt = undefined,
     updatedAt = undefined,
-    doc = undefined,
-  }: {
-    id?: string
-    publishStatus?: PublishStatus
-    imgSrc?: string
-    title?: string
-    description?: string
-    tags?: string[]
-    createdAt?: firestore.Timestamp | undefined
-    updatedAt?: firestore.Timestamp | undefined
-    doc?: firestore.DocumentSnapshot | undefined
-  } = {}) {
-    super(doc)
+  }: ArticleDocumentData = {}) {
+    super()
     this.id = id
     this.publishStatus = publishStatus
     this.imgSrc = imgSrc
@@ -72,17 +72,25 @@ export class Article extends BaseModel {
       isBefore(subDays(new Date(), 7), this.createdAt.toDate())
     )
   }
+}
 
-  public toJson() {
+export const ArticleConverter: firestore.FirestoreDataConverter<Article> = {
+  toFirestore: (article: Article): firestore.DocumentData => {
     return {
-      publishStatus: this.publishStatus,
-      imgSrc: this.imgSrc,
-      title: this.title,
-      description: this.description,
-      tags: this.tags,
-      createdAt: this.createdAt,
-      updatedAt: this.updatedAt,
-      doc: this.doc,
+      publishStatus: article.publishStatus,
+      imgSrc: article.imgSrc,
+      title: article.title,
+      description: article.description,
+      tags: article.tags,
+      createdAt: article.createdAt,
+      updatedAt: article.updatedAt,
     }
-  }
+  },
+  fromFirestore: (
+    snapshot: firestore.DocumentSnapshot<firestore.DocumentData>,
+    options: firestore.SnapshotOptions
+  ): Article => {
+    const data = snapshot.data(options)! as ArticleDocumentData
+    return new Article({ ...data, id: snapshot.id })
+  },
 }

@@ -1,7 +1,7 @@
 import { firestore } from 'firebase'
 
 import { FirestoreService } from './FirestoreService'
-import { Article } from '@/models/article/Article'
+import { ArticleConverter } from '@/models/article/Article'
 import { ArticleForm } from '@/models/ArticleForm'
 
 const COLLECTION_NAME = 'articles'
@@ -13,36 +13,28 @@ export type GetListCondition = {
 }
 
 export class ArticleService extends FirestoreService {
-  private docToModel(doc: firestore.DocumentSnapshot) {
-    const data = doc.data() as ConstructorParameters<typeof Article>[0]
-    const id = doc.id
-    return new Article({ ...data, id })
-  }
-
-  private formToJson(articleForm: ArticleForm) {
-    const timestamp = firestore.FieldValue.serverTimestamp()
-    return {
-      ...articleForm,
-      createdAt: timestamp,
-      updatedAt: timestamp,
-    }
-  }
-
   public async get(id: string) {
-    const doc = await this.db.collection(COLLECTION_NAME).doc(id).get()
-    return this.docToModel(doc)
+    const doc = await this.db
+      .collection(COLLECTION_NAME)
+      .withConverter(ArticleConverter)
+      .doc(id)
+      .get()
+    return doc.data()
   }
 
   public async getListByIds(ids: string[]) {
     const querySnapshot = await this.db
       .collection(COLLECTION_NAME)
+      .withConverter(ArticleConverter)
       .where(firestore.FieldPath.documentId(), 'in', ids)
       .get()
-    return querySnapshot.docs.map((doc) => this.docToModel(doc))
+    return querySnapshot.docs.map((doc) => doc.data())
   }
 
   public async getList(condition: GetListCondition) {
-    const collection = this.db.collection(COLLECTION_NAME)
+    const collection = this.db
+      .collection(COLLECTION_NAME)
+      .withConverter(ArticleConverter)
 
     let query = collection.orderBy(
       condition.orderBy ? condition.orderBy : 'createdAt',
@@ -56,22 +48,30 @@ export class ArticleService extends FirestoreService {
     if (condition.limit) query = query.limit(condition.limit)
 
     const querySnapshot = await query.get()
-    return querySnapshot.docs.map((doc) => this.docToModel(doc))
+    return querySnapshot.docs.map((doc) => doc.data())
   }
 
   public async create(articleForm: ArticleForm) {
-    const data = await this.db
-      .collection(COLLECTION_NAME)
-      .add(this.formToJson(articleForm))
+    const timestamp = firestore.FieldValue.serverTimestamp()
+    const data = await this.db.collection(COLLECTION_NAME).add({
+      ...articleForm,
+      createdAt: timestamp,
+      updatedAt: timestamp,
+    })
     return data.id
   }
 
   public async update(id: string, articleForm: ArticleForm) {
-    const doc = await this.db.collection(COLLECTION_NAME).doc(id).get()
+    const doc = await this.db
+      .collection(COLLECTION_NAME)
+      .doc(id)
+      .withConverter(ArticleConverter)
+      .get()
 
     if (!doc) throw new Error('ドキュメントがありません。')
 
-    await doc.ref.update(articleForm)
+    const timestamp = firestore.FieldValue.serverTimestamp()
+    await doc.ref.update({ ...articleForm, updatedAt: timestamp })
   }
 
   public async delete(id: string) {

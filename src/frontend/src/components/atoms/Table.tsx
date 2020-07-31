@@ -1,12 +1,13 @@
 import { styled } from '@/styles'
 
 export const Cell = styled.div`
-  width: 100%;
+  padding: 5px;
 `
 
 export const Row = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
 `
 
-export const Table = styled.div``
+export const Table = styled.div`
+  border: solid 1px #ddd;
+`
