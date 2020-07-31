@@ -1,4 +1,5 @@
-import { styled, theme } from '@/styles'
+import { styled, theme, mixins } from '@/styles'
+import { Link } from 'react-router-dom'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -13,4 +14,9 @@ export const TagListBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-gap: 10px;
+`
+
+export const TagItem = styled(Link)`
+  ${mixins.pointer}
+  ${mixins.resetAnchor}
 `
