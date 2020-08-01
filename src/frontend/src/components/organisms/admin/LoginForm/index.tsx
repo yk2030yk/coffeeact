@@ -2,7 +2,6 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 import * as S from './index.styled'
-import { useAppContext } from '@/contexts/AppContext'
 import {
   Input,
   BasicBox,
@@ -10,6 +9,7 @@ import {
   SubmitButton,
   CircularProgress,
 } from '@/components/atoms'
+import { useAuthLogin } from '@/recoil/auth'
 
 type FormValues = {
   email: string
@@ -17,7 +17,7 @@ type FormValues = {
 }
 
 const RecommendedCoffeeCards: React.FC = () => {
-  const { login } = useAppContext()
+  const login = useAuthLogin()
   const { register, handleSubmit } = useForm<FormValues>()
 
   const onSubmit = handleSubmit((data) => {

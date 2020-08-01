@@ -1,10 +1,10 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
-import { RiAdminLine, RiLogoutBoxRLine } from '@/components/atoms/icons'
 
 import * as S from './index.styled'
-import { useAppContext } from '@/contexts/AppContext'
+import { RiAdminLine, RiLogoutBoxRLine } from '@/components/atoms/icons'
+import { useAuthLogout } from '@/recoil/auth'
 
 type Props = {
   isOpen: boolean
@@ -12,7 +12,7 @@ type Props = {
 }
 
 const TitleIcon: React.FC<Props> = ({ isOpen, setIsOpen }) => {
-  const { logout } = useAppContext()
+  const logout = useAuthLogout()
   const history = useHistory()
 
   const spring = useSpring({

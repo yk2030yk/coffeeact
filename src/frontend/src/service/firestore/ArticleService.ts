@@ -1,7 +1,7 @@
 import { firestore } from 'firebase'
 
 import { FirestoreService } from './FirestoreService'
-import { ArticleConverter } from '@/models/article/Article'
+import { ArticleConverter } from '@/models/Article'
 import { ArticleForm } from '@/models/ArticleForm'
 
 const COLLECTION_NAME = 'articles'

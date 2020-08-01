@@ -1,14 +1,22 @@
 import { useState, useEffect, useCallback } from 'react'
-import { User } from 'firebase'
+import { useSetRecoilState } from 'recoil'
 import { useHistory } from 'react-router-dom'
 
+import { signInState, userState, SIGN_IN_STATUS } from './atoms'
 import { useAsyncTask } from '@/hooks/common/useAsyncTask'
 import { authService } from '@/service/auth/AuthService'
+import { User } from '@/models/User'
 
-export const SIGN_IN_STATUS = {
-  NONE: 'none',
-  SIGN_IN: 'SIGN_IN',
-  SIGN_OUT: 'SIGN_OUT',
+export const useOnAuthStateChanged = () => {
+  const setSignInStatus = useSetRecoilState(signInState)
+  const setUser = useSetRecoilState(userState)
+
+  useEffect(() => {
+    authService.onAuthStateChanged((u) => {
+      setUser(u ? new User() : null)
+      setSignInStatus(u ? SIGN_IN_STATUS.SIGN_IN : SIGN_IN_STATUS.SIGN_OUT)
+    })
+  }, [])
 }
 
 const codeToMessage: { [key: string]: string } = {}
@@ -18,17 +26,8 @@ const handleLoginError = (e: any) => {
   throw new Error(codeToMessage[code] || '入力された情報が間違っています。')
 }
 
-export const useAuth = () => {
+export const useAuthLogin = () => {
   const history = useHistory()
-  const [signInStatus, setSignInStatus] = useState<string>(SIGN_IN_STATUS.NONE)
-  const [user, setUser] = useState<User | null>(null)
-
-  useEffect(() => {
-    authService.onAuthStateChanged((u) => {
-      setUser(u)
-      setSignInStatus(u ? SIGN_IN_STATUS.SIGN_IN : SIGN_IN_STATUS.SIGN_OUT)
-    })
-  }, [])
 
   const login = useAsyncTask(
     'login',
@@ -37,6 +36,7 @@ export const useAuth = () => {
         try {
           await authService.login(email, password)
         } catch (e) {
+          console.log(e)
           handleLoginError(e)
         }
         history.push('/admin/home')
@@ -44,6 +44,12 @@ export const useAuth = () => {
       [history]
     )
   )
+
+  return login
+}
+
+export const useAuthLogout = () => {
+  const history = useHistory()
 
   const logout = useAsyncTask(
     'logout',
@@ -53,5 +59,5 @@ export const useAuth = () => {
     }, [history])
   )
 
-  return { user, signInStatus, login, logout }
+  return logout
 }

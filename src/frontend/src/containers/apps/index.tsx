@@ -8,8 +8,8 @@ import WithEmotionTheme from './WithEmotionTheme'
 import WithIntl from './WithIntl'
 import WithSentry from './WithSentry'
 import WithRecoil from './WithRecoil'
+import { WithAuth } from './WithAuth'
 import Routes from '../routes'
-import { AppContextProvider } from '@/contexts/AppContext'
 
 const App: React.FC = () => (
   <WithRecoil>
@@ -20,9 +20,9 @@ const App: React.FC = () => (
             <BrowserRouter>
               <WithErrorBoundary>
                 <WithScrollToTop>
-                  <AppContextProvider>
+                  <WithAuth>
                     <Routes />
-                  </AppContextProvider>
+                  </WithAuth>
                 </WithScrollToTop>
               </WithErrorBoundary>
             </BrowserRouter>
