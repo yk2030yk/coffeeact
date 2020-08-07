@@ -1,7 +1,6 @@
 import { styled, mixins, theme } from '@/styles'
-import { FaUserCircle } from '@/components/atoms/icons'
 
-export const Form = styled.form`
+export const Form = styled.div`
   width: 500px;
   border: solid 1px #c5c5c5;
   border-radius: 5px;
@@ -11,20 +10,20 @@ export const Form = styled.form`
   padding: 60px;
 `
 
-export const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: red;
-  margin-top: 10px;
-`
-
-export const Icon = styled(FaUserCircle)`
-  color: ${theme.color.yankeesBlue};
-`
-
 export const Title = styled.div`
   ${mixins.heading}
   text-align: center;
   padding: 0;
+`
+
+export const LoadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 150px;
+`
+
+export const LoadingMessage = styled.div`
+  margin-bottom: 20px;
 `

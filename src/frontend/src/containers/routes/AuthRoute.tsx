@@ -1,9 +1,9 @@
 import React from 'react'
-import AppRoute from './AppRoute'
+import { useRecoilValue } from 'recoil'
 import { Redirect, RouteProps } from 'react-router-dom'
 
-import { useAppContext } from '@/contexts/AppContext'
-import { SIGN_IN_STATUS } from '@/hooks/auth/useAuth'
+import AppRoute from './AppRoute'
+import { SIGN_IN_STATUS, signInState } from '@/recoil/auth'
 import LoadingPage from '../pages/global/LoadingPage'
 
 type Props = {
@@ -11,17 +11,18 @@ type Props = {
 } & RouteProps
 
 const AuthRoute: React.FC<Props> = ({ component: Component, ...props }) => {
-  const { signInStatus } = useAppContext()
+  const signInStatus = useRecoilValue(signInState)
 
-  if (signInStatus === SIGN_IN_STATUS.SIGN_IN) {
-    return <AppRoute component={Component} {...props} />
-  } else if (signInStatus === SIGN_IN_STATUS.SIGN_OUT) {
-    return <Redirect to="/admin/login" />
-  } else if (signInStatus === SIGN_IN_STATUS.NONE) {
-    return <AppRoute component={LoadingPage} />
+  switch (signInStatus) {
+    case SIGN_IN_STATUS.SIGN_IN:
+      return <AppRoute component={Component} {...props} />
+    case SIGN_IN_STATUS.SIGN_OUT:
+      return <Redirect to="/admin/login" />
+    case SIGN_IN_STATUS.NONE:
+      return <AppRoute component={LoadingPage} />
+    default:
+      throw new Error('signInStatusが不正の値です')
   }
-
-  throw new Error()
 }
 
 export default AuthRoute

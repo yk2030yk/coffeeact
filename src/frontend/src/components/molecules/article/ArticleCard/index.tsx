@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './index.styled'
 import { Card, StorageImage } from '@/components/atoms'
-import { Article } from '@/models/article/Article'
+import { Article } from '@/models/Article'
 
 type Props = {
   article: Article
