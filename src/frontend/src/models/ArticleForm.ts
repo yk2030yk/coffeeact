@@ -1,4 +1,4 @@
-import { PublishStatus } from './article/Article'
+import { PublishStatus } from './Article'
 
 export type ArticleForm = {
   publishStatus: PublishStatus

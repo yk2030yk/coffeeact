@@ -1,7 +1,7 @@
 import { createAtomWithKey } from '../utils'
 import { NAME_SPACE } from '../namespace'
 
-import { PUBLISH_STATUS, PublishStatus } from '@/models/article/Article'
+import { PUBLISH_STATUS, PublishStatus } from '@/models/Article'
 import { ArticleForm } from '@/models/ArticleForm'
 
 const atom = createAtomWithKey(NAME_SPACE.articleForm)

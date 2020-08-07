@@ -1,7 +1,7 @@
 import { createAtomWithKey } from '../utils'
 import { NAME_SPACE } from '../namespace'
 
-import { Article } from '@/models/article/Article'
+import { Article } from '@/models/Article'
 import { GetListCondition } from '@/service/firestore/ArticleService'
 
 const atom = createAtomWithKey(NAME_SPACE.article)

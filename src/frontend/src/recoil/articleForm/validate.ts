@@ -1,4 +1,4 @@
-import { PublishStatus, PUBLISH_STATUS } from '@/models/article/Article'
+import { PublishStatus, PUBLISH_STATUS } from '@/models/Article'
 
 export const validateTitle = (title: string) => {
   return Boolean(title)

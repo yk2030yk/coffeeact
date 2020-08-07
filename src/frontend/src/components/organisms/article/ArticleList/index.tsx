@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil'
 import { NotFoundArticle } from '@/components/molecules/article'
 import { filteredArticlesSelector, useArticles } from '@/recoil/article'
 import { loadableSelector } from '@/recoil/global/loadable'
-import { Article } from '@/models/article/Article'
+import { Article } from '@/models/Article'
 import { GetListCondition } from '@/service/firestore/ArticleService'
 
 type Props = {
