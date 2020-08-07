@@ -1,8 +1,15 @@
-import { useState, useEffect, useCallback } from 'react'
-import { useSetRecoilState } from 'recoil'
+import { useEffect, useCallback } from 'react'
+import { useSetRecoilState, useRecoilValue } from 'recoil'
 import { useHistory } from 'react-router-dom'
 
-import { signInState, userState, SIGN_IN_STATUS } from './atoms'
+import {
+  signInState,
+  userState,
+  authErrorState,
+  loginEmailState,
+  loginPasswordState,
+  SIGN_IN_STATUS,
+} from './atoms'
 import { useAsyncTask } from '@/hooks/common/useAsyncTask'
 import { authService } from '@/service/auth/AuthService'
 import { User } from '@/models/User'
@@ -16,48 +23,38 @@ export const useOnAuthStateChanged = () => {
       setUser(u ? new User() : null)
       setSignInStatus(u ? SIGN_IN_STATUS.SIGN_IN : SIGN_IN_STATUS.SIGN_OUT)
     })
+    /* eslint react-hooks/exhaustive-deps: 0 */
   }, [])
-}
-
-const codeToMessage: { [key: string]: string } = {}
-
-const handleLoginError = (e: any) => {
-  const code = (e.code || '') as string
-  throw new Error(codeToMessage[code] || '入力された情報が間違っています。')
 }
 
 export const useAuthLogin = () => {
   const history = useHistory()
+  const setAuthError = useSetRecoilState(authErrorState)
+  const email = useRecoilValue(loginEmailState)
+  const password = useRecoilValue(loginPasswordState)
 
-  const login = useAsyncTask(
+  return useAsyncTask(
     'login',
-    useCallback(
-      async (email: string, password: string) => {
-        try {
-          await authService.login(email, password)
-        } catch (e) {
-          console.log(e)
-          handleLoginError(e)
-        }
-        history.push('/admin/home')
-      },
-      [history]
-    )
+    useCallback(async () => {
+      setAuthError(null)
+      try {
+        await authService.login(email, password)
+      } catch (e) {
+        setAuthError('入力された情報が間違っています。')
+      }
+      history.push('/admin/home')
+    }, [history, email, password])
   )
-
-  return login
 }
 
 export const useAuthLogout = () => {
   const history = useHistory()
 
-  const logout = useAsyncTask(
+  return useAsyncTask(
     'logout',
     useCallback(async () => {
       await authService.logout()
       history.push('/')
     }, [history])
   )
-
-  return logout
 }

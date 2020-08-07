@@ -20,3 +20,18 @@ export const userState = atom<User | null>({
   default: null,
   dangerouslyAllowMutability: true,
 })
+
+export const authErrorState = atom<string | null>({
+  key: 'authErrorState',
+  default: null,
+})
+
+export const loginEmailState = atom<string>({
+  key: 'loginEmailState',
+  default: '',
+})
+
+export const loginPasswordState = atom<string>({
+  key: 'loginPasswordState',
+  default: '',
+})
