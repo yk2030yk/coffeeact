@@ -18,7 +18,7 @@
     "@types/lodash.debounce": "4.0.6",
     "@types/node": "12.12.54",
     "@types/react": "16.9.44",
-    "@types/react-date-range": "0.94.4",
+    "@types/react-date-range": "0.95.0",
     "@types/react-datepicker": "2.11.1",
     "@types/react-dom": "16.9.8",
     "@types/react-helmet": "5.0.16",
