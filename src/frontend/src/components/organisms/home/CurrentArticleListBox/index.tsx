@@ -11,7 +11,7 @@ import {
 import { MainContentTitle } from '@/components/molecules/home/MainContentTitle'
 import { ArticleList } from '@/components/organisms/article/ArticleList'
 
-const condition = { limit: 6 }
+const condition = { current: true }
 
 export const CurrentArticleListBox: React.FC = () => {
   return (
