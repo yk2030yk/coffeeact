@@ -3,4 +3,6 @@ export const NAME_SPACE = {
   articleForm: 'articleForm',
   articleTag: 'articleTag',
   auth: 'auth',
+  loadable: 'loadable',
+  snackbar: 'snackbar',
 }

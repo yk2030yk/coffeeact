@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 
-import { useLoadable } from '@/recoil/global/loadable/hooks'
+import { useLoadable } from '@/recoil/loadable'
 
 export const useAsyncTask = <Result, Args extends unknown[]>(
   taskId: string,

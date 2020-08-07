@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil'
 
 import { NotFoundArticle } from '@/components/molecules/article'
 import { filteredArticlesSelector, useArticles } from '@/recoil/article'
-import { loadableSelector } from '@/recoil/global/loadable'
+import { loadableSelector } from '@/recoil/loadable'
 import { Article } from '@/models/Article'
 import { GetListCondition } from '@/service/firestore/ArticleService'
 

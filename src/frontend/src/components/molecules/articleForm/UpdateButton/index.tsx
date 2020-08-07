@@ -11,7 +11,7 @@ import { articleService } from '@/service/firestore/ArticleService'
 import { useUploadImage } from '@/hooks/storage/useUploadImage'
 import { randomString } from '@/utils/util'
 import { useAsyncTask } from '@/hooks/common/useAsyncTask'
-import { useSnackbarMessages } from '@/recoil/global/snackbar/hooks'
+import { useSnackbarMessages } from '@/recoil/snackbar'
 
 type Props = {
   articleId: string

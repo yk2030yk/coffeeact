@@ -9,7 +9,7 @@ import {
   articleFormSelector,
   postSelector,
 } from '@/recoil/articleForm'
-import { useSnackbarMessages } from '@/recoil/global/snackbar'
+import { useSnackbarMessages } from '@/recoil/snackbar'
 import { useRecoilValueLoadable } from 'recoil'
 import { useSetRecoilState } from 'recoil'
 
