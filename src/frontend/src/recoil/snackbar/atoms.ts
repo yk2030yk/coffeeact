@@ -1,4 +1,7 @@
-import { atom } from 'recoil'
+import { createAtomWithKey } from '../utils'
+import { NAME_SPACE } from '../namespace'
+
+const atom = createAtomWithKey(NAME_SPACE.snackbar)
 
 export const SnackbarType = {
   INFO: 'info',

@@ -3,10 +3,7 @@ import { useRecoilValue } from 'recoil'
 import * as S from './index.styled'
 import InfoSnackbarMessage from '@/components/molecules/common/InfoSnackbarMessage'
 import ErrorSnackbarMessage from '@/components/molecules/common/ErrorSnackbarMessage'
-import {
-  snackbarMessagesState,
-  SnackbarType,
-} from '@/recoil/global/snackbar/atoms'
+import { snackbarMessagesState, SnackbarType } from '@/recoil/snackbar'
 
 const Header: React.FC = () => {
   const snackbarMessages = useRecoilValue(snackbarMessagesState)

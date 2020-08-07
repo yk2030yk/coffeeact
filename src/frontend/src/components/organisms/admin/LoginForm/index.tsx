@@ -8,7 +8,7 @@ import { InputEmail } from '@/components/molecules/loginForm/InputEmail'
 import { InputPassword } from '@/components/molecules/loginForm/InputPassword'
 import { LoginErrorMessage } from '@/components/molecules/loginForm/LoginErrorMessage'
 import { LoginButton } from '@/components/molecules/loginForm/LoginButton'
-import { loadableSelector } from '@/recoil/global/loadable'
+import { loadableSelector } from '@/recoil/loadable'
 
 const RecommendedCoffeeCards: React.FC = () => {
   const loadable = useRecoilValue(loadableSelector('login'))

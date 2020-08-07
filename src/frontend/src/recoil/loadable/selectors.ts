@@ -1,8 +1,9 @@
-import { createSelectorFamilyWithKey } from '../../utils'
+import { createSelectorFamilyWithKey } from '../utils'
 import { Loadable } from '@/models/Loadable'
 import { loadableState } from './atoms'
+import { NAME_SPACE } from '../namespace'
 
-const selectorFamily = createSelectorFamilyWithKey('loadable')
+const selectorFamily = createSelectorFamilyWithKey(NAME_SPACE.loadable)
 
 export const loadableSelector = selectorFamily({
   key: 'loadableSelector',
