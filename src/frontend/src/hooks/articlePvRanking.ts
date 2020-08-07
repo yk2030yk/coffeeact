@@ -16,9 +16,15 @@ export const useArticlePvRanking = () => {
   useEffect(() => {
     const fetch = async () => {
       const pvList = await articlePVService.getArticlePvList(3)
-      const list = await articleService.getListByIds(pvList.map((d) => d.id))
+      const list = await articleService.getListByIds(
+        pvList.map((data) => data.id)
+      )
+      const sortedList = pvList.map((pv) =>
+        list.find((i) => i.id === pv.id)
+      ) as Article[]
+
       setArticlePvList(pvList)
-      setArticles(list)
+      setArticles(sortedList)
     }
     fetch()
   }, [])

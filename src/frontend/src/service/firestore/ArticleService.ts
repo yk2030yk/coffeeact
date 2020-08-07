@@ -7,7 +7,7 @@ import { ArticleForm } from '@/models/ArticleForm'
 const COLLECTION_NAME = 'articles'
 
 export type GetListCondition = {
-  limit?: number
+  current?: boolean
   orderBy?: string
   tag?: string
 }
@@ -32,22 +32,49 @@ export class ArticleService extends FirestoreService {
   }
 
   public async getList(condition: GetListCondition) {
-    const collection = this.db
+    if (condition.tag) {
+      return await this.getListByTag(condition.tag)
+    } else if (condition.orderBy) {
+      return await this.getListByOrderBy(condition.orderBy)
+    } else if (condition.current) {
+      return await this.getListByCurrent()
+    }
+    return await this.getListAll()
+  }
+
+  public async getListAll() {
+    const querySnapshot = await this.db
       .collection(COLLECTION_NAME)
       .withConverter(ArticleConverter)
+      .get()
+    return querySnapshot.docs.map((doc) => doc.data())
+  }
 
-    let query = collection.orderBy(
-      condition.orderBy ? condition.orderBy : 'createdAt',
-      'desc'
-    )
+  public async getListByOrderBy(orderBy: string) {
+    const querySnapshot = await this.db
+      .collection(COLLECTION_NAME)
+      .withConverter(ArticleConverter)
+      .orderBy(orderBy, 'desc')
+      .get()
+    return querySnapshot.docs.map((doc) => doc.data())
+  }
 
-    // if (condition.tag) {
-    //   query = query.where('tags', 'array-contains', condition.tag)
-    // }
+  public async getListByTag(tag: string) {
+    const querySnapshot = await this.db
+      .collection(COLLECTION_NAME)
+      .withConverter(ArticleConverter)
+      .where('tags', 'array-contains', tag)
+      .get()
+    return querySnapshot.docs.map((doc) => doc.data())
+  }
 
-    if (condition.limit) query = query.limit(condition.limit)
-
-    const querySnapshot = await query.get()
+  public async getListByCurrent() {
+    const querySnapshot = await this.db
+      .collection(COLLECTION_NAME)
+      .withConverter(ArticleConverter)
+      .orderBy('createdAt', 'desc')
+      .limit(6)
+      .get()
     return querySnapshot.docs.map((doc) => doc.data())
   }
 
