@@ -6,7 +6,7 @@ import { ImageSrcBox } from '@/components/molecules/articleForm/ImageSrcBox'
 import { DescriptionEditor } from '@/components/molecules/articleForm/DescriptionEditor'
 import { TagEditor } from '@/components/molecules/articleForm/TagEditor'
 import { PublishStatusSelectBox } from '@/components/molecules/articleForm/PublishStatusSelectBox'
-import { Article } from '@/models/article/Article'
+import { Article } from '@/models/Article'
 
 type Props = {
   article?: Article

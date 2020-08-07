@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './index.styled'
 import { AdminArticleCard } from '../AdminArticleCard'
-import { Article } from '@/models/article/Article'
+import { Article } from '@/models/Article'
 
 type Props = {
   articles: Article[]

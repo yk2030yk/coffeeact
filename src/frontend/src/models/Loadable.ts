@@ -9,9 +9,11 @@ export type LoadableState = typeof LOADABLE_STATE[keyof typeof LOADABLE_STATE]
 
 export class Loadable {
   private state: LoadableState
+  public error: string | null = null
 
-  constructor(state: LoadableState) {
+  constructor(state: LoadableState, error: string | null = null) {
     this.state = state
+    this.error = error
   }
 
   public isLoading() {

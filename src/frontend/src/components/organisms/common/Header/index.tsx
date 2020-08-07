@@ -1,12 +1,13 @@
 import React from 'react'
+import { useRecoilValue } from 'recoil'
 
 import * as S from './index.styled'
 import TitleIcon from '@/components/molecules/header/TitleIcon'
 import UserIcon from '@/components/molecules/header/UserIcon'
-import { useAppContext } from '@/contexts/AppContext'
+import { userState } from '@/recoil/auth'
 
 const Header: React.FC = () => {
-  const { user } = useAppContext()
+  const user = useRecoilValue(userState)
 
   return (
     <S.Wrapper>
