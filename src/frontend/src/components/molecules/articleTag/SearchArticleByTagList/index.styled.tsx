@@ -19,4 +19,6 @@ export const TagListBox = styled.div`
 export const TagItem = styled(Link)`
   ${mixins.pointer}
   ${mixins.resetAnchor}
+  margin-bottom: 10px;
+  margin-right: 10px;
 `
