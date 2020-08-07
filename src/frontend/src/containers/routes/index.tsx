@@ -23,8 +23,6 @@ import AboutPage from '@/containers/pages/about/AboutPage'
 import FatalErrorPage from '@/containers/pages/error/FatalErrorPage'
 import NotFoundPage from '@/containers/pages/error/NotFoundPage'
 
-import ExperimentPage from '@/containers/pages/experiment/ExperimentPage'
-
 const Routes: React.FC = () => {
   return (
     <Switch>
@@ -53,8 +51,6 @@ const Routes: React.FC = () => {
         component={SearchResultArticlesListPage}
       />
       <AppRoute exact path="/article/:articleId" component={ArticlePage} />
-
-      <AppRoute exact path="/experiment" component={ExperimentPage} />
 
       <AppRoute exact path="/profile" component={ProfilePage} />
       <AppRoute exact path="/admin/login" component={AdminLoginPage} />
