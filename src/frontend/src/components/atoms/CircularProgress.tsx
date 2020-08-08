@@ -1,3 +1,9 @@
-import CircularProgress from '@material-ui/core/CircularProgress'
+import React from 'react'
+import PropagateLoader from 'react-spinners/PropagateLoader'
+import { theme } from '@/styles'
 
-export default CircularProgress
+const CustomClipLoader: React.FC = () => (
+  <PropagateLoader color={theme.color.reactBlue} />
+)
+
+export default CustomClipLoader
