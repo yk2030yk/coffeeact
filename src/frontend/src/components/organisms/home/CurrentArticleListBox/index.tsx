@@ -11,8 +11,6 @@ import {
 import { MainContentTitle } from '@/components/molecules/home/MainContentTitle'
 import { ArticleList } from '@/components/organisms/article/ArticleList'
 
-const condition = { current: true }
-
 export const CurrentArticleListBox: React.FC = () => {
   return (
     <S.Wrapper>
@@ -26,7 +24,6 @@ export const CurrentArticleListBox: React.FC = () => {
         <ArticleList
           ArticleCardsComponent={CurrentArticleCards}
           LoadingPlaceholderComponent={CurrentArticleCardsLoadingPlaceholder}
-          condition={condition}
         />
       </BasicBox>
       <BasicBox>

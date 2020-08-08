@@ -1,8 +1,6 @@
 import { createAtomWithKey } from '../utils'
 import { NAME_SPACE } from '../namespace'
-
 import { PUBLISH_STATUS, PublishStatus } from '@/models/Article'
-import { ArticleForm } from '@/models/ArticleForm'
 
 const atom = createAtomWithKey(NAME_SPACE.articleForm)
 
@@ -43,10 +41,5 @@ export const croppedImageSrcState = atom<string>({
 
 export const previewImageSrcBlobState = atom<Blob | undefined>({
   key: 'previewImageSrcBlobState',
-  default: undefined,
-})
-
-export const postRequestState = atom<undefined | ArticleForm>({
-  key: 'postRequestState',
   default: undefined,
 })
