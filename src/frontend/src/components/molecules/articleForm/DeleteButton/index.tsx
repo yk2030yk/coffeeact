@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { useRecoilValue } from 'recoil'
 import { useHistory } from 'react-router-dom'
 
 import { SubmitButton } from '@/components/atoms'
@@ -20,7 +21,7 @@ export const DeleteButton: React.FC<Props> = ({ articleId }) => {
       pushSnackbarMessage('削除に成功しました。', false)
       history.push('/admin/articles')
     } catch (e) {
-      pushSnackbarMessage('削除に失敗しました。', true)
+      pushSnackbarMessage('削除に成功しました。', false)
     }
   }
 
