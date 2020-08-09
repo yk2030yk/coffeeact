@@ -1,10 +1,18 @@
 import { styled, theme, colorUtils } from '@/styles'
-import { FaUserCircle } from '@/components/atoms/icons'
 
-export const UserIcon = styled(FaUserCircle)`
-  color: ${theme.color.radiantYellow};
+export const UserIcon = styled.div`
   cursor: pointer;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 2px ${theme.color.carbon};
+
   &:hover {
-    color: ${colorUtils.brighten(theme.color.radiantYellow)};
+    border-color: ${colorUtils.brighten(theme.color.carbon)};
+  }
+
+  & > img {
+    width: 100%;
   }
 `
