@@ -18,6 +18,7 @@ export const useAsyncTask = <Result, Args extends unknown[]>(
         result = await task(...args)
       } catch (e) {
         error()
+        throw e
       }
 
       end()

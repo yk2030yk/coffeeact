@@ -8,12 +8,8 @@ import {
   tagsState,
   publishStatusState,
   previewImageSrcBlobState,
-  postRequestState,
 } from './atoms'
 import { ArticleForm } from '@/models/ArticleForm'
-import { articleService } from '@/service/firestore/ArticleService'
-import { storageService } from '@/service/storage/StorageService'
-import { randomString } from '@/utils/util'
 
 const selector = createSelectorWithKey(NAME_SPACE.articleForm)
 
@@ -58,19 +54,5 @@ export const isValidSelector = selector<boolean>({
       (validate.validateImgSrc(imgSrc) ||
         validate.validatePreviewImageSrcBlob(blob))
     )
-  },
-})
-
-export const postSelector = selector({
-  key: 'postSelector',
-  get: async ({ get }) => {
-    const articleForm = get(postRequestState)
-    if (!articleForm) return
-
-    const blob = get(previewImageSrcBlobState)
-    const imgSrc = articleForm.imgSrc || `public/${randomString()}.png`
-    if (blob) await storageService.put(imgSrc, blob)
-
-    return await articleService.create({ ...articleForm, imgSrc })
   },
 })

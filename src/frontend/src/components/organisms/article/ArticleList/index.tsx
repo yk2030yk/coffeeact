@@ -1,32 +1,42 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
 
-import { NotFoundArticle } from '@/components/molecules/article'
-import { filteredArticlesSelector, useArticles } from '@/recoil/article'
+import { NotFoundArticle, ArticlePager } from '@/components/molecules/article'
+import {
+  articlesState,
+  useArticles,
+  useArticlePaging,
+} from '@/recoil/articlePaging'
 import { loadableSelector } from '@/recoil/loadable'
 import { Article } from '@/models/Article'
-import { GetListCondition } from '@/service/firestore/ArticleService'
 
 type Props = {
   ArticleCardsComponent: React.FC<{ articles: Article[] }>
   LoadingPlaceholderComponent: React.FC<{ length?: number }>
-  condition: GetListCondition
+  isShowPager?: boolean
 }
 
 export const ArticleList: React.FC<Props> = ({
   ArticleCardsComponent,
   LoadingPlaceholderComponent,
-  condition,
+  isShowPager = true,
 }) => {
-  useArticles(condition)
-  const articles = useRecoilValue(filteredArticlesSelector)
+  useArticlePaging()
+  useArticles()
+
+  const articles = useRecoilValue(articlesState)
   const loadable = useRecoilValue(loadableSelector('articles'))
 
   if (loadable.isLoaded()) {
     if (articles.length === 0) {
       return <NotFoundArticle />
     } else {
-      return <ArticleCardsComponent articles={articles} />
+      return (
+        <>
+          <ArticleCardsComponent articles={articles} />
+          {isShowPager && <ArticlePager />}
+        </>
+      )
     }
   } else if (loadable.isLoading()) {
     return <LoadingPlaceholderComponent length={10} />

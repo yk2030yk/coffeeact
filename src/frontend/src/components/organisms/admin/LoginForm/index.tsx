@@ -24,6 +24,7 @@ const RecommendedCoffeeCards: React.FC = () => {
           <BasicBox>
             <InputEmail />
           </BasicBox>
+
           <BasicBox>
             <InputPassword />
           </BasicBox>
