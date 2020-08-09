@@ -1,6 +1,6 @@
 import React from 'react'
 
-import profileImageSrc from '@/assets/images/profile.png'
+import profileImageSrc from '@/assets/images/profile-icon.gif'
 
 import * as S from './index.styled'
 

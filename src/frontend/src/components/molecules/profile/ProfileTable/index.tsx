@@ -5,6 +5,10 @@ import * as S from './index.styled'
 
 const tableKey = [
   {
+    key: 'born',
+    isLink: false,
+  },
+  {
     key: 'lives',
     isLink: false,
   },
