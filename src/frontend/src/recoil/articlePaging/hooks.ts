@@ -39,7 +39,6 @@ export const useArticles = () => {
     'articles',
     useCallback(async () => {
       const ids = pageArticlePagingList.map((p) => p.id)
-
       if (ids.length === 0) return
 
       const articles = await articleService.getListByIds(ids)

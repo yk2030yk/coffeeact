@@ -1,12 +1,9 @@
-import React, { useCallback } from 'react'
-import { useRecoilValue } from 'recoil'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { SubmitButton } from '@/components/atoms'
-import { articleFormSelector } from '@/recoil/articleForm'
-import { articleService } from '@/service/firestore/ArticleService'
-import { storageService } from '@/service/storage/StorageService'
-import { useAsyncTask } from '@/hooks/common/useAsyncTask'
+import { useSnackbarMessages } from '@/recoil/snackbar'
+import { useDeleteArticle } from '@/recoil/articleForm'
 
 type Props = {
   articleId: string
@@ -14,22 +11,24 @@ type Props = {
 
 export const DeleteButton: React.FC<Props> = ({ articleId }) => {
   const history = useHistory()
-  const articleForm = useRecoilValue(articleFormSelector)
+  const { execute, loadable } = useDeleteArticle(articleId)
+  const pushSnackbarMessage = useSnackbarMessages()
 
-  const { execute, loadable } = useAsyncTask(
-    'deleteArticle',
-    useCallback(async () => {
-      storageService.delete(articleForm.imgSrc)
-      await articleService.delete(articleId)
+  const handleClick = async () => {
+    try {
+      await execute()
+      pushSnackbarMessage('削除に成功しました。', false)
       history.push('/admin/articles')
-    }, [articleId, articleForm, history])
-  )
+    } catch (e) {
+      pushSnackbarMessage('削除に失敗しました。', true)
+    }
+  }
 
   return (
     <SubmitButton
       type="submit"
       disabled={loadable.isLoading()}
-      onClick={execute}
+      onClick={() => handleClick()}
       value={'削除する'}
     />
   )

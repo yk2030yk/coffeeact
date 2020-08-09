@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 
 import { randomString } from '@/utils/util'
 import { snackbarMessagesState, SnackbarType } from './atoms'
@@ -11,11 +11,9 @@ const createSnackbarMessage = (message: string, isError: boolean) => ({
 })
 
 export const useSnackbarMessages = () => {
-  const [snackbarMessages, setSnackbarMessages] = useRecoilState(
-    snackbarMessagesState
-  )
+  const setSnackbarMessages = useSetRecoilState(snackbarMessagesState)
 
-  const pushSnackbarMessage = useCallback(
+  return useCallback(
     (message: string, isError = false) => {
       const sm = createSnackbarMessage(message, isError)
       setSnackbarMessages((old) => [...old, sm])
@@ -25,9 +23,4 @@ export const useSnackbarMessages = () => {
     },
     [setSnackbarMessages]
   )
-
-  return {
-    snackbarMessages,
-    pushSnackbarMessage,
-  }
 }

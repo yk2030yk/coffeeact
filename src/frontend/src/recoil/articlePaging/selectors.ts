@@ -44,6 +44,7 @@ export const pageArticlePagingListSelector = selector({
   get: ({ get }) => {
     const pageNumber = get(validPageNumberSelector)
     const dividedArticlePagingList = get(dividedArticlePagingListSelector)
+    if (dividedArticlePagingList.length === 0) return []
     return dividedArticlePagingList[pageNumber - 1]
   },
 })
