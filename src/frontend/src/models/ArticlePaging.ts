@@ -23,6 +23,7 @@ export const ArticlePagingConverter: firestore.FirestoreDataConverter<ArticlePag
     snapshot: firestore.DocumentSnapshot<firestore.DocumentData>,
     options: firestore.SnapshotOptions
   ): ArticlePaging => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const data = snapshot.data(options)! as ArticlePagingDocumentData
     return new ArticlePaging(data.id, data.date)
   },

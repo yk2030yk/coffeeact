@@ -12,7 +12,7 @@ const TitleIcon: React.FC<Props> = () => {
   return (
     <>
       <S.UserIcon onClick={() => setIsOpen(!isOpen)}>
-        <img src={profileSrc} />
+        <img src={profileSrc} alt="" />
       </S.UserIcon>
       {isOpen && <UserMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
     </>
