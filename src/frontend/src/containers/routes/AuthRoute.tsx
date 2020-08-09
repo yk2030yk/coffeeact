@@ -21,7 +21,7 @@ export const AuthRoute: React.FC<Props> = ({
     case SIGN_IN_STATUS.SIGN_IN:
       return <AppRoute component={Component} {...props} />
     case SIGN_IN_STATUS.SIGN_OUT:
-      return <Redirect to="/admin/login" />
+      return <Redirect to="/login" />
     case SIGN_IN_STATUS.NONE:
       return <AppRoute component={LoadingPage} />
     default:
