@@ -1,47 +1,59 @@
-import { useEffect, useCallback, useState } from 'react'
+import { useEffect, useCallback } from 'react'
 import { useSetRecoilState, useResetRecoilState, useRecoilValue } from 'recoil'
 
-import { articlesState, pageState, limitState } from './atoms'
+import { articlesState, articlePagingListState } from './atoms'
+import { pageArticlePagingListSelector } from './selectors'
 import { articlePagingService } from '@/service/firestore/ArticlePagingService'
 import { articleService } from '@/service/firestore/ArticleService'
 import { Article } from '@/models/Article'
 import { useAsyncTask } from '@/hooks/common/useAsyncTask'
-import { useQuery } from '@/hooks/common/useQuery'
 
-// const usePagingQuery = () => {
-//   const query = useQuery()
-//   const page = parseInt(query.get('page') || '0')
-//   const limit = parseInt(query.get('limit') || '10')
-//   return useState({ page, limit })
-// }
+export const useArticlePaging = () => {
+  const setArticlePagingListState = useSetRecoilState(articlePagingListState)
+  const resetArticlePagingListState = useResetRecoilState(
+    articlePagingListState
+  )
+
+  const { execute } = useAsyncTask(
+    'getArticlePagingListAll',
+    useCallback(async () => {
+      const articlePagingList = await articlePagingService.getListAll()
+      setArticlePagingListState(articlePagingList)
+    }, [setArticlePagingListState])
+  )
+
+  useEffect(() => {
+    execute()
+    return () => {
+      resetArticlePagingListState()
+    }
+  }, [execute, resetArticlePagingListState])
+}
 
 export const useArticles = () => {
+  const pageArticlePagingList = useRecoilValue(pageArticlePagingListSelector)
   const setArticles = useSetRecoilState(articlesState)
   const resetArticles = useResetRecoilState(articlesState)
-  const page = useRecoilValue(pageState)
-  const resetPage = useResetRecoilState(pageState)
-  const limit = useRecoilValue(limitState)
-  const resetLimit = useResetRecoilState(limitState)
 
   const { execute } = useAsyncTask(
     'articles',
     useCallback(async () => {
-      const articlePagingList = await articlePagingService.getList(page, limit)
-      const ids = articlePagingList.map((p) => p.id)
+      const ids = pageArticlePagingList.map((p) => p.id)
+
+      if (ids.length === 0) return
+
       const articles = await articleService.getListByIds(ids)
       const sortedArticles = ids.map((id) =>
         articles.find((a) => a.id === id)
       ) as Article[]
       setArticles(sortedArticles)
-    }, [setArticles, page, limit])
+    }, [pageArticlePagingList, setArticles])
   )
 
   useEffect(() => {
     execute()
     return () => {
       resetArticles()
-      resetPage()
-      resetLimit()
     }
-  }, [execute, resetArticles, resetPage, resetLimit])
+  }, [execute, resetArticles])
 }

@@ -24,6 +24,7 @@ export const CurrentArticleListBox: React.FC = () => {
         <ArticleList
           ArticleCardsComponent={CurrentArticleCards}
           LoadingPlaceholderComponent={CurrentArticleCardsLoadingPlaceholder}
+          isShowPager={false}
         />
       </BasicBox>
       <BasicBox>

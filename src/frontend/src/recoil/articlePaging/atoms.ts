@@ -1,11 +1,17 @@
 import { createAtomWithKey } from '../utils'
 import { NAME_SPACE } from '../namespace'
 import { Article } from '@/models/Article'
+import { ArticlePaging } from '@/models/ArticlePaging'
 
 const atom = createAtomWithKey(NAME_SPACE.articlePaging)
 
 export const articlesState = atom<Article[]>({
   key: 'articlesState',
+  default: [],
+})
+
+export const articlePagingListState = atom<ArticlePaging[]>({
+  key: 'articlePagingListState',
   default: [],
 })
 

@@ -23,6 +23,16 @@ export class ArticlePagingService extends FirestoreService {
 
     return querySnapshot.docs.map((doc) => doc.data())
   }
+
+  public async getListAll() {
+    const querySnapshot = await this.db
+      .collection(COLLECTION_NAME)
+      .withConverter(ArticlePagingConverter)
+      .orderBy('date', 'desc')
+      .get()
+
+    return querySnapshot.docs.map((doc) => doc.data())
+  }
 }
 
 export const articlePagingService = new ArticlePagingService()
