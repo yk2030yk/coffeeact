@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 /**
  * 画面遷移時(pathnameが変更された際)にスクロール位置をトップに戻す
  */
-const WithScrollToTop: React.FC = ({ children }) => {
+export const WithScrollToTop: React.FC = ({ children }) => {
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -13,5 +13,3 @@ const WithScrollToTop: React.FC = ({ children }) => {
 
   return <>{children}</>
 }
-
-export default WithScrollToTop

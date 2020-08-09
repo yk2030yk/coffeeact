@@ -6,8 +6,6 @@ import { intl } from '@/messages'
 /**
  * react-intl
  */
-const WithIntl: React.FC = ({ children }) => {
+export const WithIntl: React.FC = ({ children }) => {
   return <RawIntlProvider value={intl}>{children}</RawIntlProvider>
 }
-
-export default WithIntl

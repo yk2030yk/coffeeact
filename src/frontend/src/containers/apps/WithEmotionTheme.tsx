@@ -6,8 +6,6 @@ import { theme } from '@/styles'
 /**
  * emotion-themingのthemeを利用する
  */
-const WithEmotionTheme: React.FC = ({ children }) => {
+export const WithEmotionTheme: React.FC = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }
-
-export default WithEmotionTheme

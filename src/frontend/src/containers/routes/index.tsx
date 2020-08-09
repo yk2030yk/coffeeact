@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch } from 'react-router-dom'
 
-import AppRoute from './AppRoute'
-import AuthRoute from './AuthRoute'
+import { AppRoute } from './AppRoute'
+import { AuthRoute } from './AuthRoute'
 
 import AdminHomePage from '@/containers/pages/admin/AdminHomePage'
 import AdminLoginPage from '@/containers/pages/admin/AdminLoginPage'
