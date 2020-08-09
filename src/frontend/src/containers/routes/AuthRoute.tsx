@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil'
 import { Redirect, RouteProps } from 'react-router-dom'
 
 import AppRoute from './AppRoute'
+import { CoffeeActApplicationError } from '@/errors'
 import { SIGN_IN_STATUS, signInState } from '@/recoil/auth'
 import LoadingPage from '../pages/global/LoadingPage'
 
@@ -21,7 +22,9 @@ const AuthRoute: React.FC<Props> = ({ component: Component, ...props }) => {
     case SIGN_IN_STATUS.NONE:
       return <AppRoute component={LoadingPage} />
     default:
-      throw new Error('signInStatusが不正の値です')
+      throw new CoffeeActApplicationError(
+        `signInStatusが不正の値です(${signInStatus})`
+      )
   }
 }
 

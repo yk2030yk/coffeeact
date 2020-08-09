@@ -1,6 +1,7 @@
 import { firestore } from 'firebase'
 
 import { FirestoreService } from './FirestoreService'
+import { CoffeeActApplicationError } from '@/errors'
 import { ArticleConverter } from '@/models/Article'
 import { ArticleForm } from '@/models/ArticleForm'
 
@@ -95,7 +96,7 @@ export class ArticleService extends FirestoreService {
       .withConverter(ArticleConverter)
       .get()
 
-    if (!doc) throw new Error('ドキュメントがありません。')
+    if (!doc) throw new CoffeeActApplicationError('ドキュメントがありません。')
 
     const timestamp = firestore.FieldValue.serverTimestamp()
     await doc.ref.update({ ...articleForm, updatedAt: timestamp })

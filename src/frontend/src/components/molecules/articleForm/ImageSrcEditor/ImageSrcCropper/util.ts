@@ -1,3 +1,4 @@
+import { CoffeeActApplicationError } from '@/errors'
 import { Crop } from 'react-image-crop'
 
 const getCanvasBlob = (
@@ -26,7 +27,7 @@ export const getCroppedBlob = async (image: HTMLImageElement, crop: Crop) => {
     crop.x === undefined ||
     crop.y === undefined
   )
-    throw new Error('Crop Value is required.')
+    throw new CoffeeActApplicationError('Crop Value is required.')
 
   const canvas = document.createElement('canvas')
   const scaleX = image.naturalWidth / image.width
