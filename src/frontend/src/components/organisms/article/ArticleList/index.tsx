@@ -38,7 +38,7 @@ export const ArticleList: React.FC<Props> = ({
         </>
       )
     }
-  } else if (loadable.isLoading()) {
+  } else if (loadable.isLoading || loadable.isBeforeLoad) {
     return <LoadingPlaceholderComponent length={10} />
   } else {
     return null
