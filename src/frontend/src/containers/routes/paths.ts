@@ -1,23 +1,17 @@
-const ADMIN_PREFIX = '/admin'
-const STANDARD_PREFIX = ''
+const ADMIN_HOME = '/admin/home'
+const ADMIN_ARTICLES = '/admin/articles'
+const ADMIN_CREATE_ARTICLE = '/admin/article/create'
+const ADMIN_EDIT_ARTICLE = '/admin/article/:articleId'
+const ADMIN_MANAGE_TAG = '/admin/tag'
 
-const addAdminPrefix = (path: string) => `${ADMIN_PREFIX}/${path}`
-const addStandardPrefix = (path: string) => `${STANDARD_PREFIX}/${path}`
-
-const ADMIN_HOME = addAdminPrefix('home')
-const ADMIN_ARTICLES = addAdminPrefix('articles')
-const ADMIN_CREATE_ARTICLE = addAdminPrefix('article/create')
-const ADMIN_EDIT_ARTICLE = addAdminPrefix('article/:articleId')
-const ADMIN_MANAGE_TAG = addAdminPrefix('tag')
-
-const STANDARD_ARTICLES = addStandardPrefix('articles')
-const STANDARD_SEARCH_ARTICLES = addStandardPrefix('articles/search')
-const STANDARD_ARTICLE = addStandardPrefix('article/:articleId')
-const STANDARD_PROFILE = addStandardPrefix('profile')
-const STANDARD_LOGIN = addStandardPrefix('login')
-const STANDARD_ABOUT = addStandardPrefix('about')
-const STANDARD_ERROR = addStandardPrefix('error')
-const STANDARD_HOME = addStandardPrefix('')
+const STANDARD_ARTICLES = '/articles'
+const STANDARD_SEARCH_ARTICLES = '/articles/search'
+const STANDARD_ARTICLE = '/article/:articleId'
+const STANDARD_PROFILE = '/profile'
+const STANDARD_LOGIN = '/login'
+const STANDARD_ABOUT = '/about'
+const STANDARD_ERROR = '/error'
+const STANDARD_HOME = '/'
 
 const ALL = '*'
 

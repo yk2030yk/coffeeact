@@ -5,7 +5,7 @@ import { Redirect, RouteProps } from 'react-router-dom'
 import { AppRoute } from './AppRoute'
 import { CoffeeActApplicationError } from '@/errors'
 import { SIGN_IN_STATUS, signInState } from '@/recoil/auth'
-import LoadingPage from '../pages/global/LoadingPage'
+import LoadingPage from '@/components/pages/global/LoadingPage'
 
 type Props = {
   component: any
