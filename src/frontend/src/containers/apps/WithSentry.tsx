@@ -7,8 +7,6 @@ Sentry.init(sentryConfig)
 /**
  * sentryのセットアップを行う
  */
-const WithSentry: React.FC = ({ children }) => {
+export const WithSentry: React.FC = ({ children }) => {
   return <>{children}</>
 }
-
-export default WithSentry

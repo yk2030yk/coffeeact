@@ -5,12 +5,13 @@ type Props = {
   component: any
 } & RouteProps
 
-const AppRoute: React.FC<Props> = ({ component: Component, ...props }) => {
+export const AppRoute: React.FC<Props> = ({
+  component: Component,
+  ...props
+}) => {
   return (
     <Route {...props}>
       <Component />
     </Route>
   )
 }
-
-export default AppRoute

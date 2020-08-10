@@ -13,7 +13,7 @@ type State = {
 /**
  * コンポーネント内で起きたエラーをキャッチする
  */
-class WithErrorBoundary extends React.Component<Props, State> {
+export class WithErrorBoundary extends React.Component<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = { error: null, errorInfo: null }
@@ -36,5 +36,3 @@ class WithErrorBoundary extends React.Component<Props, State> {
     return this.props.children
   }
 }
-
-export default WithErrorBoundary

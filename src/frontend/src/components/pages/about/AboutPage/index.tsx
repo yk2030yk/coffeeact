@@ -2,12 +2,12 @@ import React from 'react'
 
 import * as S from './index.styled'
 import DefaultTemplate from '@/components/templates/DefaultTemplate'
-import AboutMessage from '@/components/molecules/about/AboutMessage'
+import { AboutMessageBox } from '@/components/organisms/about/AboutMessageBox'
 
 const Page: React.FC = () => (
   <DefaultTemplate>
     <S.Wrapper>
-      <AboutMessage />
+      <AboutMessageBox />
     </S.Wrapper>
   </DefaultTemplate>
 )

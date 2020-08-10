@@ -1,8 +1,9 @@
 import React from 'react'
 import { Switch } from 'react-router-dom'
 
-import AppRoute from './AppRoute'
-import AuthRoute from './AuthRoute'
+import { AppRoute } from './AppRoute'
+import { AuthRoute } from './AuthRoute'
+import { paths } from './paths'
 
 import AdminHomePage from '@/containers/pages/admin/AdminHomePage'
 import AdminLoginPage from '@/containers/pages/admin/AdminLoginPage'
@@ -26,38 +27,41 @@ import NotFoundPage from '@/containers/pages/error/NotFoundPage'
 const Routes: React.FC = () => {
   return (
     <Switch>
-      <AuthRoute exact path="/admin/home" component={AdminHomePage} />
-      <AuthRoute exact path="/admin/articles" component={AdminArticlesPage} />
+      <AuthRoute exact path={paths.ADMIN_HOME} component={AdminHomePage} />
       <AuthRoute
         exact
-        path="/admin/article/create"
+        path={paths.ADMIN_ARTICLES}
+        component={AdminArticlesPage}
+      />
+      <AuthRoute
+        exact
+        path={paths.ADMIN_CREATE_ARTICLE}
         component={AdminArticleCreatePage}
       />
       <AuthRoute
         exact
-        path="/admin/article/:articleId"
+        path={paths.ADMIN_EDIT_ARTICLE}
         component={AdminArticleEditorPage}
       />
       <AuthRoute
         exact
-        path="/admin/tag"
+        path={paths.ADMIN_MANAGE_TAG}
         component={AdminArticleTagEditorPage}
       />
 
-      <AppRoute exact path="/articles" component={ArticlesPage} />
+      <AppRoute exact path={paths.STANDARD_ARTICLES} component={ArticlesPage} />
       <AppRoute
         exact
-        path="/articles/search"
+        path={paths.STANDARD_SEARCH_ARTICLES}
         component={SearchResultArticlesListPage}
       />
-      <AppRoute exact path="/article/:articleId" component={ArticlePage} />
-
-      <AppRoute exact path="/profile" component={ProfilePage} />
-      <AppRoute exact path="/admin/login" component={AdminLoginPage} />
-      <AppRoute exact path="/about" component={AboutPage} />
-      <AppRoute exact path="/error" component={FatalErrorPage} />
-      <AppRoute exact path="/" component={HomePage} />
-      <AppRoute exact path="*" component={NotFoundPage} />
+      <AppRoute exact path={paths.STANDARD_ARTICLE} component={ArticlePage} />
+      <AppRoute exact path={paths.STANDARD_PROFILE} component={ProfilePage} />
+      <AppRoute exact path={paths.STANDARD_LOGIN} component={AdminLoginPage} />
+      <AppRoute exact path={paths.STANDARD_ABOUT} component={AboutPage} />
+      <AppRoute exact path={paths.STANDARD_ERROR} component={FatalErrorPage} />
+      <AppRoute exact path={paths.STANDARD_HOME} component={HomePage} />
+      <AppRoute exact path={paths.ALL} component={NotFoundPage} />
     </Switch>
   )
 }

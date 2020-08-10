@@ -23,6 +23,7 @@ export const ArticleLogConverter: firestore.FirestoreDataConverter<ArticleLog> =
     snapshot: firestore.DocumentSnapshot<firestore.DocumentData>,
     options: firestore.SnapshotOptions
   ): ArticleLog => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const data = snapshot.data(options)! as ArticleLogDocumentData
     return new ArticleLog(data.id, data.date)
   },

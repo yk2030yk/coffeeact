@@ -6,7 +6,7 @@ import { globalStyle } from '@/styles/globalStyle'
 /**
  * GlobalStyleを使用する
  */
-const WithGlobalStyle: React.FC = ({ children }) => {
+export const WithGlobalStyle: React.FC = ({ children }) => {
   return (
     <>
       <Global styles={globalStyle} />
@@ -14,5 +14,3 @@ const WithGlobalStyle: React.FC = ({ children }) => {
     </>
   )
 }
-
-export default WithGlobalStyle
