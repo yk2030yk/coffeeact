@@ -16,19 +16,19 @@ export class Loadable {
     this.error = error
   }
 
-  public isLoading() {
+  public get isBeforeLoad() {
+    return this.state === LOADABLE_STATE.beforeLoad
+  }
+
+  public get isLoading() {
     return this.state === LOADABLE_STATE.isLoading
   }
 
-  public isLoaded() {
+  public get isLoaded() {
     return this.state === LOADABLE_STATE.isLoaded
   }
 
-  public hasError() {
+  public get hasError() {
     return this.state === LOADABLE_STATE.hasError
-  }
-
-  public beforeLoad() {
-    return this.state === LOADABLE_STATE.beforeLoad
   }
 }

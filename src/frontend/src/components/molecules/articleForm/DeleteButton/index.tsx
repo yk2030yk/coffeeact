@@ -27,7 +27,7 @@ export const DeleteButton: React.FC<Props> = ({ articleId }) => {
   return (
     <SubmitButton
       type="submit"
-      disabled={loadable.isLoading()}
+      disabled={loadable.isLoading}
       onClick={() => handleClick()}
       value={'削除する'}
     />

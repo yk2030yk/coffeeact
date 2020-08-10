@@ -26,7 +26,7 @@ export const CreateButton: React.FC = () => {
   return (
     <SubmitButton
       type="submit"
-      disabled={!isValid || loadable.isLoading()}
+      disabled={!isValid || loadable.isLoading}
       onClick={() => handleClick()}
       value={'作成する'}
     />

@@ -17,7 +17,7 @@ const RecommendedCoffeeCards: React.FC = () => {
     <S.Form>
       <S.Title>CoffeeActへログイン</S.Title>
 
-      {loadable.isLoading() ? (
+      {loadable.isLoading ? (
         <LoginLoading />
       ) : (
         <>
