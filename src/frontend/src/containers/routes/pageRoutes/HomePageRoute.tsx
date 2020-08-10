@@ -1,9 +1,15 @@
-import React from 'react'
-
 import HomePage from '@/components/pages/home/HomePage'
-import { AppRoute } from '../AppRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const HomePageRoute: React.FC = () => (
-  <AppRoute exact path={paths.STANDARD_HOME} component={HomePage} />
+export const HomePageRoute = createRouteConfig(
+  ROUTE_TYPE.STANDARD,
+  '/',
+  HomePage,
+  true
 )
+
+export const formatPath = () => formatPathByRouteConfig(HomePageRoute)

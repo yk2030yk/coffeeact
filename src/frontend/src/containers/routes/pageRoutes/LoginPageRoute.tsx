@@ -1,9 +1,15 @@
-import React from 'react'
-
 import LoginPage from '@/components/pages/admin/LoginPage'
-import { AppRoute } from '../AppRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const LoginPageRoute: React.FC = () => (
-  <AppRoute exact path={paths.STANDARD_LOGIN} component={LoginPage} />
+export const LoginPageRoute = createRouteConfig(
+  ROUTE_TYPE.STANDARD,
+  '/login',
+  LoginPage,
+  true
 )
+
+export const formatPath = () => formatPathByRouteConfig(LoginPageRoute)

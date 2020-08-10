@@ -1,13 +1,16 @@
-import React from 'react'
-
 import { AdminArticleTagEditorPage } from '@/components/pages/articleTag/AdminArticleTagEditorPage'
-import { AuthRoute } from '../AuthRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const AdminArticleTagEditorPageRoute: React.FC = () => (
-  <AuthRoute
-    exact
-    path={paths.ADMIN_MANAGE_TAG}
-    component={AdminArticleTagEditorPage}
-  />
+export const AdminArticleTagEditorPageRoute = createRouteConfig(
+  ROUTE_TYPE.ADMIN,
+  '/admin/tag',
+  AdminArticleTagEditorPage,
+  true
 )
+
+export const formatPath = () =>
+  formatPathByRouteConfig(AdminArticleTagEditorPageRoute)

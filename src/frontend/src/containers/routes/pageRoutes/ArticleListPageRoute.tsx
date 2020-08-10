@@ -1,9 +1,15 @@
-import React from 'react'
-
 import { ArticleListPage } from '@/components/pages/article/ArticleListPage'
-import { AppRoute } from '../AppRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const ArticleListPageRoute: React.FC = () => (
-  <AppRoute exact path={paths.STANDARD_ARTICLES} component={ArticleListPage} />
+export const ArticleListPageRoute = createRouteConfig(
+  ROUTE_TYPE.STANDARD,
+  '/articles',
+  ArticleListPage,
+  true
 )
+
+export const formatPath = () => formatPathByRouteConfig(ArticleListPageRoute)

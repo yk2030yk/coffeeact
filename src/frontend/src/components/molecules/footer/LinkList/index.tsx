@@ -2,22 +2,26 @@ import React from 'react'
 
 import * as S from './index.styled'
 import { FormattedMessage } from '@/components/atoms'
+import { formatPath as formatHomePagePath } from '@/containers/routes/pageRoutes/HomePageRoute'
+import { formatPath as formatAboutPagePath } from '@/containers/routes/pageRoutes/AboutPageRoute'
+import { formatPath as formatProfilePagePath } from '@/containers/routes/pageRoutes/ProfilePageRoute'
+import { formatPath as formatLoginPagePath } from '@/containers/routes/pageRoutes/LoginPageRoute'
 
 const links = [
   {
-    path: '/',
+    path: formatHomePagePath(),
     id: 'app.page.home',
   },
   {
-    path: '/about',
+    path: formatAboutPagePath(),
     id: 'app.page.about',
   },
   {
-    path: '/profile',
+    path: formatProfilePagePath(),
     id: 'app.page.profile',
   },
   {
-    path: '/login',
+    path: formatLoginPagePath(),
     id: 'app.page.admin.login',
   },
 ]

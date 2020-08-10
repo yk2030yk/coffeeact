@@ -1,9 +1,15 @@
-import React from 'react'
-
 import AdminHomePage from '@/components/pages/admin/AdminHomePage'
-import { AuthRoute } from '../AuthRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const AdminHomePageRoute: React.FC = () => (
-  <AuthRoute exact path={paths.ADMIN_HOME} component={AdminHomePage} />
+export const AdminHomePageRoute = createRouteConfig(
+  ROUTE_TYPE.ADMIN,
+  '/admin/home',
+  AdminHomePage,
+  true
 )
+
+export const formatPath = () => formatPathByRouteConfig(AdminHomePageRoute)

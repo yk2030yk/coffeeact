@@ -6,6 +6,7 @@ import { AppRoute } from './AppRoute'
 import { CoffeeActApplicationError } from '@/errors'
 import { SIGN_IN_STATUS, signInState } from '@/recoil/auth'
 import LoadingPage from '@/components/pages/global/LoadingPage'
+import { formatPath } from '@/containers/routes/pageRoutes/LoginPageRoute'
 
 type Props = {
   component: any
@@ -21,7 +22,7 @@ export const AuthRoute: React.FC<Props> = ({
     case SIGN_IN_STATUS.SIGN_IN:
       return <AppRoute component={Component} {...props} />
     case SIGN_IN_STATUS.SIGN_OUT:
-      return <Redirect to="/login" />
+      return <Redirect to={formatPath()} />
     case SIGN_IN_STATUS.NONE:
       return <AppRoute component={LoadingPage} />
     default:

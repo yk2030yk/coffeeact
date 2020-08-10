@@ -1,9 +1,15 @@
-import React from 'react'
-
 import FatalErrorPage from '@/components/pages/error/FatalErrorPage'
-import { AppRoute } from '../AppRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const FatalErrorPageRoute: React.FC = () => (
-  <AppRoute exact path={paths.STANDARD_ERROR} component={FatalErrorPage} />
+export const FatalErrorPageRoute = createRouteConfig(
+  ROUTE_TYPE.STANDARD,
+  '/error',
+  FatalErrorPage,
+  true
 )
+
+export const formatPath = () => formatPathByRouteConfig(FatalErrorPageRoute)

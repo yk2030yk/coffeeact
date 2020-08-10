@@ -30,6 +30,7 @@
     "@typescript-eslint/no-explicit-any": "off",
     // return typeを設定するのはかなり辛いので一旦offにする。できるだけ設定すること
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     // なるべく@ts-ignoreは使わないこと
     "@typescript-eslint/ban-ts-ignore": "off",
     // ログ出力は./service/LoggerService.tsを使用する

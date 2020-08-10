@@ -1,9 +1,9 @@
-import React from 'react'
-
 import NotFoundPage from '@/components/pages/error/NotFoundPage'
-import { AppRoute } from '../AppRoute'
-import { paths } from '../paths'
+import { createRouteConfig, ROUTE_TYPE } from '../routeConfig'
 
-export const NotFoundPageRoute: React.FC = () => (
-  <AppRoute exact path={paths.ALL} component={NotFoundPage} />
+export const NotFoundPageRoute = createRouteConfig(
+  ROUTE_TYPE.STANDARD,
+  '*',
+  NotFoundPage,
+  true
 )

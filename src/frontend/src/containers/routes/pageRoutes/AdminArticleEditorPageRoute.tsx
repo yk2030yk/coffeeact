@@ -1,13 +1,16 @@
-import React from 'react'
-
 import { AdminArticleEditorPage } from '@/components/pages/article/AdminArticleEditorPage'
-import { AuthRoute } from '../AuthRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const AdminArticleEditorPageRoute: React.FC = () => (
-  <AuthRoute
-    exact
-    path={paths.ADMIN_EDIT_ARTICLE}
-    component={AdminArticleEditorPage}
-  />
+export const AdminArticleEditorPageRoute = createRouteConfig(
+  ROUTE_TYPE.ADMIN,
+  '/admin/article/:articleId',
+  AdminArticleEditorPage,
+  true
 )
+
+export const formatPath = (payload: { articleId: string }) =>
+  formatPathByRouteConfig(AdminArticleEditorPageRoute, payload)

@@ -13,5 +13,7 @@ export { ProfilePageRoute } from './ProfilePageRoute'
 export { LoginPageRoute } from './LoginPageRoute'
 
 export { FatalErrorPageRoute } from './FatalErrorPageRoute'
-export { NotFoundPageRoute } from './NotFoundPageRoute'
 export { HomePageRoute } from './HomePageRoute'
+
+// NotFoundPageRoute
+export { NotFoundPageRoute } from './NotFoundPageRoute'

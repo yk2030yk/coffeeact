@@ -1,9 +1,15 @@
-import React from 'react'
-
 import AboutPage from '@/components/pages/about/AboutPage'
-import { AppRoute } from '../AppRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const AboutPageRoute: React.FC = () => (
-  <AppRoute exact path={paths.STANDARD_ABOUT} component={AboutPage} />
+export const AboutPageRoute = createRouteConfig(
+  ROUTE_TYPE.STANDARD,
+  '/about',
+  AboutPage,
+  true
 )
+
+export const formatPath = () => formatPathByRouteConfig(AboutPageRoute)

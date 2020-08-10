@@ -1,9 +1,16 @@
-import React from 'react'
-
 import { ArticlePage } from '@/components/pages/article/ArticlePage'
-import { AppRoute } from '../AppRoute'
-import { paths } from '../paths'
+import {
+  createRouteConfig,
+  ROUTE_TYPE,
+  formatPathByRouteConfig,
+} from '../routeConfig'
 
-export const ArticlePageRoute: React.FC = () => (
-  <AppRoute exact path={paths.STANDARD_ARTICLE} component={ArticlePage} />
+export const ArticlePageRoute = createRouteConfig(
+  ROUTE_TYPE.STANDARD,
+  '/article/:articleId',
+  ArticlePage,
+  true
 )
+
+export const formatPath = (payload: { articleId: string }) =>
+  formatPathByRouteConfig(ArticlePageRoute, payload)

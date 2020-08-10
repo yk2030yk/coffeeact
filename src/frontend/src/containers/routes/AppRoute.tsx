@@ -8,11 +8,8 @@ type Props = {
 export const AppRoute: React.FC<Props> = ({
   component: Component,
   ...props
-}) => {
-  console.log(props)
-  return (
-    <Route {...props}>
-      <Component />
-    </Route>
-  )
-}
+}) => (
+  <Route {...props}>
+    <Component />
+  </Route>
+)
