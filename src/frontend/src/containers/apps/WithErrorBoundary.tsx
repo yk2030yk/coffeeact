@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { ErrorInfo } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import { loggerService } from '@/service/LoggerService'
 import { sentryService } from '@/service/SentryService'
+import { formatPath } from '@/containers/routes/pageRoutes/FatalErrorPageRoute'
 
 type Props = {}
 type State = {
   error: Error | null
-  errorInfo: object | null
+  errorInfo: ErrorInfo | null
 }
 
 /**
@@ -19,7 +20,7 @@ export class WithErrorBoundary extends React.Component<Props, State> {
     this.state = { error: null, errorInfo: null }
   }
 
-  componentDidCatch(error: Error | null, errorInfo: object): void {
+  componentDidCatch(error: Error | null, errorInfo: ErrorInfo): void {
     this.setState({
       error,
       errorInfo,
@@ -30,7 +31,7 @@ export class WithErrorBoundary extends React.Component<Props, State> {
 
   render(): React.ReactNode {
     if (this.state.errorInfo) {
-      return <Redirect to="/500" />
+      return <Redirect to={formatPath()} />
     }
 
     return this.props.children
