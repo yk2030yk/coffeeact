@@ -6,7 +6,7 @@ import { AppRoute } from './AppRoute'
 import { CoffeeActApplicationError } from '@/errors'
 import { SIGN_IN_STATUS, signInState } from '@/recoil/auth'
 import { PageLoading } from '@/components/pages/global/PageLoading'
-import { formatPath } from '@/containers/routes/pageRoutes/LoginPageRoute'
+import { formatPath } from '@/components/App/Routes/pageRoutes/LoginPageRoute'
 
 type Props = {
   component: React.FC
