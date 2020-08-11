@@ -3,7 +3,7 @@ import React from 'react'
 import * as S from './index.styled'
 import { AdminArticleCard } from '../AdminArticleCard'
 import { Article } from '@/models/Article'
-import { formatPath } from '@/containers/routes/pageRoutes/AdminArticleEditorPageRoute'
+import { formatPath } from '@/components/App/Routes/pageRoutes/AdminArticleEditorPageRoute'
 
 type Props = {
   articles: Article[]

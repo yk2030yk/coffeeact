@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 
 import { loggerService } from '@/service/LoggerService'
 import { sentryService } from '@/service/SentryService'
-import { formatPath } from '@/containers/routes/pageRoutes/FatalErrorPageRoute'
+import { formatPath } from '@/components/App/Routes/pageRoutes/FatalErrorPageRoute'
 
 type Props = {}
 type State = {
@@ -15,7 +15,7 @@ type State = {
  * コンポーネント内で起きたエラーをキャッチする
  */
 export class WithErrorBoundary extends React.Component<Props, State> {
-  constructor(props: any) {
+  constructor(props: Props) {
     super(props)
     this.state = { error: null, errorInfo: null }
   }

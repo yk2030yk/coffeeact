@@ -27,7 +27,7 @@ export const ArticleList: React.FC<Props> = ({
   const articles = useRecoilValue(articlesState)
   const loadable = useRecoilValue(loadableSelector('articles'))
 
-  if (loadable.isLoaded()) {
+  if (loadable.isLoaded) {
     if (articles.length === 0) {
       return <NotFoundArticle />
     } else {
@@ -38,7 +38,7 @@ export const ArticleList: React.FC<Props> = ({
         </>
       )
     }
-  } else if (loadable.isLoading()) {
+  } else if (loadable.isLoading || loadable.isBeforeLoad) {
     return <LoadingPlaceholderComponent length={10} />
   } else {
     return null

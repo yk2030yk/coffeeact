@@ -5,11 +5,11 @@ import { Redirect, RouteProps } from 'react-router-dom'
 import { AppRoute } from './AppRoute'
 import { CoffeeActApplicationError } from '@/errors'
 import { SIGN_IN_STATUS, signInState } from '@/recoil/auth'
-import LoadingPage from '@/components/pages/global/LoadingPage'
-import { formatPath } from '@/containers/routes/pageRoutes/LoginPageRoute'
+import { PageLoading } from '@/components/pages/global/PageLoading'
+import { formatPath } from '@/components/App/Routes/pageRoutes/LoginPageRoute'
 
 type Props = {
-  component: any
+  component: React.FC
 } & RouteProps
 
 export const AuthRoute: React.FC<Props> = ({
@@ -24,7 +24,7 @@ export const AuthRoute: React.FC<Props> = ({
     case SIGN_IN_STATUS.SIGN_OUT:
       return <Redirect to={formatPath()} />
     case SIGN_IN_STATUS.NONE:
-      return <AppRoute component={LoadingPage} />
+      return <AppRoute component={PageLoading} />
     default:
       throw new CoffeeActApplicationError(
         `signInStatusが不正の値です(${signInStatus})`

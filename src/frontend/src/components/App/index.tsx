@@ -9,9 +9,9 @@ import { WithIntl } from './WithIntl'
 import { WithSentry } from './WithSentry'
 import { WithRecoil } from './WithRecoil'
 import { WithAuth } from './WithAuth'
-import Routes from '../routes'
+import { Routes } from './Routes'
 
-const App: React.FC = () => (
+export const App: React.FC = () => (
   <WithRecoil>
     <WithSentry>
       <WithIntl>
@@ -32,5 +32,3 @@ const App: React.FC = () => (
     </WithSentry>
   </WithRecoil>
 )
-
-export default App

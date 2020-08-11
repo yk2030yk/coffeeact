@@ -7,7 +7,7 @@ import { AuthRoute } from './AuthRoute'
 import { ROUTE_TYPE } from './routeConfig'
 import { CoffeeActApplicationError } from '@/errors'
 
-const Routes: React.FC = () => {
+export const Routes: React.FC = () => {
   return (
     <Switch>
       {Object.values(pageRoutes).map((routeConfig) => {
@@ -25,5 +25,3 @@ const Routes: React.FC = () => {
     </Switch>
   )
 }
-
-export default Routes

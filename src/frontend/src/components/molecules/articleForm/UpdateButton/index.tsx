@@ -26,7 +26,7 @@ export const UpdateButton: React.FC<Props> = ({ articleId }) => {
   return (
     <SubmitButton
       type="submit"
-      disabled={!isValid || loadable.isLoading()}
+      disabled={!isValid || loadable.isLoading}
       onClick={() => handleClick()}
       value={'更新する'}
     />
