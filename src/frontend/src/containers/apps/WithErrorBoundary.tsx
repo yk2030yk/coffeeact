@@ -15,7 +15,7 @@ type State = {
  * コンポーネント内で起きたエラーをキャッチする
  */
 export class WithErrorBoundary extends React.Component<Props, State> {
-  constructor(props: any) {
+  constructor(props: Props) {
     super(props)
     this.state = { error: null, errorInfo: null }
   }

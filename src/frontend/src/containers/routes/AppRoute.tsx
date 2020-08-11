@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, RouteProps } from 'react-router-dom'
 
 type Props = {
-  component: any
+  component: React.FC
 } & RouteProps
 
 export const AppRoute: React.FC<Props> = ({
