@@ -98,7 +98,7 @@
     "nearest-color": "0.4.4",
     "react-test-renderer": "16.13.1",
     "source-map-explorer": "2.4.2",
-    "ts-jest": "26.1.4",
+    "ts-jest": "26.2.0",
     "ts-node": "8.10.2"
   },
   "engines": {
