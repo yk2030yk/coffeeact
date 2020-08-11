@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import * as S from './index.styled'
 import DefaultTemplate from '@/components/templates/DefaultTemplate'
-import { ArticleContent } from '@/components/molecules/article'
+import { ArticleContentBox } from '@/components/organisms/article/ArticleContentBox'
 import { useArticle } from '@/recoil/article'
 import { useArticlePageView } from '@/hooks/articlePageView'
 
@@ -15,7 +15,7 @@ export const ArticlePage: React.FC = () => {
   return (
     <DefaultTemplate>
       <S.Wrapper>
-        <ArticleContent />
+        <ArticleContentBox />
       </S.Wrapper>
     </DefaultTemplate>
   )
