@@ -7,15 +7,21 @@ type RouteType = typeof ROUTE_TYPE[keyof typeof ROUTE_TYPE]
 
 type Payload = Record<string, string>
 
-type RouteConfig<T extends Payload> = {
+type SearchParams = Record<string, string>
+
+type RouteConfig<
+  T extends Payload | undefined = undefined,
+  U extends SearchParams | undefined = undefined
+> = {
   routeType: RouteType
   path: string
   component: any
   exact: boolean
   formatPath: (payload?: T) => string
+  searchString: (queryParams: U) => string
 }
 
-const formatPath = <T extends Payload>(
+const formatPath = <T extends Payload | undefined>(
   path: string,
   payload: T | undefined
 ) => {
@@ -23,7 +29,7 @@ const formatPath = <T extends Payload>(
 
   if (!payload) return formatPath
 
-  for (const [key, value] of Object.entries(payload)) {
+  for (const [key, value] of Object.entries(payload as Exclude<T, undefined>)) {
     const regex = new RegExp(`:${key}`, 'g')
     formatPath = formatPath.replace(regex, value)
   }
@@ -31,7 +37,10 @@ const formatPath = <T extends Payload>(
   return formatPath
 }
 
-export const createRouteConfig = <T extends Payload>({
+export const createRouteConfig = <
+  T extends Payload | undefined = undefined,
+  U extends SearchParams | undefined = undefined
+>({
   routeType = ROUTE_TYPE.STANDARD,
   path,
   component,
@@ -41,10 +50,22 @@ export const createRouteConfig = <T extends Payload>({
   path: string
   component: any
   exact?: boolean
-}): RouteConfig<T> => ({
+}): RouteConfig<T, U> => ({
   routeType,
   path,
   component,
   exact,
   formatPath: (payload?: T) => formatPath<T>(path, payload),
+  searchString: (queryParams: U) => createSearchString(queryParams),
 })
+
+const createSearchString = (queryParams: SearchParams | undefined) => {
+  if (!queryParams) return ''
+
+  return (
+    '?' +
+    Object.entries(queryParams)
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&')
+  )
+}

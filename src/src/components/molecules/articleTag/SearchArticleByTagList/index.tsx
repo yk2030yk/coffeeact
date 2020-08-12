@@ -18,7 +18,7 @@ export const SearchArticleByTagList: React.FC = () => {
             key={tag}
             to={{
               pathname: SearchResultArticlesListPageRoute.formatPath(),
-              search: `?tag=${tag}`,
+              search: SearchResultArticlesListPageRoute.searchString({ tag }),
             }}
           >
             <Tag>{tag}</Tag>

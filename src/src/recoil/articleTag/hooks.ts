@@ -3,7 +3,7 @@ import { useSetRecoilState, useResetRecoilState } from 'recoil'
 
 import { tagListState } from './atoms'
 import { articleTagService } from '@/service/firestore/ArticleTagService'
-import { useAsyncTask } from '@/hooks/common/useAsyncTask'
+import { useAsyncTask } from '@/hooks/useAsyncTask'
 
 export const useFetchArticleTagList = () => {
   const setTagList = useSetRecoilState(tagListState)

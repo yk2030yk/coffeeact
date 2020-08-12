@@ -10,7 +10,7 @@ import {
   loginPasswordState,
   SIGN_IN_STATUS,
 } from './atoms'
-import { useAsyncTask } from '@/hooks/common/useAsyncTask'
+import { useAsyncTask } from '@/hooks/useAsyncTask'
 import { authService } from '@/service/auth/AuthService'
 import { User } from '@/models/User'
 

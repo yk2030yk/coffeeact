@@ -3,7 +3,7 @@ import { useSetRecoilState, useResetRecoilState } from 'recoil'
 
 import { articleState } from './atoms'
 import { articleService } from '@/service/firestore/ArticleService'
-import { useAsyncTask } from '@/hooks/common/useAsyncTask'
+import { useAsyncTask } from '@/hooks/useAsyncTask'
 
 export const useArticle = (id: string) => {
   const setArticle = useSetRecoilState(articleState)

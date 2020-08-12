@@ -9,8 +9,8 @@ export const useAsyncTask = <Result, Args extends unknown[]>(
   const { value, start, end, reset, error } = useLoadable(taskId)
 
   const execute = useCallback(
-    async (...args: Args): Promise<Result | undefined> => {
-      let result: Result | undefined
+    async (...args: Args): Promise<Result> => {
+      let result: Result
       reset()
       start()
 

@@ -5,7 +5,7 @@ import * as S from './index.styled'
 import DefaultTemplate from '@/components/templates/DefaultTemplate'
 import { ArticleContentBox } from '@/components/organisms/article/ArticleContentBox'
 import { useArticle } from '@/recoil/article'
-import { useArticlePageView } from '@/hooks/articlePageView'
+import { useArticlePageView } from '@/hooks/useArticlePageView'
 
 export const ArticlePage: React.FC = () => {
   const { articleId } = useParams()
