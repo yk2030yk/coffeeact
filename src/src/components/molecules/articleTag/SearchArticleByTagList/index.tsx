@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil'
 import * as S from './index.styled'
 import { Tag } from '@/components/atoms'
 import { tagListState, useArticleTagList } from '@/recoil/articleTag'
-import { formatPath } from '@/components/App/Routes/pageRoutes/SearchResultArticlesListPageRoute'
+import { SearchResultArticlesListPageRoute } from '@/components/App/Routes/pageRoutes'
 
 export const SearchArticleByTagList: React.FC = () => {
   useArticleTagList()
@@ -17,7 +17,7 @@ export const SearchArticleByTagList: React.FC = () => {
           <S.TagItem
             key={tag}
             to={{
-              pathname: formatPath(),
+              pathname: SearchResultArticlesListPageRoute.formatPath(),
               search: `?tag=${tag}`,
             }}
           >

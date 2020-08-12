@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 
 import { loggerService } from '@/service/LoggerService'
 import { sentryService } from '@/service/SentryService'
-import { formatPath } from '@/components/App/Routes/pageRoutes/FatalErrorPageRoute'
+import { FatalErrorPageRoute } from '@/components/App/Routes/pageRoutes'
 
 type Props = {}
 type State = {
@@ -31,7 +31,7 @@ export class WithErrorBoundary extends React.Component<Props, State> {
 
   render(): React.ReactNode {
     if (this.state.errorInfo) {
-      return <Redirect to={formatPath()} />
+      return <Redirect to={FatalErrorPageRoute.formatPath()} />
     }
 
     return this.props.children

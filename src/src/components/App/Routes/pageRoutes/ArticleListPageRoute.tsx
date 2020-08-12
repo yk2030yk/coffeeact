@@ -1,15 +1,7 @@
 import { ArticleListPage } from '@/components/pages/article/ArticleListPage'
-import {
-  createRouteConfig,
-  ROUTE_TYPE,
-  formatPathByRouteConfig,
-} from '../routeConfig'
+import { createRouteConfig } from '../routeConfig'
 
-export const ArticleListPageRoute = createRouteConfig(
-  ROUTE_TYPE.STANDARD,
-  '/articles',
-  ArticleListPage,
-  true
-)
-
-export const formatPath = () => formatPathByRouteConfig(ArticleListPageRoute)
+export const ArticleListPageRoute = createRouteConfig({
+  path: '/articles',
+  component: ArticleListPage,
+})

@@ -1,15 +1,8 @@
 import AdminHomePage from '@/components/pages/admin/AdminHomePage'
-import {
-  createRouteConfig,
-  ROUTE_TYPE,
-  formatPathByRouteConfig,
-} from '../routeConfig'
+import { createRouteConfig, ROUTE_TYPE } from '../routeConfig'
 
-export const AdminHomePageRoute = createRouteConfig(
-  ROUTE_TYPE.ADMIN,
-  '/admin/home',
-  AdminHomePage,
-  true
-)
-
-export const formatPath = () => formatPathByRouteConfig(AdminHomePageRoute)
+export const AdminHomePageRoute = createRouteConfig({
+  routeType: ROUTE_TYPE.ADMIN,
+  path: '/admin/home',
+  component: AdminHomePage,
+})

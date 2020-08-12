@@ -1,15 +1,7 @@
 import FatalErrorPage from '@/components/pages/error/FatalErrorPage'
-import {
-  createRouteConfig,
-  ROUTE_TYPE,
-  formatPathByRouteConfig,
-} from '../routeConfig'
+import { createRouteConfig } from '../routeConfig'
 
-export const FatalErrorPageRoute = createRouteConfig(
-  ROUTE_TYPE.STANDARD,
-  '/error',
-  FatalErrorPage,
-  true
-)
-
-export const formatPath = () => formatPathByRouteConfig(FatalErrorPageRoute)
+export const FatalErrorPageRoute = createRouteConfig({
+  path: '/error',
+  component: FatalErrorPage,
+})
