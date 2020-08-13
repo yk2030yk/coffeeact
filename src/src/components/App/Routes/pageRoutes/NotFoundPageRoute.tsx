@@ -1,9 +1,7 @@
 import NotFoundPage from '@/components/pages/error/NotFoundPage'
-import { createRouteConfig, ROUTE_TYPE } from '../routeConfig'
+import { createRouteConfig } from '../routeConfig'
 
-export const NotFoundPageRoute = createRouteConfig(
-  ROUTE_TYPE.STANDARD,
-  '*',
-  NotFoundPage,
-  true
-)
+export const NotFoundPageRoute = createRouteConfig({
+  path: '*',
+  component: NotFoundPage,
+})

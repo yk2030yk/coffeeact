@@ -5,7 +5,7 @@ import * as S from './index.styled'
 import { BasicBox } from '@/components/atoms'
 import { ArticlePvRankingCards } from '@/components/molecules/article'
 import { SideContentTitle } from '@/components/molecules/home/SideContentTitle'
-import { useArticlePvRanking } from '@/hooks/articlePvRanking'
+import { useArticlePvRanking } from '@/hooks/useArticlePvRanking'
 
 export const ArticlePvRanking: React.FC = () => {
   const { articles } = useArticlePvRanking()

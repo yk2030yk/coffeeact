@@ -5,7 +5,7 @@ import {
   articleFormSelector,
   previewImageSrcBlobState,
 } from '@/recoil/articleForm'
-import { useAsyncTask } from '@/hooks/common/useAsyncTask'
+import { useAsyncTask } from '@/hooks/useAsyncTask'
 import { storageService } from '@/service/storage/StorageService'
 import { articlePagingService } from '@/service/firestore/ArticlePagingService'
 import { articleService } from '@/service/firestore/ArticleService'

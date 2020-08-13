@@ -1,15 +1,7 @@
 import AboutPage from '@/components/pages/about/AboutPage'
-import {
-  createRouteConfig,
-  ROUTE_TYPE,
-  formatPathByRouteConfig,
-} from '../routeConfig'
+import { createRouteConfig } from '../routeConfig'
 
-export const AboutPageRoute = createRouteConfig(
-  ROUTE_TYPE.STANDARD,
-  '/about',
-  AboutPage,
-  true
-)
-
-export const formatPath = () => formatPathByRouteConfig(AboutPageRoute)
+export const AboutPageRoute = createRouteConfig({
+  path: '/about',
+  component: AboutPage,
+})

@@ -1,16 +1,10 @@
 import { AdminArticleEditorPage } from '@/components/pages/article/AdminArticleEditorPage'
-import {
-  createRouteConfig,
-  ROUTE_TYPE,
-  formatPathByRouteConfig,
-} from '../routeConfig'
+import { createRouteConfig, ROUTE_TYPE } from '../routeConfig'
 
-export const AdminArticleEditorPageRoute = createRouteConfig(
-  ROUTE_TYPE.ADMIN,
-  '/admin/article/:articleId',
-  AdminArticleEditorPage,
-  true
-)
-
-export const formatPath = (payload: { articleId: string }) =>
-  formatPathByRouteConfig(AdminArticleEditorPageRoute, payload)
+export const AdminArticleEditorPageRoute = createRouteConfig<{
+  articleId: string
+}>({
+  routeType: ROUTE_TYPE.ADMIN,
+  path: '/admin/article/:articleId',
+  component: AdminArticleEditorPage,
+})

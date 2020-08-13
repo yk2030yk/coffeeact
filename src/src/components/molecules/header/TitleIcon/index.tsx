@@ -2,10 +2,10 @@ import React from 'react'
 
 import * as S from './index.styled'
 import { AppIcon } from '@/components/atoms'
-import { formatPath } from '@/components/App/Routes/pageRoutes/HomePageRoute'
+import { HomePageRoute } from '@/components/App/Routes/pageRoutes'
 
 const TitleIcon: React.FC = () => (
-  <S.Title to={formatPath()}>
+  <S.Title to={HomePageRoute.formatPath()}>
     <AppIcon height={50} />
   </S.Title>
 )

@@ -1,15 +1,7 @@
 import LoginPage from '@/components/pages/admin/LoginPage'
-import {
-  createRouteConfig,
-  ROUTE_TYPE,
-  formatPathByRouteConfig,
-} from '../routeConfig'
+import { createRouteConfig } from '../routeConfig'
 
-export const LoginPageRoute = createRouteConfig(
-  ROUTE_TYPE.STANDARD,
-  '/login',
-  LoginPage,
-  true
-)
-
-export const formatPath = () => formatPathByRouteConfig(LoginPageRoute)
+export const LoginPageRoute = createRouteConfig({
+  path: '/login',
+  component: LoginPage,
+})

@@ -6,7 +6,7 @@ import { pageArticlePagingListSelector } from './selectors'
 import { articlePagingService } from '@/service/firestore/ArticlePagingService'
 import { articleService } from '@/service/firestore/ArticleService'
 import { Article } from '@/models/Article'
-import { useAsyncTask } from '@/hooks/common/useAsyncTask'
+import { useAsyncTask } from '@/hooks/useAsyncTask'
 
 export const useArticlePaging = () => {
   const setArticlePagingListState = useSetRecoilState(articlePagingListState)
