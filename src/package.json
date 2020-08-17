@@ -94,7 +94,7 @@
     "@testing-library/react-hooks": "3.4.1",
     "camelcase": "6.0.0",
     "color-name-list": "6.9.0",
-    "eslint-plugin-react-hooks": "4.0.8",
+    "eslint-plugin-react-hooks": "4.1.0",
     "nearest-color": "0.4.4",
     "react-test-renderer": "16.13.1",
     "source-map-explorer": "2.4.2",
