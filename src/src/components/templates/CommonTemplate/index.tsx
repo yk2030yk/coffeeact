@@ -1,5 +1,6 @@
 import React from 'react'
-import SnackbarMessageList from '@/components/organisms/common/SnackbarMessageList'
+import { SnackbarMessageList } from '@/components/organisms/common/SnackbarMessageList'
+
 const Template: React.FC = ({ children }) => (
   <>
     <SnackbarMessageList />

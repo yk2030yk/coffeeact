@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 
 import * as S from './index.styled'
-import Header from '@/components/organisms/common/Header'
-import HomeHeader from '@/components/organisms/common/HomeHeader'
-import Footer from '@/components/organisms/common/Footer'
+import { Header } from '@/components/organisms/common/Header'
+import { HomeHeader } from '@/components/organisms/common/HomeHeader'
+import { Footer } from '@/components/organisms/common/Footer'
 
 type Props = {
   mainContent: ReactElement
