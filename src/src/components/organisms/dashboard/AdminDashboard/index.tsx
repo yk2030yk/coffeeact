@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { ArticlePvSummary } from '@/components/molecules/dashboard/ArticlePvSummary'
 import { DummyChart } from './chart'
 

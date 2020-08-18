@@ -2,7 +2,7 @@ import React from 'react'
 
 import profileImageSrc from '@/assets/images/profile-icon.gif'
 
-import * as S from './index.styled'
+import * as S from './styled'
 
 const ProfileIcon: React.FC = () => (
   <S.Wrapper>

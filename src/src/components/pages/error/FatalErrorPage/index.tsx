@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import ErrorTemplate from '@/components/templates/ErrorTemplate'
 import { FatalErrorMessage } from '@/components/organisms/error/FatalErrorMessage'
 

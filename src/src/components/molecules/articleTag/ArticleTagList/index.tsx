@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import {
   tagListState,
   useArticleTagList,

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { Header } from '@/components/organisms/common/Header'
 import { Footer } from '@/components/organisms/common/Footer'
 

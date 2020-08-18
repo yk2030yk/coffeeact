@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { SelectBox } from '@/components/atoms'
 import { PUBLISH_STATUS, PublishStatus } from '@/models/Article'
 import { publishStatusState } from '@/recoil/articleForm'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { History } from 'history'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import {
   TiHomeOutline,
   TiDocumentAdd,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox, StorageImage } from '@/components/atoms'
 import { articleState } from '@/recoil/article'
 import { ArticleTags } from '../ArticleTags'

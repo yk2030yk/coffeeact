@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaChessKing } from '@/components/atoms/icons'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox } from '@/components/atoms'
 import { ArticlePvRankingCards } from '@/components/molecules/article'
 import { SideContentTitle } from '@/components/molecules/home/SideContentTitle'

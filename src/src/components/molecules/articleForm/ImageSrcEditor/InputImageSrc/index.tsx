@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSetRecoilState } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { inputImageSrcState } from '@/recoil/articleForm'
 
 const INPUT_ID = 'input'

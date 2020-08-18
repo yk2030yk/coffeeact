@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox } from '@/components/atoms'
 import { LoginLoading } from '@/components/molecules/loginForm/LoginLoading'
 import { InputEmail } from '@/components/molecules/loginForm/InputEmail'

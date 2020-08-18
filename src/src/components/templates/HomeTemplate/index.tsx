@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { Header } from '@/components/organisms/common/Header'
 import { HomeHeader } from '@/components/organisms/common/HomeHeader'
 import { Footer } from '@/components/organisms/common/Footer'

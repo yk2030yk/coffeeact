@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { ArticleCardLoadingPlaceholder } from '../ArticleCardLoadingPlaceholder'
 
 export const ArticleCardsLoadingPlaceholder: React.FC<{ length?: number }> = ({

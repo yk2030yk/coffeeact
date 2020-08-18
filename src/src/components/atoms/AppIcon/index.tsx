@@ -1,7 +1,7 @@
 import React from 'react'
 
 import logoSrc from '@/assets/images/logo_b.png'
-import * as S from './index.styled'
+import * as S from './styled'
 
 type Props = {
   height?: number

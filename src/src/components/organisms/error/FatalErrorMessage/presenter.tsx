@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox } from '@/components/atoms'
 import StatusCodeLogo from '@/components/molecules/error/StatusCodeLogo'
 import ErrorMessage from '@/components/molecules/error/ErrorMessage'

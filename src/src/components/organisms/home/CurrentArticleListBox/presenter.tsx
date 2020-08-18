@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { RiArticleLine } from '@/components/atoms/icons'
 import { BasicBox } from '@/components/atoms'
 import MoreLink from '@/components/molecules/common/MoreLink'

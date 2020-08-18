@@ -1,7 +1,7 @@
 import React from 'react'
 import { IconType } from 'react-icons'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { Text } from '@/components/atoms'
 
 type Props = {

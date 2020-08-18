@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { Tag } from '@/components/atoms'
 import { tagListState, useArticleTagList } from '@/recoil/articleTag'
 import { SearchResultArticlesListPageRoute } from '@/components/App/Routes/pageRoutes'

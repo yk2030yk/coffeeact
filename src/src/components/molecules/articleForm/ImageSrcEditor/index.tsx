@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox } from '@/components/atoms'
 import { ImageSrcCropper } from './ImageSrcCropper'
 import { InputImageSrc } from './InputImageSrc'

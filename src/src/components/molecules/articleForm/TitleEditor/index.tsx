@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { Input } from '@/components/atoms'
 import { titleState } from '@/recoil/articleForm'
 

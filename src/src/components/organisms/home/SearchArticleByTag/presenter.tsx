@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaTags } from '@/components/atoms/icons'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox } from '@/components/atoms'
 import { SideContentTitle } from '@/components/molecules/home/SideContentTitle'
 import { SearchArticleByTagList } from '@/components/molecules/articleTag/SearchArticleByTagList'

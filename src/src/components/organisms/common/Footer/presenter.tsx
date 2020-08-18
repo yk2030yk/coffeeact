@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 
 import { AppIcon } from '@/components/atoms'
 import LinkList from '@/components/molecules/footer/LinkList'

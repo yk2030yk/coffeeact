@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { StorageImage } from '@/components/atoms'
 import { ArticleTags } from '@/components/molecules/article/ArticleTags'
 import { Article } from '@/models'

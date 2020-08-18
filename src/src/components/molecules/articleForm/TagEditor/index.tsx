@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { SelectTagList } from '../SelectTagList'
 import { SelectedTagList } from '../SelectedTagList'
 import { BasicBox } from '@/components/atoms'

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useRecoilValue } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { Input, Button } from '@/components/atoms'
 import { articleTagService } from '@/service/firestore'
 import { tagListState, useFetchArticleTagList } from '@/recoil/articleTag'

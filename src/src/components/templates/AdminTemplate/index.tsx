@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox, PageTitle } from '@/components/atoms'
 import { SideMenu } from '@/components/organisms/admin/SideMenu'
 import { Header } from '@/components/organisms/common/Header'

@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-import * as S from './index.styled'
+import * as S from './styled'
 
 export const ImageLoader: React.FC = () => (
   <ContentLoader viewBox="0 0 100 50" style={{ width: '100%' }}>

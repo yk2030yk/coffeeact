@@ -1,7 +1,7 @@
 import React from 'react'
 
 import * as loadingPlaceholders from './loadingPlaceholders'
-import * as S from './index.styled'
+import * as S from './styled'
 
 const placeholderType = {
   default: 'default',

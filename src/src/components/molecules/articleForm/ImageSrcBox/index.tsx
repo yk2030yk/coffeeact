@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { Button, BasicBox } from '@/components/atoms'
 import { ImageSrcEditor } from '../ImageSrcEditor'
 import { PreviewImageSrc } from '../PreviewImageSrc'

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { useArticlePvRanking } from '@/hooks/useArticlePvRanking'
 
 export const ArticlePvSummary: React.FC = () => {

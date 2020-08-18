@@ -1,7 +1,7 @@
 import React from 'react'
 import { Loadable } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { ArticleForm } from '../ArticleForm'
 import { UpdateButton } from '@/components/molecules/articleForm/UpdateButton'
 import { DeleteButton } from '@/components/molecules/articleForm/DeleteButton'

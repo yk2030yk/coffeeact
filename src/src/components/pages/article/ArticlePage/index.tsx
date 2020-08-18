@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import DefaultTemplate from '@/components/templates/DefaultTemplate'
 import { ArticleContentBox } from '@/components/organisms/article/ArticleContentBox'
 import { useArticle } from '@/recoil/article'

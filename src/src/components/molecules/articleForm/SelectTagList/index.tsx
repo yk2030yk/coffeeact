@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox, Heading2, Tag } from '@/components/atoms'
 import { tagsState } from '@/recoil/articleForm'
 import { tagListState, useArticleTagList } from '@/recoil/articleTag'

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import AdminTemplate from '@/components/templates/AdminTemplate'
 import { AdminArticleListBox } from '@/components/organisms/article/AdminArticleListBox'
 

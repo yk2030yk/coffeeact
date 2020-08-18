@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import TitleIcon from '@/components/molecules/header/TitleIcon'
 import UserIcon from '@/components/molecules/header/UserIcon'
 import { User } from '@/models'

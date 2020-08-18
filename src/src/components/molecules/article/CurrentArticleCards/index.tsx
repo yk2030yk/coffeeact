@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { ArticleCard } from '../ArticleCard'
 import { Article } from '@/models'
 import { ArticlePageRoute } from '@/components/App/Routes/pageRoutes'
