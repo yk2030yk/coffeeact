@@ -8,7 +8,7 @@ import {
   useArticlePaging,
 } from '@/recoil/articlePaging'
 import { loadableSelector } from '@/recoil/loadable'
-import { Article } from '@/models/Article'
+import { Article } from '@/models'
 
 type Props = {
   ArticleCardsComponent: React.FC<{ articles: Article[] }>

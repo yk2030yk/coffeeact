@@ -2,7 +2,7 @@ import { createSelectorWithKey } from '../utils'
 import { NAME_SPACE } from '../namespace'
 import { pageState, limitState, articlePagingListState } from './atoms'
 import { arrayChunk, range } from '@/utils/util'
-import { ArticlePaging } from '@/models/ArticlePaging'
+import { ArticlePaging } from '@/models'
 
 const selector = createSelectorWithKey(NAME_SPACE.articlePaging)
 

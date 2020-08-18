@@ -7,9 +7,9 @@ import {
 } from '@/recoil/articleForm'
 import { useAsyncTask } from '@/hooks/useAsyncTask'
 import { storageService } from '@/service/storage/StorageService'
-import { articlePagingService } from '@/service/firestore/ArticlePagingService'
-import { articleService } from '@/service/firestore/ArticleService'
+import { articlePagingService, articleService } from '@/service/firestore'
 import { randomString } from '@/utils/util'
+import { Article } from '@/models'
 
 export const useCreateArticle = () => {
   const articleForm = useRecoilValue(articleFormSelector)
@@ -21,7 +21,8 @@ export const useCreateArticle = () => {
       const imgSrc = articleForm.imgSrc || `public/${randomString()}.png`
       if (blob) await storageService.put(imgSrc, blob)
 
-      const id = await articleService.create({ ...articleForm, imgSrc })
+      const article = new Article({ ...articleForm, imgSrc })
+      const id = await articleService.create(article)
       await articlePagingService.push(id)
 
       return id
@@ -39,10 +40,8 @@ export const useUpdateArticle = (articleId: string) => {
       const imgSrc = articleForm.imgSrc || `public/${randomString()}.png`
       if (blob) await storageService.put(imgSrc, blob)
 
-      await articleService.update(articleId, {
-        ...articleForm,
-        imgSrc,
-      })
+      const article = new Article({ ...articleForm, imgSrc })
+      await articleService.update(articleId, article)
     }, [articleForm, blob, articleId])
   )
 }

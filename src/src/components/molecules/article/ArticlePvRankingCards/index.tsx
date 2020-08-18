@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './index.styled'
 import { ArticlePvRankingCard } from '@/components/molecules/article'
-import { Article } from '@/models/Article'
+import { Article } from '@/models'
 import { ArticlePageRoute } from '@/components/App/Routes/pageRoutes'
 
 type Props = {

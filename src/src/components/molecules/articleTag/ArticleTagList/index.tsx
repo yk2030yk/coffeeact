@@ -7,7 +7,7 @@ import {
   useArticleTagList,
   useFetchArticleTagList,
 } from '@/recoil/articleTag'
-import { articleTagService } from '@/service/firestore/ArticleTagService'
+import { articleTagService } from '@/service/firestore'
 import { Button } from '@/components/atoms'
 
 export const ArticleTagList: React.FC = () => {

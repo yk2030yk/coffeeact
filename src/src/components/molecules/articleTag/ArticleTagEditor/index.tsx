@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil'
 
 import * as S from './index.styled'
 import { Input, Button } from '@/components/atoms'
-import { articleTagService } from '@/service/firestore/ArticleTagService'
+import { articleTagService } from '@/service/firestore'
 import { tagListState, useFetchArticleTagList } from '@/recoil/articleTag'
 
 const validateInputTag = (inputTag: string, tagList: string[]) => {

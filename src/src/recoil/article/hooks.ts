@@ -2,7 +2,7 @@ import { useEffect, useCallback } from 'react'
 import { useSetRecoilState, useResetRecoilState } from 'recoil'
 
 import { articleState } from './atoms'
-import { articleService } from '@/service/firestore/ArticleService'
+import { articleService } from '@/service/firestore'
 import { useAsyncTask } from '@/hooks/useAsyncTask'
 
 export const useArticle = (id: string) => {

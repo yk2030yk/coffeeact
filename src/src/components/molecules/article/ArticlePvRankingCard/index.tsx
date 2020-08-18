@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './index.styled'
 import { StorageImage } from '@/components/atoms'
-import { Article } from '@/models/Article'
+import { Article } from '@/models'
 
 type Props = {
   rank: number

@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as S from './index.styled'
 import { AdminArticleCard } from '../AdminArticleCard'
-import { Article } from '@/models/Article'
+import { Article } from '@/models'
 import { AdminArticleEditorPageRoute } from '@/components/App/Routes/pageRoutes'
 
 type Props = {

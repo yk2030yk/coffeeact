@@ -1,9 +1,7 @@
-import { firestore } from 'firebase'
 import isBefore from 'date-fns/isBefore'
 import subDays from 'date-fns/subDays'
 
-import { BaseModel } from '@/models/BaseModel'
-import { formatTimestamp } from '@/service/firestore/utils'
+import { BaseModel } from './BaseModel'
 
 export const PUBLISH_STATUS = {
   PUBLISH: 'publish',
@@ -12,17 +10,6 @@ export const PUBLISH_STATUS = {
 
 export type PublishStatus = typeof PUBLISH_STATUS[keyof typeof PUBLISH_STATUS]
 
-type ArticleDocumentData = {
-  id?: string
-  publishStatus?: PublishStatus
-  imgSrc?: string
-  title?: string
-  description?: string
-  tags?: string[]
-  createdAt?: firestore.Timestamp | undefined
-  updatedAt?: firestore.Timestamp | undefined
-}
-
 export class Article extends BaseModel {
   public readonly id: string
   public readonly publishStatus: PublishStatus
@@ -30,8 +17,8 @@ export class Article extends BaseModel {
   public readonly title: string
   public readonly description: string
   public readonly tags: string[]
-  public readonly createdAt: firestore.Timestamp | undefined
-  public readonly updatedAt: firestore.Timestamp | undefined
+  public readonly createdAt: string | undefined
+  public readonly updatedAt: string | undefined
 
   constructor({
     id = '',
@@ -42,7 +29,16 @@ export class Article extends BaseModel {
     tags = [],
     createdAt = undefined,
     updatedAt = undefined,
-  }: ArticleDocumentData = {}) {
+  }: {
+    id?: string
+    publishStatus?: PublishStatus
+    imgSrc?: string
+    title?: string
+    description?: string
+    tags?: string[]
+    createdAt?: string
+    updatedAt?: string
+  } = {}) {
     super()
     this.id = id
     this.publishStatus = publishStatus
@@ -55,11 +51,11 @@ export class Article extends BaseModel {
   }
 
   public get formatCreated() {
-    return formatTimestamp(this.createdAt)
+    return this.createdAt
   }
 
   public get formatUpdatedAt() {
-    return formatTimestamp(this.updatedAt)
+    return this.updatedAt
   }
 
   public get isPublish() {
@@ -69,29 +65,7 @@ export class Article extends BaseModel {
   public get isNewArrival() {
     return (
       this.createdAt &&
-      isBefore(subDays(new Date(), 7), this.createdAt.toDate())
+      isBefore(subDays(new Date(), 7), new Date(this.createdAt))
     )
   }
-}
-
-export const ArticleConverter: firestore.FirestoreDataConverter<Article> = {
-  toFirestore: (article: Article): firestore.DocumentData => {
-    return {
-      publishStatus: article.publishStatus,
-      imgSrc: article.imgSrc,
-      title: article.title,
-      description: article.description,
-      tags: article.tags,
-      createdAt: article.createdAt,
-      updatedAt: article.updatedAt,
-    }
-  },
-  fromFirestore: (
-    snapshot: firestore.DocumentSnapshot<firestore.DocumentData>,
-    options: firestore.SnapshotOptions
-  ): Article => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const data = snapshot.data(options)! as ArticleDocumentData
-    return new Article({ ...data, id: snapshot.id })
-  },
 }

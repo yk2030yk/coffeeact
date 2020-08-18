@@ -1,27 +1,32 @@
 import { firestore } from 'firebase'
 
 import { FirestoreService } from './FirestoreService'
-import { ArticleLogConverter } from '@/models/ArticleLog'
+import { ArticleLog } from '@/models'
+import { ArticleLogConverter } from '@/service/modelConverter'
+import { ArticleLogServiceInterface } from '@/interfaces/services/apiService/ArticleLogService'
+import { COLLECTION_NAMES } from './collections'
 
-const COLLECTION_NAME = 'articles_log'
+export class ArticleLogService extends FirestoreService<ArticleLog>
+  implements ArticleLogServiceInterface {
+  constructor() {
+    super({
+      collectionName: COLLECTION_NAMES.ARTICLES_LOG,
+      converter: ArticleLogConverter,
+    })
+  }
 
-export class ArticleLogService extends FirestoreService {
   public async push(id: string) {
-    await this.db.collection(COLLECTION_NAME).add({
+    await this.collection.add({
       id,
       date: firestore.FieldValue.serverTimestamp(),
     })
   }
 
   public async getLogs(id: string) {
-    const querySnapshot = await this.db
-      .collection(COLLECTION_NAME)
-      .withConverter(ArticleLogConverter)
+    const querySnapshot = await this.collectionWithConverter
       .where('id', '==', id)
       .get()
 
     return querySnapshot.docs.map((doc) => doc.data())
   }
 }
-
-export const articleLogService = new ArticleLogService()

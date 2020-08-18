@@ -9,7 +9,7 @@ import {
   publishStatusState,
   previewImageSrcBlobState,
 } from './atoms'
-import { ArticleForm } from '@/models/ArticleForm'
+import { ArticleForm } from '@/models'
 
 const selector = createSelectorWithKey(NAME_SPACE.articleForm)
 

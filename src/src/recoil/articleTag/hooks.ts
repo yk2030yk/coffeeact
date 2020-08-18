@@ -2,7 +2,7 @@ import { useEffect, useCallback } from 'react'
 import { useSetRecoilState, useResetRecoilState } from 'recoil'
 
 import { tagListState } from './atoms'
-import { articleTagService } from '@/service/firestore/ArticleTagService'
+import { articleTagService } from '@/service/firestore'
 import { useAsyncTask } from '@/hooks/useAsyncTask'
 
 export const useFetchArticleTagList = () => {
