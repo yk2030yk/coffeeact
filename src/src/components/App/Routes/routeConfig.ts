@@ -13,6 +13,7 @@ type RouteConfig<
   T extends Payload | undefined = undefined,
   U extends SearchParams | undefined = undefined
 > = {
+  name: string
   routeType: RouteType
   path: string
   component: any
@@ -46,11 +47,13 @@ export const createRouteConfig = <
   component,
   exact = true,
 }: {
+  name: string
   routeType?: RouteType
   path: string
   component: any
   exact?: boolean
 }): RouteConfig<T, U> => ({
+  name,
   routeType,
   path,
   component,
