@@ -40,3 +40,4 @@ amplifyxc.config
 
 sentryConfig.ts
 firebaseConfig.ts
+tinymceConfig.ts
