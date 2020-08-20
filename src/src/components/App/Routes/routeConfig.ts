@@ -9,7 +9,7 @@ type Payload = Record<string, string>
 
 type SearchParams = Record<string, string>
 
-type RouteConfig<
+export type RouteConfig<
   T extends Payload | undefined = undefined,
   U extends SearchParams | undefined = undefined
 > = {

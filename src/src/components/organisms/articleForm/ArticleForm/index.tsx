@@ -10,5 +10,5 @@ type Props = {
 
 export const ArticleForm: React.FC<Props> = ({
   article = new Article(),
-  ActionButton,
-}) => <ArticleFormPresenter article={article} ActionButton={ActionButton} />
+  ...props
+}) => <ArticleFormPresenter article={article} {...props} />

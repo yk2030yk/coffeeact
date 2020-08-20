@@ -1,16 +1,11 @@
 import React from 'react'
 
-import * as S from './styled'
-import { ArticleCardLoadingPlaceholder } from '../ArticleCardLoadingPlaceholder'
+import { ArticleCardsLoadingPlaceholderPresenter } from './presenter'
 
-export const ArticleCardsLoadingPlaceholder: React.FC<{ length?: number }> = ({
-  length = 3,
-}) => {
-  return (
-    <S.Cards>
-      {[...Array(length)].map((_, i) => (
-        <ArticleCardLoadingPlaceholder key={i} />
-      ))}
-    </S.Cards>
-  )
+type Props = {
+  length?: number
 }
+
+export const ArticleCardsLoadingPlaceholder: React.FC<Props> = (props) => (
+  <ArticleCardsLoadingPlaceholderPresenter {...props} />
+)
