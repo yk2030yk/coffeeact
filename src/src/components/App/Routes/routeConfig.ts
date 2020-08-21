@@ -42,6 +42,7 @@ export const createRouteConfig = <
   T extends Payload | undefined = undefined,
   U extends SearchParams | undefined = undefined
 >({
+  name,
   routeType = ROUTE_TYPE.STANDARD,
   path,
   component,

@@ -10,11 +10,13 @@ type Props = {
   message: string
 }
 
-const SnackbarMessage: React.FC<Props> = ({ Icon, color, message }) => (
+export const SnackbarMessagePresenter: React.FC<Props> = ({
+  Icon,
+  color,
+  message,
+}) => (
   <S.Wrapper color={color}>
     <Icon size={30} />
     <Text>{message}</Text>
   </S.Wrapper>
 )
-
-export default SnackbarMessage

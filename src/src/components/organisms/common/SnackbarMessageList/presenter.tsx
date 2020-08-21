@@ -1,8 +1,8 @@
 import React from 'react'
 
 import * as S from './styled'
-import InfoSnackbarMessage from '@/components/molecules/common/InfoSnackbarMessage'
-import ErrorSnackbarMessage from '@/components/molecules/common/ErrorSnackbarMessage'
+import { InfoSnackbarMessage } from '@/components/molecules/common/InfoSnackbarMessage'
+import { ErrorSnackbarMessage } from '@/components/molecules/common/ErrorSnackbarMessage'
 import { SnackbarType, SnackbarMessage } from '@/recoil/snackbar'
 
 type Props = {
