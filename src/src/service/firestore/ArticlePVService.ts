@@ -1,16 +1,23 @@
 import { FirestoreService } from './FirestoreService'
-import { ArticlePvConverter } from '@/models/ArticlePv'
-const COLLECTION_NAME = 'articles_pv'
+import { ArticlePv } from '@/models'
+import { ArticlePvConverter } from '@/service/modelConverter'
+import { COLLECTION_NAMES } from './collections'
+import { ArticlePVServiceInterface } from '@/interfaces/services/apiService/ArticlePVService'
 
-export class ArticlePVService extends FirestoreService {
+export class ArticlePVService extends FirestoreService<ArticlePv>
+  implements ArticlePVServiceInterface {
+  constructor() {
+    super({
+      collectionName: COLLECTION_NAMES.ARTICLES_PV,
+      converter: ArticlePvConverter,
+    })
+  }
+
   public async push(id: string) {
-    const querySnapshot = await this.db
-      .collection(COLLECTION_NAME)
-      .where('id', '==', id)
-      .get()
+    const querySnapshot = await this.collection.where('id', '==', id).get()
 
     if (querySnapshot.empty) {
-      await this.db.collection(COLLECTION_NAME).add({
+      await this.collection.add({
         id,
         pv: 1,
       })
@@ -22,9 +29,7 @@ export class ArticlePVService extends FirestoreService {
   }
 
   public async getArticlePvList(limit = 5) {
-    const querySnapshot = await this.db
-      .collection(COLLECTION_NAME)
-      .withConverter(ArticlePvConverter)
+    const querySnapshot = await this.collectionWithConverter
       .orderBy('pv', 'desc')
       .limit(limit)
       .get()
@@ -32,5 +37,3 @@ export class ArticlePVService extends FirestoreService {
     return querySnapshot.docs.map((doc) => doc.data())
   }
 }
-
-export const articlePVService = new ArticlePVService()

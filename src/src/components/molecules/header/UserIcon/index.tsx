@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import profileSrc from '@/assets/images/profile-icon.gif'
-import * as S from './index.styled'
+import * as S from './styled'
 import UserMenu from '../UserMenu'
 
 type Props = {}

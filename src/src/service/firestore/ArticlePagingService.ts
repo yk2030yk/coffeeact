@@ -1,22 +1,29 @@
 import { firestore } from 'firebase'
 
 import { FirestoreService } from './FirestoreService'
-import { ArticlePagingConverter } from '@/models/ArticlePaging'
+import { ArticlePaging } from '@/models'
+import { ArticlePagingConverter } from '@/service/modelConverter'
+import { ArticlePagingServiceInterface } from '@/interfaces/services/apiService/ArticlePagingService'
+import { COLLECTION_NAMES } from './collections'
 
-const COLLECTION_NAME = 'articles_paging'
+export class ArticlePagingService extends FirestoreService<ArticlePaging>
+  implements ArticlePagingServiceInterface {
+  constructor() {
+    super({
+      collectionName: COLLECTION_NAMES.ARTICLES_PAGING,
+      converter: ArticlePagingConverter,
+    })
+  }
 
-export class ArticlePagingService extends FirestoreService {
   public async push(id: string) {
-    await this.db.collection(COLLECTION_NAME).add({
+    await this.collection.add({
       id,
       date: firestore.FieldValue.serverTimestamp(),
     })
   }
 
   public async getList(page: number, limit: number) {
-    const querySnapshot = await this.db
-      .collection(COLLECTION_NAME)
-      .withConverter(ArticlePagingConverter)
+    const querySnapshot = await this.collectionWithConverter
       .orderBy('date', 'desc')
       .limit(limit)
       .get()
@@ -25,14 +32,10 @@ export class ArticlePagingService extends FirestoreService {
   }
 
   public async getListAll() {
-    const querySnapshot = await this.db
-      .collection(COLLECTION_NAME)
-      .withConverter(ArticlePagingConverter)
+    const querySnapshot = await this.collectionWithConverter
       .orderBy('date', 'desc')
       .get()
 
     return querySnapshot.docs.map((doc) => doc.data())
   }
 }
-
-export const articlePagingService = new ArticlePagingService()

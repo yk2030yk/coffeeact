@@ -11,8 +11,8 @@ import {
   SIGN_IN_STATUS,
 } from './atoms'
 import { useAsyncTask } from '@/hooks/useAsyncTask'
-import { authService } from '@/service/auth/AuthService'
-import { User } from '@/models/User'
+import { authService } from '@/service/auth'
+import { User } from '@/models'
 
 export const useOnAuthStateChanged = () => {
   const setSignInStatus = useSetRecoilState(signInState)

@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { RiAdminLine, RiLogoutBoxRLine } from '@/components/atoms/icons'
 import { useAuthLogout } from '@/recoil/auth'
 

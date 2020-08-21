@@ -1,16 +1,11 @@
 import React from 'react'
 
-import * as S from './index.styled'
-import { Tag } from '@/components/atoms'
+import { ArticleTagsPresenter } from './presenter'
 
 type Props = {
   tags: string[]
 }
 
-export const ArticleTags: React.FC<Props> = ({ tags }) => {
-  return (
-    <S.Tags>
-      {tags.length > 0 && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
-    </S.Tags>
-  )
-}
+export const ArticleTags: React.FC<Props> = (props) => (
+  <ArticleTagsPresenter {...props} />
+)

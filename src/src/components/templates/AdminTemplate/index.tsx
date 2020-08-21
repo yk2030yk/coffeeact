@@ -1,11 +1,11 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import { BasicBox, PageTitle } from '@/components/atoms'
-import SideMenu from '@/components/organisms/admin/SideMenu'
-import Header from '@/components/organisms/common/Header'
+import { SideMenu } from '@/components/organisms/admin/SideMenu'
+import { Header } from '@/components/organisms/common/Header'
 import CommonTemplate from '../CommonTemplate'
-import SnackbarMessageList from '@/components/organisms/common/SnackbarMessageList'
+import { SnackbarMessageList } from '@/components/organisms/common/SnackbarMessageList'
 
 const Template: React.FC<{ title?: string }> = ({ title = '', children }) => (
   <CommonTemplate>

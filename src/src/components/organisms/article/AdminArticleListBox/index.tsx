@@ -1,27 +1,7 @@
 import React from 'react'
 
-import * as S from './index.styled'
-import { Heading, FormattedMessage, BasicBox } from '@/components/atoms'
-import {
-  AdminArticleCards,
-  AdminArticleCardsLoadingPlaceholder,
-} from '@/components/molecules/article'
-import { ArticleList } from '../ArticleList'
+import { AdminArticleListBoxPresenter } from './presenter'
 
-export const AdminArticleListBox: React.FC = () => {
-  return (
-    <S.Wrapper>
-      <BasicBox>
-        <Heading>
-          <FormattedMessage id="articles.title" />
-        </Heading>
-      </BasicBox>
-      <BasicBox>
-        <ArticleList
-          ArticleCardsComponent={AdminArticleCards}
-          LoadingPlaceholderComponent={AdminArticleCardsLoadingPlaceholder}
-        />
-      </BasicBox>
-    </S.Wrapper>
-  )
-}
+export const AdminArticleListBox: React.FC = () => (
+  <AdminArticleListBoxPresenter />
+)

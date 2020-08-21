@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 
-import { articlePVService } from '@/service/firestore/ArticlePVService'
-import { articleService } from '@/service/firestore/ArticleService'
-import { Article } from '@/models/Article'
+import { articlePVService, articleService } from '@/service/firestore'
+import { Article } from '@/models'
 
 export const useArticlePvRanking = () => {
   const [articles, setArticles] = useState<Article[]>([])

@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 
-import { articlePVService } from '@/service/firestore/ArticlePVService'
-import { articleLogService } from '@/service/firestore/ArticleLogService'
+import { articlePVService, articleLogService } from '@/service/firestore'
 
 export const useArticlePageView = (articleId: string) => {
   useEffect(() => {

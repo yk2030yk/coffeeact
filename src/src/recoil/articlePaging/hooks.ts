@@ -3,9 +3,8 @@ import { useSetRecoilState, useResetRecoilState, useRecoilValue } from 'recoil'
 
 import { articlesState, articlePagingListState } from './atoms'
 import { pageArticlePagingListSelector } from './selectors'
-import { articlePagingService } from '@/service/firestore/ArticlePagingService'
-import { articleService } from '@/service/firestore/ArticleService'
-import { Article } from '@/models/Article'
+import { articlePagingService, articleService } from '@/service/firestore'
+import { Article } from '@/models'
 import { useAsyncTask } from '@/hooks/useAsyncTask'
 
 export const useArticlePaging = () => {

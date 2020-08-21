@@ -9,10 +9,11 @@ type Payload = Record<string, string>
 
 type SearchParams = Record<string, string>
 
-type RouteConfig<
+export type RouteConfig<
   T extends Payload | undefined = undefined,
   U extends SearchParams | undefined = undefined
 > = {
+  name: string
   routeType: RouteType
   path: string
   component: any
@@ -41,16 +42,19 @@ export const createRouteConfig = <
   T extends Payload | undefined = undefined,
   U extends SearchParams | undefined = undefined
 >({
+  name,
   routeType = ROUTE_TYPE.STANDARD,
   path,
   component,
   exact = true,
 }: {
+  name: string
   routeType?: RouteType
   path: string
   component: any
   exact?: boolean
 }): RouteConfig<T, U> => ({
+  name,
   routeType,
   path,
   component,

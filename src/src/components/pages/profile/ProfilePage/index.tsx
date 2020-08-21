@@ -1,8 +1,8 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import DefaultTemplate from '@/components/templates/DefaultTemplate'
-import ProfileMessage from '@/components/organisms/profile/ProfileMessage'
+import { ProfileMessage } from '@/components/organisms/profile/ProfileMessage'
 
 const Page: React.FC = () => (
   <DefaultTemplate>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as S from './index.styled'
+import * as S from './styled'
 import DefaultTemplate from '@/components/templates/DefaultTemplate'
 import { SearchResultArticleListBox } from '@/components/organisms/article/SearchResultArticleListBox'
 

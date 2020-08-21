@@ -1,7 +1,6 @@
 import { createAtomWithKey } from '../utils'
 import { NAME_SPACE } from '../namespace'
-import { Article } from '@/models/Article'
-import { ArticlePaging } from '@/models/ArticlePaging'
+import { Article, ArticlePaging } from '@/models'
 
 const atom = createAtomWithKey(NAME_SPACE.articlePaging)
 

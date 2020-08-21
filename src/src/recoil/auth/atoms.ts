@@ -1,4 +1,4 @@
-import { User } from '@/models/User'
+import { User } from '@/models'
 import { createAtomWithKey } from '../utils'
 import { NAME_SPACE } from '../namespace'
 

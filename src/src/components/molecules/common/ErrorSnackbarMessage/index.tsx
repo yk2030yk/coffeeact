@@ -1,19 +1,11 @@
 import React from 'react'
-import { RiErrorWarningLine } from '@/components/atoms/icons'
 
-import { theme, colorUtils } from '@/styles'
-import SnackbarMessage from '../SnackbarMessage'
+import { ErrorSnackbarMessagePresenter } from './presenter'
 
 type Props = {
   message: string
 }
 
-const ErrorSnackbarMessage: React.FC<Props> = ({ message }) => (
-  <SnackbarMessage
-    message={message}
-    Icon={RiErrorWarningLine}
-    color={colorUtils.alpha(theme.color.fusionRed)}
-  />
+export const ErrorSnackbarMessage: React.FC<Props> = (props) => (
+  <ErrorSnackbarMessagePresenter {...props} />
 )
-
-export default ErrorSnackbarMessage
