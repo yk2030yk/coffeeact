@@ -12,10 +12,19 @@ const Modal: React.FC<Props> = ({ children, modal }) => {
   return (
     <>
       {modal.isOpen && (
-        <S.ModalBackground onClick={() => modal.close()}>
+        <S.ModalBackground
+          onClick={() => modal.close()}
+          data-testid="background"
+        >
           <S.ModalWrapper>
-            <S.ModalContent onClick={(e) => e.stopPropagation()}>
-              <S.CloseButtonBox onClick={() => modal.close()}>
+            <S.ModalContent
+              onClick={(e) => e.stopPropagation()}
+              data-testid="content"
+            >
+              <S.CloseButtonBox
+                onClick={() => modal.close()}
+                data-testid="closeButton"
+              >
                 <RiCloseLine size={50} />
               </S.CloseButtonBox>
               {children}

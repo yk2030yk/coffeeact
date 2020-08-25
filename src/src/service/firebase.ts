@@ -10,4 +10,9 @@ export default firebase
 export const db = firebase.firestore()
 export const storage = firebase.storage()
 export const auth = firebase.auth()
-auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+
+auth.setPersistence(
+  process.env.NODE_ENV === 'test'
+    ? firebase.auth.Auth.Persistence.NONE
+    : firebase.auth.Auth.Persistence.SESSION
+)

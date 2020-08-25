@@ -60,7 +60,7 @@
     "eject": "react-app-rewired eject",
     "lint": "eslint src/ --ext .ts,.tsx",
     "lint:fix": "eslint src/ --ext .ts,.tsx --fix",
-    "jest": "jest",
+    "jest": "NODE_ENV=test jest",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "namingColor": "ts-node ./src/styles/namingColor.ts",
     "deploy": "gh-pages -d build",
