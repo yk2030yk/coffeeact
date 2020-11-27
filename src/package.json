@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/polyfill": "7.10.4",
+    "@babel/polyfill": "7.12.1",
     "@date-io/date-fns": "2.8.1",
     "@emotion/core": "10.0.35",
     "@emotion/styled": "10.0.27",
@@ -86,9 +86,9 @@
     "@": "./src"
   },
   "devDependencies": {
-    "@babel/preset-env": "7.11.0",
-    "@babel/preset-react": "7.10.4",
-    "@babel/preset-typescript": "7.10.4",
+    "@babel/preset-env": "7.12.7",
+    "@babel/preset-react": "7.12.7",
+    "@babel/preset-typescript": "7.12.7",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "10.4.9",
     "@testing-library/react-hooks": "3.4.1",
