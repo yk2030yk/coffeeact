@@ -9,7 +9,7 @@
     "@emotion/styled": "10.0.27",
     "@sentry/browser": "5.27.6",
     "@tinymce/tinymce-react": "3.6.0",
-    "@types/chroma-js": "2.0.0",
+    "@types/chroma-js": "2.1.2",
     "@types/flat": "5.0.1",
     "@types/jest": "26.0.10",
     "@types/node": "12.12.54",
