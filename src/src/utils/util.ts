@@ -3,14 +3,14 @@ import cryptoRandomString from 'crypto-random-string'
 /**
  * 値があるかチェックをする
  */
-export const isDefine = (value: any): boolean => {
+export const isDefine = (value: unknown): boolean => {
   return value !== undefined && value !== null
 }
 
 /**
  * 値があるかチェックをする
  */
-export const isUndefined = (value: any): boolean => {
+export const isUndefined = (value: unknown): boolean => {
   return value === undefined
 }
 

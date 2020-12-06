@@ -1,2 +1,2 @@
-import { AuthService } from './AuthService'
-export const authService = new AuthService()
+import { FirebaseAuthService } from './FirebaseAuthService'
+export const authService = new FirebaseAuthService()

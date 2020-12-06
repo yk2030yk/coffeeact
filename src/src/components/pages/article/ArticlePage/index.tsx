@@ -8,7 +8,7 @@ import { useArticle } from '@/recoil/article'
 import { useArticlePageView } from '@/hooks/useArticlePageView'
 
 export const ArticlePage: React.FC = () => {
-  const { articleId } = useParams()
+  const { articleId } = useParams<{ articleId: string }>()
   useArticle(articleId)
   useArticlePageView(articleId)
 

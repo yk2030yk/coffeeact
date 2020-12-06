@@ -33,6 +33,8 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     // なるべく@ts-ignoreは使わないこと
     "@typescript-eslint/ban-ts-ignore": "off",
+    // Propsにempty object ({}) を指定できなくなるので無効にする
+    "@typescript-eslint/ban-types": "off",
     // ログ出力は./service/LoggerService.tsを使用する
     "no-console": "error"
   },

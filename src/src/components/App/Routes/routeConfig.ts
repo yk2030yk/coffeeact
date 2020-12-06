@@ -16,15 +16,15 @@ export type RouteConfig<
   name: string
   routeType: RouteType
   path: string
-  component: any
+  component: React.FC
   exact: boolean
   formatPath: (payload?: T) => string
   searchString: (queryParams: U) => string
 }
 
-const formatPath = <T extends Payload | undefined>(
+export const formatPath = <T extends Payload | undefined = undefined>(
   path: string,
-  payload: T | undefined
+  payload: T | undefined = undefined
 ) => {
   let formatPath = path
 
@@ -36,6 +36,19 @@ const formatPath = <T extends Payload | undefined>(
   }
 
   return formatPath
+}
+
+export const createSearchString = (
+  queryParams: SearchParams | undefined = undefined
+) => {
+  if (!queryParams) return ''
+
+  return (
+    '?' +
+    Object.entries(queryParams)
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&')
+  )
 }
 
 export const createRouteConfig = <
@@ -51,7 +64,7 @@ export const createRouteConfig = <
   name: string
   routeType?: RouteType
   path: string
-  component: any
+  component: React.FC
   exact?: boolean
 }): RouteConfig<T, U> => ({
   name,
@@ -60,16 +73,5 @@ export const createRouteConfig = <
   component,
   exact,
   formatPath: (payload?: T) => formatPath<T>(path, payload),
-  searchString: (queryParams: U) => createSearchString(queryParams),
+  searchString: (queryParams?: U) => createSearchString(queryParams),
 })
-
-const createSearchString = (queryParams: SearchParams | undefined) => {
-  if (!queryParams) return ''
-
-  return (
-    '?' +
-    Object.entries(queryParams)
-      .map(([key, value]) => `${key}=${value}`)
-      .join('&')
-  )
-}
