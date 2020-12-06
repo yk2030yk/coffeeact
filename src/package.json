@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/polyfill": "7.12.1",
-    "@date-io/date-fns": "2.8.1",
+    "@date-io/date-fns": "2.10.6",
     "@emotion/core": "10.1.1",
     "@emotion/styled": "10.0.27",
     "@sentry/browser": "5.28.0",
