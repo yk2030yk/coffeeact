@@ -24,7 +24,7 @@
     "@types/recoil": "0.0.1",
     "@typescript-eslint/eslint-plugin": "4.9.0",
     "@typescript-eslint/parser": "4.9.0",
-    "axios": "0.20.0",
+    "axios": "0.21.1",
     "chroma-js": "2.1.0",
     "crypto-random-string": "3.3.0",
     "date-fns": "2.16.1",
