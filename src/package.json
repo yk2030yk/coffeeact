@@ -20,7 +20,7 @@
     "@types/react-intl": "3.0.0",
     "@types/react-lazyload": "2.6.0",
     "@types/react-router-dom": "5.1.5",
-    "@types/react-test-renderer": "16.9.3",
+    "@types/react-test-renderer": "16.9.12",
     "@types/recoil": "0.0.1",
     "@typescript-eslint/eslint-plugin": "4.9.0",
     "@typescript-eslint/parser": "4.9.0",
