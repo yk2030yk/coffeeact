@@ -86,9 +86,9 @@
     "@": "./src"
   },
   "devDependencies": {
-    "@babel/preset-env": "7.12.7",
-    "@babel/preset-react": "7.12.7",
-    "@babel/preset-typescript": "7.12.7",
+    "@babel/preset-env": "7.25.9",
+    "@babel/preset-react": "7.25.9",
+    "@babel/preset-typescript": "7.25.9",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.2.2",
     "@testing-library/react-hooks": "3.4.1",
